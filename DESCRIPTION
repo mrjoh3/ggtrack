@@ -1,6 +1,6 @@
 Package: ggtrack
 Title: What the Package Does (One Line, Title Case)
-Version: 0.0.0.9000
+Version: 0.0.1
 Authors@R: 
     person(given = "First",
            family = "Last",
@@ -16,3 +16,5 @@ RoxygenNote: 7.1.1
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
+Remotes:  
+    hrbrmstr/qrencoder
