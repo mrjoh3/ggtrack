@@ -1,13 +1,16 @@
 Package: ggtrack
-Title: What the Package Does (One Line, Title Case)
+Title: Add Tracking Banner to Plots
 Version: 0.0.1
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = "Matt",
+           family = "Johnson",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+           email = "mrjoh3@gmail.com")
+Description: Sometimes in a workplace it is hard to know exactly where or when a 
+    specific chart has been produced. This is especially true when someone has copied 
+    a chart out of a report to use somewhere else. The `ggtrack` package aims to 
+    solve this problem by embedding enough metadata in the charts image to identify 
+    the source and the exact time it was produced.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
