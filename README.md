@@ -26,5 +26,16 @@ This is a basic example which shows you how to solve a common problem:
 
 ``` r
 library(ggtrack)
-## basic example code
+library(ggplot2)
+
+
+gg <- ggplot(mapping = aes(x = 1:10, y = rnorm(10))) +
+  geom_bar(stat = 'identity') +
+  theme_minimal()
+
+ggtrack(gg,
+        qr_content = 'text content here',
+        logo = 'https://www.r-project.org/logo/Rlogo.png')
 ```
+
+<img src="man/figures/README-example-1.png" width="100%" />
