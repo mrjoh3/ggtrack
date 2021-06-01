@@ -1,0 +1,7 @@
+^project\.Rproj$
+^\.Rproj\.user$
+^README\.Rmd$
+^ggtrack\.Rcheck$
+^ggtrack.*\.tar\.gz$
+^ggtrack.*\.tgz$
+^LICENSE\.md$
