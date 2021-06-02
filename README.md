@@ -40,6 +40,7 @@ devtools::install_github("mrjoh3/ggtrack")
 To start you just need a `ggplot` and some text you wish to encode
 
 ``` r
+
 library(ggtrack)
 library(ggplot2)
 
@@ -55,6 +56,18 @@ ggtrack(gg,
 
 ### Add a Logo
 
+``` r
+
+
+  ggtrack(gg,
+        qr_content = 'text content here',
+        logo = 'https://www.r-project.org/logo/Rlogo.png')
+```
+
+<img src="man/figures/README-logo-1.png" width="100%" />
+
+### Add a Caption
+
 <style>
 .hide img {
   float: right;
@@ -66,11 +79,13 @@ ggtrack(gg,
 
 ``` r
 
+
   ggtrack(gg,
         qr_content = 'text content here',
-        logo = 'https://www.r-project.org/logo/Rlogo.png')
+        logo = 'https://www.r-project.org/logo/Rlogo.png',
+        caption = 'Some really Important extra info, or a fancy "grob".')
 ```
 
-<img src="man/figures/README-logo-1.png" width="100%" />
+<img src="man/figures/README-caption-1.png" width="100%" />
 
 </div>

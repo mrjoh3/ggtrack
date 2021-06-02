@@ -57,14 +57,7 @@ ggtrack(gg,
 
 ### Add a Logo
 
-<style>
-.hide img {
-  float: right;
-  margin-bottom: -50%; /* crop position */
-}
-</style>
 
-<div class="hide">
 
 ```{r logo}
 
@@ -77,4 +70,36 @@ ggtrack(gg,
 
 ```
 
+
+
+
+### Add a Caption
+
+<style>
+.hide img {
+  float: right;
+  margin-bottom: -50%; /* crop position */
+}
+</style>
+
+<div class="hide">
+
+```{r caption}
+
+
+  ggtrack(gg,
+        qr_content = 'text content here',
+        logo = 'https://www.r-project.org/logo/Rlogo.png',
+        caption = 'Some really Important extra info, or a fancy "grob".')
+
+
+
+```
+
 </div>
+
+
+
+
+
+

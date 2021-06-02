@@ -31,6 +31,10 @@ ggtrack <- function(gg, qr_content, color = 'black', height_plot = 10, height_tr
     tracker <- add_logo(tracker, logo, height_tracker)
   }
 
+  # setup caption
+  if (!is.null(caption)) {
+    tracker <- add_caption(tracker, caption)
+  }
 
   # style tracker
   tracker <- tracker +
