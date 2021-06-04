@@ -21,6 +21,9 @@ jobs:
       - name: Install curl
         run: sudo apt-get install libcurl4-openssl-dev curl
         
+      - name: Install pkgdown dep
+        run: sudo apt-get install libharfbuzz-dev libfribidi-dev
+        
       - name: Query dependencies
         run: |
           install.packages('remotes')
@@ -48,5 +51,4 @@ jobs:
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
-          Rscript -e 'install.packages("pkgdown")'
           Rscript -e 'pkgdown::deploy_to_branch(new_process = FALSE)'
