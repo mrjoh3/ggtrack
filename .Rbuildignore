@@ -5,3 +5,6 @@
 ^ggtrack.*\.tar\.gz$
 ^ggtrack.*\.tgz$
 ^LICENSE\.md$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
