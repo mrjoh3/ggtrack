@@ -20,7 +20,6 @@ jobs:
 
       - name: Query dependencies
         run: |
-          install.packages('remotes')
           saveRDS(remotes::dev_package_deps(dependencies = TRUE), ".github/depends.Rds", version = 2)
           writeLines(sprintf("R-%i.%i", getRversion()$major, getRversion()$minor), ".github/R-version")
         shell: Rscript {0}
@@ -36,7 +35,6 @@ jobs:
         run: |
           remotes::install_deps(dependencies = TRUE)
           install.packages("pkgdown", type = "binary")
-          remotes::install_github("hrbrmstr/qrencoder")
         shell: Rscript {0}
 
       - name: Install package
