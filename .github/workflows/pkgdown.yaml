@@ -19,7 +19,7 @@ jobs:
       - uses: r-lib/actions/setup-pandoc@v1
       
       - name: Install libcurl
-        run: apt-get install libcurl
+        run: sudo apt-get install libcurl
         
       - name: Query dependencies
         run: |
