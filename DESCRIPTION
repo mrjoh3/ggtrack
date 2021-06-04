@@ -27,5 +27,6 @@ Imports:
     RCurl,
     gridExtra,
     jpeg,
-    png
+    png,
+    gridtext
 URL: https://mrjoh3.github.io/ggtrack
