@@ -28,5 +28,6 @@ Imports:
     gridExtra,
     jpeg,
     png,
-    gridtext
+    gridtext,
+    qrencoder
 URL: https://mrjoh3.github.io/ggtrack
