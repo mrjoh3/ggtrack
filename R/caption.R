@@ -5,7 +5,7 @@
 #' @param tracker
 #' @param caption
 #'
-#' @importFrom grid textGrob
+#' @importFrom gridtext richtext_grob
 #' @importFrom ggplot2 annotation_custom
 #'
 #' @return
@@ -15,7 +15,8 @@
 add_caption <- function(tracker, caption) {
 
   if (is.character(caption)) {
-    tg <- grid::textGrob(caption, just = c(0,0), name = 'caption')
+    tg <- richtext_grob(caption, x = 0, hjust = 0, name = 'caption')
+    #tg <- grid::roundrectGrob()
   } else if ('grob' %in% class(caption)) {
     tg <- caption
   } else {
@@ -23,6 +24,6 @@ add_caption <- function(tracker, caption) {
   }
 
   tracker +
-    annotation_custom(tg, xmin = 0, xmax = .7)
+    annotation_custom(tg, xmin = 0, xmax = .6, )
 
 }

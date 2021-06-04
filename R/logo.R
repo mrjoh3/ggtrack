@@ -35,9 +35,9 @@ add_logo <- function(tracker, logo, height_tracker) {
     stop(paste0('Unable to Add filetype: ', ext))
   }
 
-  lg <- grid::rasterGrob(logo_imported, just = 'right', height = unit(height_tracker, 'cm'), name = 'logo')
+  lg <- grid::rasterGrob(logo_imported, x = 1, just = 'right', height = unit(height_tracker, 'cm'), name = 'logo')
 
   tracker +
-    annotation_custom(lg, xmin = .7, xmax = .9)
+    annotation_custom(lg, xmin = .6, xmax = .85)
 
 }

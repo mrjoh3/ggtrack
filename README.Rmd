@@ -84,13 +84,13 @@ ggtrack(gg,
 
 <div class="hide">
 
-```{r caption}
+```{r caption, fig.width=6, out.width="80%", fig.align='center', fig.retina=2}
 
 
   ggtrack(gg,
-        qr_content = 'text content here',
+        qr_content = 'For all your image tracking needs: https://github.com/mrjoh3/ggtrack',
         logo = 'https://www.r-project.org/logo/Rlogo.png',
-        caption = 'Some really Important extra info, or a fancy "grob".')
+        caption = 'Lots of extra info, or a fancy <span style="color:blue">"grob"</span>.')
 
 
 
