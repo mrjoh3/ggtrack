@@ -7,6 +7,7 @@
 
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![R-CMD-check](https://github.com/mrjoh3/ggtrack/workflows/R-CMD-check/badge.svg)](https://github.com/mrjoh3/ggtrack/actions)
 <!-- badges: end -->
 
 Sometimes in a workplace it is hard to know exactly where or when a
@@ -35,9 +36,24 @@ You can install the latest version of project from
 devtools::install_github("mrjoh3/ggtrack")
 ```
 
+## Development
+
+This package is in the early stages of development. If you have any
+suggestions, or feature requests please submit an
+[issue](https://github.com/mrjoh3/ggtrack/issues). All feedback is
+welcome.
+
 ## Example
 
-To start you just need a `ggplot` and some text you wish to encode
+To start you just need a `ggplot` and some text you wish to encode into
+the QR. The QR is intended to contain enough information to uniquely
+identify the report, so a URL, file name or other unique identifier. The
+QR encode process automatically appends a time stamp. But try to keep
+the content of the QR code minimal. The for information it is the more
+pixels its requires and the larger it needs to be. The examples here
+need a QR code size of 1.8cm to be reliably scanned using a phone off
+the screen. QR code are encoded using the
+[qrencoder](https://github.com/hrbrmstr/qrencoder) package.
 
 ``` r
 library(ggtrack)
@@ -51,20 +67,35 @@ ggtrack(gg,
         qr_content = 'Report ID: 2c9075a5-4d7e-47a5-8616-55dd88af3dc5')
 ```
 
-<img src="man/figures/README-example-1.png" width="100%" />
+<img src="man/figures/README-example-1.png" width="80%" style="display: block; margin: auto;" />
 
 ### Add a Logo
 
-``` r
+A logo can be added either from a local or remote source. For now only
+`png` and `jpeg/jpg` are supported.
 
-  ggtrack(gg,
+``` r
+ggtrack(gg,
         qr_content = 'text content here',
         logo = 'https://www.r-project.org/logo/Rlogo.png')
 ```
 
-<img src="man/figures/README-logo-1.png" width="100%" />
+<img src="man/figures/README-logo-1.png" width="80%" style="display: block; margin: auto;" />
 
 ### Add a Caption
+
+Captions use the [gridtext](https://github.com/wilkelab/gridtext)
+package. So you can use both `HTML` and `markdown` to style. Or if you
+prefer, create your own `grob` and pass that through instead.
+
+``` r
+ggtrack(gg,
+        qr_content = 'For all your image tracking needs: https://github.com/mrjoh3/ggtrack',
+        logo = 'https://www.r-project.org/logo/Rlogo.png',
+        caption = 'Lots of extra info, or a fancy <span style="color:blue">"grob"</span>.')
+```
+
+<img src="man/figures/README-caption-1.png" width="80%" style="display: block; margin: auto;" />
 
 <style>
 .hide img {
@@ -74,15 +105,5 @@ ggtrack(gg,
 </style>
 
 <div class="hide">
-
-``` r
-
-  ggtrack(gg,
-        qr_content = 'For all your image tracking needs: https://github.com/mrjoh3/ggtrack',
-        logo = 'https://www.r-project.org/logo/Rlogo.png',
-        caption = 'Lots of extra info, or a fancy <span style="color:blue">"grob"</span>.')
-```
-
-<img src="man/figures/README-caption-1.png" width="80%" style="display: block; margin: auto;" />
 
 </div>
