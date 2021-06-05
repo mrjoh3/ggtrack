@@ -79,10 +79,15 @@
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"mrjoh3/ggtrack"</span><span class="op">)</span></code></pre></div>
 </div>
+<div id="development" class="section level2">
+<h2 class="hasAnchor">
+<a href="#development" class="anchor"></a>Development</h2>
+<p>This package is in the early stages of development. If you have any suggestions, or feature requests please submit an <a href="https://github.com/mrjoh3/ggtrack/issues">issue</a>. All feedback is welcome.</p>
+</div>
 <div id="example" class="section level2">
 <h2 class="hasAnchor">
 <a href="#example" class="anchor"></a>Example</h2>
-<p>To start you just need a <code>ggplot</code> and some text you wish to encode</p>
+<p>To start you just need a <code>ggplot</code> and some text you wish to encode into the QR. The QR is intended to contain enough information to uniquely identify the report, so a URL, file name or other unique identifier. The QR encode process automatically appends a time stamp. But try to keep the content of the QR code minimal. The for information it is the more pixels its requires and the larger it needs to be. The examples here need a QR code size of 1.8cm to be reliably scanned using a phone off the screen. QR code are encoded using the <a href="https://github.com/hrbrmstr/qrencoder">qrencoder</a> package.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://mrjoh3.github.io/ggtrack">ggtrack</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span>
@@ -93,20 +98,27 @@
 
 <span class="fu"><a href="reference/ggtrack.html">ggtrack</a></span><span class="op">(</span><span class="va">gg</span>,
         qr_content <span class="op">=</span> <span class="st">'Report ID: 2c9075a5-4d7e-47a5-8616-55dd88af3dc5'</span><span class="op">)</span></code></pre></div>
-<p><img src="reference/figures/README-example-1.png" width="100%"></p>
+<p><img src="reference/figures/README-example-1.png" width="80%" style="display: block; margin: auto;"></p>
 <div id="add-a-logo" class="section level3">
 <h3 class="hasAnchor">
 <a href="#add-a-logo" class="anchor"></a>Add a Logo</h3>
+<p>A logo can be added either from a local or remote source. For now only <code>png</code> and <code>jpeg/jpg</code> are supported.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R">
-  <span class="fu"><a href="reference/ggtrack.html">ggtrack</a></span><span class="op">(</span><span class="va">gg</span>,
+<code class="sourceCode R"><span class="fu"><a href="reference/ggtrack.html">ggtrack</a></span><span class="op">(</span><span class="va">gg</span>,
         qr_content <span class="op">=</span> <span class="st">'text content here'</span>,
         logo <span class="op">=</span> <span class="st">'https://www.r-project.org/logo/Rlogo.png'</span><span class="op">)</span></code></pre></div>
-<p><img src="reference/figures/README-logo-1.png" width="100%"></p>
+<p><img src="reference/figures/README-logo-1.png" width="80%" style="display: block; margin: auto;"></p>
 </div>
 <div id="add-a-caption" class="section level3">
 <h3 class="hasAnchor">
 <a href="#add-a-caption" class="anchor"></a>Add a Caption</h3>
+<p>Captions use the <a href="https://github.com/wilkelab/gridtext">gridtext</a> package. So you can use both <code>HTML</code> and <code>markdown</code> to style. Or if you prefer, create your own <code>grob</code> and pass that through instead.</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="reference/ggtrack.html">ggtrack</a></span><span class="op">(</span><span class="va">gg</span>,
+        qr_content <span class="op">=</span> <span class="st">'For all your image tracking needs: https://github.com/mrjoh3/ggtrack'</span>,
+        logo <span class="op">=</span> <span class="st">'https://www.r-project.org/logo/Rlogo.png'</span>,
+        caption <span class="op">=</span> <span class="st">'Lots of extra info, or a fancy &lt;span style="color:blue"&gt;"grob"&lt;/span&gt;.'</span><span class="op">)</span></code></pre></div>
+<p><img src="reference/figures/README-caption-1.png" width="80%" style="display: block; margin: auto;"></p>
 <style>
 .hide img {
   float: right;
@@ -114,13 +126,6 @@
 }
 </style>
 <div class="hide">
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R">
-  <span class="fu"><a href="reference/ggtrack.html">ggtrack</a></span><span class="op">(</span><span class="va">gg</span>,
-        qr_content <span class="op">=</span> <span class="st">'For all your image tracking needs: https://github.com/mrjoh3/ggtrack'</span>,
-        logo <span class="op">=</span> <span class="st">'https://www.r-project.org/logo/Rlogo.png'</span>,
-        caption <span class="op">=</span> <span class="st">'Lots of extra info, or a fancy &lt;span style="color:blue"&gt;"grob"&lt;/span&gt;.'</span><span class="op">)</span></code></pre></div>
-<p><img src="reference/figures/README-caption-1.png" width="80%" style="display: block; margin: auto;"></p>
 </div>
 </div>
 </div>
@@ -146,6 +151,7 @@
 <h2>Dev status</h2>
 <ul class="list-unstyled">
 <li><a href="https://lifecycle.r-lib.org/articles/stages.html#experimental"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a></li>
+<li><a href="https://github.com/mrjoh3/ggtrack/actions"><img src="https://github.com/mrjoh3/ggtrack/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
 </ul>
 </div>
 </div>
