@@ -87,6 +87,21 @@ ggtrack(gg,
 
 
 
+## Interactive Plots
+
+
+
+```{r interactive, fig.width=6, out.width="80%", fig.align='center', fig.retina=2}
+ggtrack(gg,
+        qr_content = 'For all your image tracking needs: https://github.com/mrjoh3/ggtrack',
+        logo = 'https://www.r-project.org/logo/Rlogo.png',
+        caption = 'Lots of extra info, or a fancy <span style="color:blue">"grob"</span>.',
+        interactive = TRUE)
+
+```
+
+
+
 <style>
 .hide img {
   float: right;

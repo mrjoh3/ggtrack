@@ -29,5 +29,6 @@ Imports:
     jpeg,
     png,
     gridtext,
-    qrencoder
+    qrencoder,
+    plotly
 URL: https://mrjoh3.github.io/ggtrack

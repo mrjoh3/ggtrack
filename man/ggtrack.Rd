@@ -10,8 +10,10 @@ ggtrack(
   color = "black",
   height_plot = 10,
   height_tracker = 1.8,
+  interactive = FALSE,
   caption = NULL,
-  logo = NULL
+  logo = NULL,
+  plotly_heights = c(0.8, 0.2)
 )
 }
 \arguments{
@@ -25,9 +27,13 @@ ggtrack(
 
 \item{height_tracker}{integer centimeters}
 
+\item{interactive}{logical use plotly for interactivity}
+
 \item{caption}{character text to add to footer}
 
 \item{logo}{file to add to footer as a logo}
+
+\item{plotly_heights}{numeric vector of length 2 to fix relative height of plot and tracking banner}
 }
 \value{
 
