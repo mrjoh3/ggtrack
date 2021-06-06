@@ -44,69 +44,38 @@ make_qr <- function(qr_content, color = 'black', color_bg = 'white') {
   return(qr_matrix)
 }
 
-#
-#
-# fig <- plot_ly(x = 0:1)
-#
-# ggplotly(tracker) %>%
-#   layout(
-#     images = list(
-#       list(source = logo,
-#            xref = "paper",
-#            yref = "paper",
-#            x= .5,
-#            sizex = 0.2,
-#            sizey = 0.2,
-#            opacity = 0.8
-#       )))
-#
-#
-#
-# fig <- plotly_empty(x=1:10, y=1)
-# #fig <- fig %>% add_lines()
-# fig <- fig %>%
-#   layout(
-#     images = list(
-#       list(source = 'https://images.plot.ly/language-icons/api-home/matlab-logo.png',
-#            xref = "paper",
-#            yref = "y",
-#            x= 5,
-#            y= 1,
-#            sizex = 3,
-#            sizey = 3,
-#            opacity = 1
-#       ),
-#
-#       list(source = "https://www.r-project.org/logo/Rlogo.png",
-#            xref = "paper",
-#            yref = "y",
-#            x = 8,
-#            y = 1,
-#            sizex = 3,
-#            sizey = 3,
-#            opacity = 1
-#       )
-#     )
-#   )
-#
-# fig
-#
 
-# p = plotly_empty(x = 1, y = 1) %>%
+#
+#
+# p1 = plotly_empty(x = 1, y = 1) %>%
 #   layout(
 #     images = list(list(
 #       source = raster2uri(q, interpolate = FALSE),
 #       xref = "paper",
 #       yref = "paper",
-#       x = .9, y = 0,
-#       sizex = 0.5, sizey = 0.5,
+#       x = .5, y = .5,
+#       sizex = 0.1, sizey = 0.1,
 #       xanchor = "left", yanchor = "bottom"
 #     ))
-#   )
+#   ) %>% layout(margin=list(l=10, r=10, b=0, t=0),
+#                xaxis=list(showticklabels=FALSE, ticks=""),
+#                yaxis=list(showticklabels=FALSE, ticks=""))
 #
-
-
-
+#
+# p2<-plotly_empty(x = 1, y = 1) %>%
+#   layout(
+#     images = list(list(
+#       source = 'https://images.plot.ly/language-icons/api-home/python-logo.png',
+#       xref = "paper",
+#       yref = "paper",
+#       x = .5, y = .5,
+#       sizex = 0.1, sizey = 0.1,
+#       xanchor = "left", yanchor = "bottom"
+#     ))
+#   ) %>% layout(margin=list(l=10, r=10, b=0, t=0),
+#                xaxis=list(showticklabels=FALSE, ticks=""),
+#                yaxis=list(showticklabels=FALSE, ticks=""))
+#
 
 
 
