@@ -45,37 +45,6 @@ make_qr <- function(qr_content, color = 'black', color_bg = 'white') {
 }
 
 
-#
-#
-# p1 = plotly_empty(x = 1, y = 1) %>%
-#   layout(
-#     images = list(list(
-#       source = raster2uri(q, interpolate = FALSE),
-#       xref = "paper",
-#       yref = "paper",
-#       x = .5, y = .5,
-#       sizex = 0.1, sizey = 0.1,
-#       xanchor = "left", yanchor = "bottom"
-#     ))
-#   ) %>% layout(margin=list(l=10, r=10, b=0, t=0),
-#                xaxis=list(showticklabels=FALSE, ticks=""),
-#                yaxis=list(showticklabels=FALSE, ticks=""))
-#
-#
-# p2<-plotly_empty(x = 1, y = 1) %>%
-#   layout(
-#     images = list(list(
-#       source = 'https://images.plot.ly/language-icons/api-home/python-logo.png',
-#       xref = "paper",
-#       yref = "paper",
-#       x = .5, y = .5,
-#       sizex = 0.1, sizey = 0.1,
-#       xanchor = "left", yanchor = "bottom"
-#     ))
-#   ) %>% layout(margin=list(l=10, r=10, b=0, t=0),
-#                xaxis=list(showticklabels=FALSE, ticks=""),
-#                yaxis=list(showticklabels=FALSE, ticks=""))
-#
 
 
 
