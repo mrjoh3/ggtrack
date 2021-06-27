@@ -2,7 +2,7 @@ pandoc: 2.7.3
 pkgdown: 1.6.1
 pkgdown_sha: ~
 articles: {}
-last_built: 2021-06-11T00:19Z
+last_built: 2021-06-27T09:13Z
 urls:
   reference: https://mrjoh3.github.io/ggtrack/reference
   article: https://mrjoh3.github.io/ggtrack/articles
