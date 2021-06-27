@@ -37,6 +37,11 @@ You can install the latest version of project from [Github](https://github.com) 
 ``` r
 devtools::install_github("mrjoh3/ggtrack")
 ```
+On a linux system you may also need to install the png and jpeg libs.
+
+```console
+sudo apt install libpng-dev libjpeg-dev
+```
 
 ## Development
 
@@ -49,6 +54,7 @@ To start you just need a `ggplot` and some text you wish to encode into the QR. 
 ```{r example, fig.width=6, out.width="80%", fig.align='center', fig.retina=2}
 library(ggtrack)
 library(ggplot2)
+library(grid)
 
 gg <- ggplot(mapping = aes(x = 1:10, y = rnorm(10))) +
   geom_bar(stat = 'identity') +
@@ -78,12 +84,25 @@ ggtrack(gg,
 Captions use the [gridtext](https://github.com/wilkelab/gridtext) package. So you can use both `HTML` and `markdown` to style. Or if you prefer, create your own `grob` and pass that through instead.
 
 ```{r caption, fig.width=6, out.width="80%", fig.align='center', fig.retina=2}
-ggtrack(gg,
+g = ggtrack(gg,
         qr_content = 'For all your image tracking needs: https://github.com/mrjoh3/ggtrack',
         logo = 'https://www.r-project.org/logo/Rlogo.png',
         caption = 'Lots of extra info, or a fancy <span style="color:blue">"grob"</span>.')
 
+grid.draw(g)
 ```
+
+
+```{r save}
+ggsave(g, filename = 'first.png')
+```
+
+[download](first.png)
+
+
+
+
+
 
 
 

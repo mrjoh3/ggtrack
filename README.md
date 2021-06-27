@@ -36,6 +36,12 @@ You can install the latest version of project from
 devtools::install_github("mrjoh3/ggtrack")
 ```
 
+On a linux system you may also need to install the png and jpeg libs.
+
+``` console
+sudo apt install libpng-dev libjpeg-dev
+```
+
 ## Development
 
 This package is in the early stages of development. If you have any
@@ -58,6 +64,7 @@ the screen. QR code are encoded using the
 ``` r
 library(ggtrack)
 library(ggplot2)
+library(grid)
 
 gg <- ggplot(mapping = aes(x = 1:10, y = rnorm(10))) +
   geom_bar(stat = 'identity') +
@@ -89,13 +96,22 @@ package. So you can use both `HTML` and `markdown` to style. Or if you
 prefer, create your own `grob` and pass that through instead.
 
 ``` r
-ggtrack(gg,
+g = ggtrack(gg,
         qr_content = 'For all your image tracking needs: https://github.com/mrjoh3/ggtrack',
         logo = 'https://www.r-project.org/logo/Rlogo.png',
         caption = 'Lots of extra info, or a fancy <span style="color:blue">"grob"</span>.')
+
+grid.draw(g)
 ```
 
 <img src="man/figures/README-caption-1.png" width="80%" style="display: block; margin: auto;" />
+
+``` r
+ggsave(g, filename = 'first.png')
+#> Saving 7 x 5 in image
+```
+
+[download](first.png)
 
 <style>
 .hide img {
