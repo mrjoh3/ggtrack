@@ -79,19 +79,30 @@ ggtrack(gg,
 
 ### Add a download link 
 
+The tracking chart can also be saved and made available for download. You can do this manually with `gplotly::ggsave()` and a simple markdown link as below.
+
 ```{r save}
 ggsave(g, filename = 'first.png')
 ```
 
+```md
 [download](first.png)
-
-
-```{r save link}
-
-make_download(g)
 ```
 
+However, `ggtracker` also has a helper function to facilitate. Using `make_download` you can create either a download link or button. Unlike the markdown link which simply opens the file in the browser; `make_download` creates a proper download link. Note, in the example below it is necessary to specify both location to save the file and the download location. This is only necessary in this example due to the way `pkgdown` handles file locations. In most instances you only needs specify the save location.
 
+```{r save link, results='asis'}
+dl <- make_download(g, 
+                    save_file = c('../man', 'figures', 'ggtrack_chart'),
+                    download_file = c('../reference', 'figures', 'ggtrack_chart'),
+                    type = 'button',
+                    date = '',
+                    render = FALSE)
+```
+
+`r dl`
+
+`CSS` can also be passed to style the button.
 
 
 
