@@ -9,6 +9,12 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 [![R-CMD-check](https://github.com/mrjoh3/ggtrack/workflows/R-CMD-check/badge.svg)](https://github.com/mrjoh3/ggtrack/actions)
 <!-- badges: end -->
 
+<div style="float: right;">
+
+<img src="man/figures/ggtrack-logo.svg" width="300px">
+
+</div>
+
 Sometimes in a workplace it is hard to know exactly where or when a
 specific chart has been produced. This is especially true when someone
 has copied a chart out of a report to use somewhere else. The `ggtrack`
