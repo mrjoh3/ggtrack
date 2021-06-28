@@ -67,7 +67,9 @@
 
       
 
-      </header><script src="ggtrack_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+      </header><script src="ggtrack_files/accessible-code-block-0.0.1/empty-anchor.js"></script><script src="ggtrack_files/htmlwidgets-1.5.3/htmlwidgets.js"></script><script src="ggtrack_files/plotly-binding-4.9.4.1/plotly.js"></script><script src="ggtrack_files/typedarray-0.1/typedarray.min.js"></script><script src="ggtrack_files/jquery-3.5.1/jquery.min.js"></script><link href="ggtrack_files/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet">
+<script src="ggtrack_files/crosstalk-1.1.1/js/crosstalk.min.js"></script><link href="ggtrack_files/plotly-htmlwidgets-css-1.57.1/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="ggtrack_files/plotly-main-1.57.1/plotly-latest.min.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>ggtrack</h1>
@@ -86,6 +88,8 @@
 <p>To start you just need a <code>ggplot</code> and some text you wish to encode into the QR. The QR is intended to contain enough information to uniquely identify the report, so a URL, file name or other unique identifier. The QR encode process automatically appends a time stamp. But try to keep the content of the QR code minimal. The for information it is the more pixels its requires and the larger it needs to be. The examples here need a QR code size of 1.8cm to be reliably scanned using a phone off the screen. QR code are encoded using the <a href="https://github.com/hrbrmstr/qrencoder">qrencoder</a> package.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://mrjoh3.github.io/ggtrack">ggtrack</a></span><span class="op">)</span>
+<span class="co">#&gt; Warning: replacing previous import 'ggplot2::last_plot' by 'plotly::last_plot'</span>
+<span class="co">#&gt; when loading 'ggtrack'</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">grid</span><span class="op">)</span>
 
@@ -119,19 +123,44 @@
 <span class="fu"><a href="https://rdrr.io/r/grid/grid.draw.html">grid.draw</a></span><span class="op">(</span><span class="va">g</span><span class="op">)</span></code></pre></div>
 <p><img src="ggtrack_files/figure-html/caption-1.png" width="80%" style="display: block; margin: auto;"></p>
 </div>
-<div id="add-a-download-link" class="section level3">
+</div>
+<div id="interactive-plots" class="section level2">
+<h2 class="hasAnchor">
+<a href="#interactive-plots" class="anchor"></a>Interactive Plots</h2>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="../reference/ggtrack.html">ggtrack</a></span><span class="op">(</span><span class="va">gg</span>,
+        qr_content <span class="op">=</span> <span class="st">'For all your image tracking needs: https://github.com/mrjoh3/ggtrack'</span>,
+        logo <span class="op">=</span> <span class="st">'https://www.r-project.org/logo/Rlogo.png'</span>,
+        caption <span class="op">=</span> <span class="st">'Lots of extra info, or a fancy &lt;span style="color:blue"&gt;"grob"&lt;/span&gt;.'</span>,
+        interactive <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+<span class="co">#&gt; Warning in geom2trace.default(dots[[1L]][[1L]], dots[[2L]][[1L]], dots[[3L]][[1L]]): geom_GeomCustomAnn() has yet to be implemented in plotly.</span>
+<span class="co">#&gt;   If you'd like to see this geom implemented,</span>
+<span class="co">#&gt;   Please open an issue with your example code at</span>
+<span class="co">#&gt;   https://github.com/ropensci/plotly/issues</span>
+
+<span class="co">#&gt; Warning in geom2trace.default(dots[[1L]][[1L]], dots[[2L]][[1L]], dots[[3L]][[1L]]): geom_GeomCustomAnn() has yet to be implemented in plotly.</span>
+<span class="co">#&gt;   If you'd like to see this geom implemented,</span>
+<span class="co">#&gt;   Please open an issue with your example code at</span>
+<span class="co">#&gt;   https://github.com/ropensci/plotly/issues</span>
+
+<span class="co">#&gt; Warning in geom2trace.default(dots[[1L]][[1L]], dots[[2L]][[1L]], dots[[3L]][[1L]]): geom_GeomCustomAnn() has yet to be implemented in plotly.</span>
+<span class="co">#&gt;   If you'd like to see this geom implemented,</span>
+<span class="co">#&gt;   Please open an issue with your example code at</span>
+<span class="co">#&gt;   https://github.com/ropensci/plotly/issues</span></code></pre></div>
+<div id="htmlwidget-efaadcf32c2374e7318d" style="width:80%;height:432.632880098888px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-efaadcf32c2374e7318d">{"x":{"data":[{"orientation":"v","width":[0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.899999999999999,0.899999999999999,0.899999999999999],"base":[-0.437890064265971,0,0,0,-1.07431862988987,0,0,0,0,-0.076262343947176],"x":[1,2,3,4,5,6,7,8,9,10],"y":[0.437890064265971,0.38111052486493,0.333935152582159,0.963188456582145,1.07431862988987,0.574553961237611,2.08951815654109,0.394331613478671,1.53948091771809,0.076262343947176],"text":["1:10:  1<br />rnorm(10): 0.43789006","1:10:  2<br />rnorm(10): 0.38111052","1:10:  3<br />rnorm(10): 0.33393515","1:10:  4<br />rnorm(10): 0.96318846","1:10:  5<br />rnorm(10): 1.07431863","1:10:  6<br />rnorm(10): 0.57455396","1:10:  7<br />rnorm(10): 2.08951816","1:10:  8<br />rnorm(10): 0.39433161","1:10:  9<br />rnorm(10): 1.53948092","1:10: 10<br />rnorm(10): 0.07626234"],"type":"bar","marker":{"autocolorscale":false,"color":"rgba(89,89,89,1)","line":{"width":1.88976377952756,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"showlegend":false,"xaxis":"x2","yaxis":"y2","hoverinfo":"text","mode":"","frame":null}],"layout":{"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.0550000000000001,10.945],"tickmode":"array","ticktext":["2.5","5.0","7.5","10.0"],"tickvals":[2.5,5,7.5,10],"categoryorder":"array","categoryarray":["2.5","5.0","7.5","10.0"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.65296803652968,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","hoverformat":".2f"},"xaxis2":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.05,1.05],"tickmode":"array","ticktext":[],"tickvals":[],"categoryorder":"array","categoryarray":[],"nticks":null,"ticks":"outside","tickcolor":null,"ticklen":0,"tickwidth":0,"showticklabels":false,"tickfont":{"color":null,"family":null,"size":0},"tickangle":-0,"showline":true,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y2","hoverformat":".2f"},"yaxis2":{"domain":[0,0.18],"automargin":true,"type":"linear","autorange":false,"range":[-0.05,1.05],"tickmode":"array","ticktext":[],"tickvals":[],"categoryorder":"array","categoryarray":[],"nticks":null,"ticks":"outside","tickcolor":null,"ticklen":0,"tickwidth":0,"showticklabels":false,"tickfont":{"color":null,"family":null,"size":0},"tickangle":-0,"showline":true,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"x2","hoverformat":".2f"},"yaxis":{"domain":[0.22,1],"automargin":true,"type":"linear","autorange":false,"range":[-1.23251046921142,2.24770999586264],"tickmode":"array","ticktext":["-1","0","1","2"],"tickvals":[-1,0,1,2],"categoryorder":"array","categoryarray":["-1","0","1","2"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.65296803652968,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","hoverformat":".2f"},"annotations":[],"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0.22,"y1":1},{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":0.18}],"images":[],"margin":{"t":34.8976377952756,"r":0,"b":11.3385826771654,"l":0},"font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"showlegend":false,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895}},"hovermode":"closest","barmode":"relative"},"attrs":{"2aebc25dbdb":{"x":{},"y":{},"type":"bar"},"2aeb4d982006":{"type":"scatter"},"2aeb7bfea748":[],"2aeb26e289b2":[]},"source":"A","config":{"doubleClick":"reset","showSendToCloud":false},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"subplot":true,"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script><div id="add-a-download-link" class="section level3">
 <h3 class="hasAnchor">
 <a href="#add-a-download-link" class="anchor"></a>Add a download link</h3>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="va">g</span>, filename <span class="op">=</span> <span class="st">'first.png'</span><span class="op">)</span>
 <span class="co">#&gt; Saving 7.29 x 4.51 in image</span></code></pre></div>
 <p><a href="first.png">download</a></p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="fu"><a href="../reference/make_download.html">make_download</a></span><span class="op">(</span><span class="va">g</span><span class="op">)</span>
 <span class="co">#&gt; Saving 7.29 x 4.51 in image</span>
-<span class="co">#&gt; &lt;a href="chart_20210628-014741.png" download="chart_20210628-014741.png"&gt;download&lt;/a&gt;</span></code></pre></div>
-<p><a href="chart_20210628-014741.png" download="chart_20210628-014741.png">download</a></p>
+<span class="co">#&gt; &lt;a href="chart_20210628-051245.png" download="chart_20210628-051245.png"&gt;download&lt;/a&gt;</span></code></pre></div>
+<p><a href="chart_20210628-051245.png" download="chart_20210628-051245.png">download</a></p>
 <style>
 .hide img {
   float: right;
