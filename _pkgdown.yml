@@ -1,1 +1,17 @@
 url: https://mrjoh3.github.io/ggtrack
+
+navbar:
+  type: default
+  structure:
+    left:  [home, intro, articles, reference, news]
+    right: [github]
+
+repo:
+  url:
+    home: https://github.com/mrjoh3/ggtrack/
+    source: https://github.com/mrjoh3/ggtrack/blob/master/
+    issue: https://github.com/mrjoh3/ggtrack/issues/
+    user: https://github.com/mrjoh3/
+
+development:
+  mode: auto
