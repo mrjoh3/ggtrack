@@ -1,0 +1,112 @@
+---
+title: "ggtrack"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{ggtrack}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+
+
+## Using ggtrack
+
+To start you just need a `ggplot` and some text you wish to encode into the QR. The QR is intended to contain enough information to uniquely identify the report, so a URL, file name or other unique identifier. The QR encode process automatically appends a time stamp. But try to keep the content of the QR code minimal. The for information it is the more pixels its requires and the larger it needs to be. The examples here need a QR code size of 1.8cm to be reliably scanned using a phone off the screen. QR code are encoded using the [qrencoder](https://github.com/hrbrmstr/qrencoder) package.
+
+```{r example, fig.width=6, out.width="80%", fig.align='center', fig.retina=2}
+library(ggtrack)
+library(ggplot2)
+library(grid)
+
+gg <- ggplot(mapping = aes(x = 1:10, y = rnorm(10))) +
+  geom_bar(stat = 'identity') +
+  theme_minimal()
+
+ggtrack(gg,
+        qr_content = 'Report ID: 2c9075a5-4d7e-47a5-8616-55dd88af3dc5')
+
+```
+
+### Add a Logo
+
+A logo can be added either from a local or remote source. For now only `png` and `jpeg/jpg` are supported.
+
+```{r logo, fig.width=6, out.width="80%", fig.align='center', fig.retina=2}
+ggtrack(gg,
+        qr_content = 'text content here',
+        logo = 'https://www.r-project.org/logo/Rlogo.png')
+
+```
+
+
+
+
+### Add a Caption
+
+Captions use the [gridtext](https://github.com/wilkelab/gridtext) package. So you can use both `HTML` and `markdown` to style. Or if you prefer, create your own `grob` and pass that through instead.
+
+```{r caption, fig.width=6, out.width="80%", fig.align='center', fig.retina=2}
+g = ggtrack(gg,
+        qr_content = 'For all your image tracking needs: https://github.com/mrjoh3/ggtrack',
+        logo = 'https://www.r-project.org/logo/Rlogo.png',
+        caption = 'Lots of extra info, or a fancy <span style="color:blue">"grob"</span>.')
+
+grid.draw(g)
+```
+
+
+## Interactive Plots
+
+
+
+```{r interactive, fig.width=6, out.width="80%", fig.align='center', fig.retina=2}
+ggtrack(gg,
+        qr_content = 'For all your image tracking needs: https://github.com/mrjoh3/ggtrack',
+        logo = 'https://www.r-project.org/logo/Rlogo.png',
+        caption = 'Lots of extra info, or a fancy <span style="color:blue">"grob"</span>.',
+        interactive = TRUE)
+
+```
+
+
+
+### Add a download link 
+
+```{r save}
+ggsave(g, filename = 'first.png')
+```
+
+[download](first.png)
+
+
+```{r save link}
+
+make_download(g)
+```
+
+
+
+
+
+
+<style>
+.hide img {
+  float: right;
+  margin-bottom: -50%; /* crop position */
+}
+</style>
+
+<div class="hide">
+
+</div>
+
+
+
+

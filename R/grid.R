@@ -46,7 +46,7 @@ ggtrack <- function(gg, qr_content, color = 'black', height_plot = 10, height_tr
   if (interactive) {
     plotly::subplot(gg, tracker, nrows = 2, heights = plotly_heights)
   } else {
-    gridExtra::grid.arrange(gg, tracker, heights = unit(c(height_plot, height_tracker + .8 ), "cm"))
+    gridExtra::grid.arrange(gg, tracker, heights = unit(c(height_plot, height_tracker + 1.5 ), "cm"))
   }
 
 

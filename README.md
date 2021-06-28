@@ -1,4 +1,3 @@
-
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 # ggtrack
@@ -36,102 +35,15 @@ You can install the latest version of project from
 devtools::install_github("mrjoh3/ggtrack")
 ```
 
+On a linux system you may also need to install the png and jpeg libs.
+
+``` console
+sudo apt install libpng-dev libjpeg-dev
+```
+
 ## Development
 
 This package is in the early stages of development. If you have any
 suggestions, or feature requests please submit an
 [issue](https://github.com/mrjoh3/ggtrack/issues). All feedback is
 welcome.
-
-## Example
-
-To start you just need a `ggplot` and some text you wish to encode into
-the QR. The QR is intended to contain enough information to uniquely
-identify the report, so a URL, file name or other unique identifier. The
-QR encode process automatically appends a time stamp. But try to keep
-the content of the QR code minimal. The for information it is the more
-pixels its requires and the larger it needs to be. The examples here
-need a QR code size of 1.8cm to be reliably scanned using a phone off
-the screen. QR code are encoded using the
-[qrencoder](https://github.com/hrbrmstr/qrencoder) package.
-
-``` r
-library(ggtrack)
-#> Warning: replacing previous import 'ggplot2::last_plot' by 'plotly::last_plot'
-#> when loading 'ggtrack'
-library(ggplot2)
-
-gg <- ggplot(mapping = aes(x = 1:10, y = rnorm(10))) +
-  geom_bar(stat = 'identity') +
-  theme_minimal()
-
-ggtrack(gg,
-        qr_content = 'Report ID: 2c9075a5-4d7e-47a5-8616-55dd88af3dc5')
-```
-
-<img src="man/figures/README-example-1.png" width="80%" style="display: block; margin: auto;" />
-
-### Add a Logo
-
-A logo can be added either from a local or remote source. For now only
-`png` and `jpeg/jpg` are supported.
-
-``` r
-ggtrack(gg,
-        qr_content = 'text content here',
-        logo = 'https://www.r-project.org/logo/Rlogo.png')
-```
-
-<img src="man/figures/README-logo-1.png" width="80%" style="display: block; margin: auto;" />
-
-### Add a Caption
-
-Captions use the [gridtext](https://github.com/wilkelab/gridtext)
-package. So you can use both `HTML` and `markdown` to style. Or if you
-prefer, create your own `grob` and pass that through instead.
-
-``` r
-ggtrack(gg,
-        qr_content = 'For all your image tracking needs: https://github.com/mrjoh3/ggtrack',
-        logo = 'https://www.r-project.org/logo/Rlogo.png',
-        caption = 'Lots of extra info, or a fancy <span style="color:blue">"grob"</span>.')
-```
-
-<img src="man/figures/README-caption-1.png" width="80%" style="display: block; margin: auto;" />
-
-## Interactive Plots
-
-``` r
-ggtrack(gg,
-        qr_content = 'For all your image tracking needs: https://github.com/mrjoh3/ggtrack',
-        logo = 'https://www.r-project.org/logo/Rlogo.png',
-        caption = 'Lots of extra info, or a fancy <span style="color:blue">"grob"</span>.',
-        interactive = TRUE)
-#> Warning in geom2trace.default(dots[[1L]][[1L]], dots[[2L]][[1L]], dots[[3L]][[1L]]): geom_GeomCustomAnn() has yet to be implemented in plotly.
-#>   If you'd like to see this geom implemented,
-#>   Please open an issue with your example code at
-#>   https://github.com/ropensci/plotly/issues
-
-#> Warning in geom2trace.default(dots[[1L]][[1L]], dots[[2L]][[1L]], dots[[3L]][[1L]]): geom_GeomCustomAnn() has yet to be implemented in plotly.
-#>   If you'd like to see this geom implemented,
-#>   Please open an issue with your example code at
-#>   https://github.com/ropensci/plotly/issues
-
-#> Warning in geom2trace.default(dots[[1L]][[1L]], dots[[2L]][[1L]], dots[[3L]][[1L]]): geom_GeomCustomAnn() has yet to be implemented in plotly.
-#>   If you'd like to see this geom implemented,
-#>   Please open an issue with your example code at
-#>   https://github.com/ropensci/plotly/issues
-```
-
-<img src="man/figures/README-interactive-1.png" width="80%" style="display: block; margin: auto;" />
-
-<style>
-.hide img {
-  float: right;
-  margin-bottom: -50%; /* crop position */
-}
-</style>
-
-<div class="hide">
-
-</div>
