@@ -7,18 +7,21 @@
 #' @param color character color of the QR code
 #' @param height_plot integer centimeters
 #' @param height_tracker integer centimeters
+#' @param interactive logical use plotly for interactivity
 #' @param caption character text to add to footer
 #' @param logo file to add to footer as a logo
+#' @param plotly_heights numeric vector of length 2 to fix relative height of plot and tracking banner
 #'
 #' @import ggplot2
 #' @import grid
 #' @import gridExtra
+#' @import plotly
 #'
 #' @return
 #' @export
 #'
 #' @examples
-ggtrack <- function(gg, qr_content, color = 'black', height_plot = 10, height_tracker = 1.8, caption = NULL, logo = NULL) {
+ggtrack <- function(gg, qr_content, color = 'black', height_plot = 10, height_tracker = 1.8, interactive = FALSE, caption = NULL, logo = NULL, plotly_heights = c(.8,.2)) {
 
   # build tracker as plot
   tracker <- ggplot(mapping = aes(x = 0:1, y = 1)) +
@@ -40,7 +43,12 @@ ggtrack <- function(gg, qr_content, color = 'black', height_plot = 10, height_tr
   tracker <- tracker +
     theme(plot.margin=unit(c(.5, 0, .3, 0),"cm"))
 
-  gridExtra::grid.arrange(gg, tracker, heights = unit(c(height_plot, height_tracker + .8 ), "cm"))
+  if (interactive) {
+    plotly::subplot(gg, tracker, nrows = 2, heights = plotly_heights)
+  } else {
+    gridExtra::grid.arrange(gg, tracker, heights = unit(c(height_plot, height_tracker + .8 ), "cm"))
+  }
+
 
 }
 

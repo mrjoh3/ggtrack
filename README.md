@@ -57,6 +57,8 @@ the screen. QR code are encoded using the
 
 ``` r
 library(ggtrack)
+#> Warning: replacing previous import 'ggplot2::last_plot' by 'plotly::last_plot'
+#> when loading 'ggtrack'
 library(ggplot2)
 
 gg <- ggplot(mapping = aes(x = 1:10, y = rnorm(10))) +
@@ -96,6 +98,32 @@ ggtrack(gg,
 ```
 
 <img src="man/figures/README-caption-1.png" width="80%" style="display: block; margin: auto;" />
+
+## Interactive Plots
+
+``` r
+ggtrack(gg,
+        qr_content = 'For all your image tracking needs: https://github.com/mrjoh3/ggtrack',
+        logo = 'https://www.r-project.org/logo/Rlogo.png',
+        caption = 'Lots of extra info, or a fancy <span style="color:blue">"grob"</span>.',
+        interactive = TRUE)
+#> Warning in geom2trace.default(dots[[1L]][[1L]], dots[[2L]][[1L]], dots[[3L]][[1L]]): geom_GeomCustomAnn() has yet to be implemented in plotly.
+#>   If you'd like to see this geom implemented,
+#>   Please open an issue with your example code at
+#>   https://github.com/ropensci/plotly/issues
+
+#> Warning in geom2trace.default(dots[[1L]][[1L]], dots[[2L]][[1L]], dots[[3L]][[1L]]): geom_GeomCustomAnn() has yet to be implemented in plotly.
+#>   If you'd like to see this geom implemented,
+#>   Please open an issue with your example code at
+#>   https://github.com/ropensci/plotly/issues
+
+#> Warning in geom2trace.default(dots[[1L]][[1L]], dots[[2L]][[1L]], dots[[3L]][[1L]]): geom_GeomCustomAnn() has yet to be implemented in plotly.
+#>   If you'd like to see this geom implemented,
+#>   Please open an issue with your example code at
+#>   https://github.com/ropensci/plotly/issues
+```
+
+<img src="man/figures/README-interactive-1.png" width="80%" style="display: block; margin: auto;" />
 
 <style>
 .hide img {
