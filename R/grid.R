@@ -40,7 +40,7 @@ ggtrack <- function(gg, qr_content, color = 'black', height_plot = 10, height_tr
   tracker <- tracker +
     theme(plot.margin=unit(c(.5, 0, .3, 0),"cm"))
 
-  gridExtra::grid.arrange(gg, tracker, heights = unit(c(height_plot, height_tracker + .8 ), "cm"))
+  gridExtra::grid.arrange(gg, tracker, heights = unit(c(height_plot, height_tracker + 1.5 ), "cm"))
 
 }
 

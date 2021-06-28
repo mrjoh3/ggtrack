@@ -23,6 +23,6 @@ add_qr <- function(tracker, qr_content, color, height_tracker) {
   qr <- grid::rasterGrob(qr_matrix, interpolate = FALSE, x = 1, just = 'right', height = unit(height_tracker, 'cm'), name = 'qrcode')
 
   tracker +
-    annotation_custom(qr, xmin = .85, xmax = 1)
+    annotation_custom(qr, xmin = .80, xmax = 1)
 
 }
