@@ -20,7 +20,7 @@ knitr::opts_chunk$set(
 
 To start you just need a `ggplot` and some text you wish to encode into the QR. The QR is intended to contain enough information to uniquely identify the report, so a URL, file name or other unique identifier. The QR encode process automatically appends a time stamp. But try to keep the content of the QR code minimal. The for information it is the more pixels its requires and the larger it needs to be. The examples here need a QR code size of 1.8cm to be reliably scanned using a phone off the screen. QR code are encoded using the [qrencoder](https://github.com/hrbrmstr/qrencoder) package.
 
-```{r example, fig.width=6, out.width="80%", fig.align='center', fig.retina=2}
+```{r example, fig.width=6, fig.height=5, out.width="80%", fig.align='center', fig.retina=2}
 library(ggtrack)
 library(ggplot2)
 library(grid)
@@ -38,7 +38,7 @@ ggtrack(gg,
 
 A logo can be added either from a local or remote source. For now only `png` and `jpeg/jpg` are supported.
 
-```{r logo, fig.width=6, out.width="80%", fig.align='center', fig.retina=2}
+```{r logo, fig.width=6, fig.height=5, out.width="80%", fig.align='center', fig.retina=2}
 ggtrack(gg,
         qr_content = 'text content here',
         logo = 'https://www.r-project.org/logo/Rlogo.png')
@@ -52,7 +52,7 @@ ggtrack(gg,
 
 Captions use the [gridtext](https://github.com/wilkelab/gridtext) package. So you can use both `HTML` and `markdown` to style. Or if you prefer, create your own `grob` and pass that through instead.
 
-```{r caption, fig.width=6, out.width="80%", fig.align='center', fig.retina=2}
+```{r caption, fig.width=6, fig.height=5, out.width="80%", fig.align='center', fig.retina=2}
 g = ggtrack(gg,
         qr_content = 'For all your image tracking needs: https://github.com/mrjoh3/ggtrack',
         logo = 'https://www.r-project.org/logo/Rlogo.png',
@@ -62,18 +62,6 @@ grid.draw(g)
 ```
 
 
-## Interactive Plots
-
-
-
-```{r interactive, fig.width=6, out.width="80%", fig.align='center', fig.retina=2}
-ggtrack(gg,
-        qr_content = 'For all your image tracking needs: https://github.com/mrjoh3/ggtrack',
-        logo = 'https://www.r-project.org/logo/Rlogo.png',
-        caption = 'Lots of extra info, or a fancy <span style="color:blue">"grob"</span>.',
-        interactive = TRUE)
-
-```
 
 
 
@@ -81,15 +69,15 @@ ggtrack(gg,
 
 The tracking chart can also be saved and made available for download. You can do this manually with `gplotly::ggsave()` and a simple markdown link as below.
 
-```{r save}
-ggsave(g, filename = 'first.png')
+```r
+ggsave(g, filename = 'ggrack_simple_download.png')
 ```
 
 ```md
-[download](first.png)
+[download png](ggrack_simple_download.png)
 ```
 
-However, `ggtracker` also has a helper function to facilitate. Using `make_download` you can create either a download link or button. Unlike the markdown link which simply opens the file in the browser; `make_download` creates a proper download link. Note, in the example below it is necessary to specify both location to save the file and the download location. This is only necessary in this example due to the way `pkgdown` handles file locations. In most instances you only needs specify the save location.
+However, `ggtracker` also has a helper function to facilitate. Using `make_download` you can create either a download link or button. Unlike the markdown link which simply opens the file in the browser; `make_download` creates a proper download link. Note, in the example below it is necessary to specify both location to save the file and the download location. This is only necessary in this example due to the way `pkgdown` handles file locations. In most instances you only needs specify the save location. The button can also be styled by `CSS`.
 
 ```{r save link, results='asis'}
 dl <- make_download(g, 
@@ -102,9 +90,21 @@ dl <- make_download(g,
 
 `r dl`
 
-`CSS` can also be passed to style the button.
+Something to consider at this point, with a down load button it is possible to display a plot without the additional metadata. Then pass the tracker object to the download link or button for users. This is a simple way to maintain the aesthetics of your report but still include vital metadata.
 
 
+## Interactive Plots
+
+Adding a tracker to `plotly` interactive plots is currently a work in progress. This option is not straight forward as `geom_GeomCustomAnn()` has not yet been implemented in `plotly`.
+
+```{r interactive, fig.width=6, fig.height=5, out.width="80%", fig.align='center', fig.retina=2}
+ggtrack(gg,
+        qr_content = 'For all your image tracking needs: https://github.com/mrjoh3/ggtrack',
+        logo = 'https://www.r-project.org/logo/Rlogo.png',
+        caption = 'Lots of extra info, or a fancy <span style="color:blue">"grob"</span>.',
+        interactive = TRUE)
+
+```
 
 
 <style>
