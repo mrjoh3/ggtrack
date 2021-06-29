@@ -5,18 +5,25 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Add Tracking Banner to Plots • ggtrack</title>
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
+<title>ggtrack, add a tracking banner to your plots. • ggtrack</title>
+<!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="apple-touch-icon.png">
+<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" type="image/png" sizes="60x60" href="apple-touch-icon-60x60.png">
+<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="bootstrap-toc.css">
 <script src="bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
-<script src="pkgdown.js"></script><meta property="og:title" content="Add Tracking Banner to Plots">
-<meta property="og:description" content="Sometimes in a workplace it is hard to know exactly where or when a 
-    specific chart has been produced. This is especially true when someone has copied 
-    a chart out of a report to use somewhere else. The `ggtrack` package aims to 
-    solve this problem by embedding enough metadata in the charts image to identify 
-    the source and the exact time it was produced.">
+<script src="pkgdown.js"></script><meta property="og:title" content="ggtrack, add a tracking banner to your plots.">
+<meta property="og:description" content="The `ggtrack` package will embed enough metadata in a plot image to later identify the source and the exact time it was produced.">
+<meta property="og:image" content="https://mrjoh3.github.io/ggtrack/reference/figures/ggtrack-logo.svg">
+<meta property="og:image:alt" content="Use ggrack to add metadata to your ggplot">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@mrjoh3">
+<meta name="twitter:site" content="@mrjoh3">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -53,6 +60,9 @@
 <li>
   <a href="reference/index.html">Reference</a>
 </li>
+<li>
+  <a href="news/index.html">Changelog</a>
+</li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
@@ -79,7 +89,7 @@
 <!-- badges: start -->
 
 <div style="float: right;">
-<p><img src="reference/figures/ggtrack-logo.svg" width="300px"></p>
+<p><img src="reference/figures/ggtrack-logo.svg" width="280px"></p>
 </div>
 <p>Sometimes in a workplace it is hard to know exactly where or when a specific chart has been produced. This is especially true when someone has copied a chart out of a report to use somewhere else. The <code>ggtrack</code> package aims to solve this problem by embedding enough metadata in the charts image to identify the source and the exact time it was produced.</p>
 <p>The metadata is added by way of a QR code embedded in a chart “tracking” footer. The QR code can encode any arbitrary text and will append a time stamp. The text is intended to be a URL or a unique id for the original document or chart source.</p>
@@ -98,6 +108,27 @@
 <h2 class="hasAnchor">
 <a href="#development" class="anchor"></a>Development</h2>
 <p>This package is in the early stages of development. If you have any suggestions, or feature requests please submit an <a href="https://github.com/mrjoh3/ggtrack/issues">issue</a>. All feedback is welcome.</p>
+</div>
+<div id="a-minimum-example" class="section level2">
+<h2 class="hasAnchor">
+<a href="#a-minimum-example" class="anchor"></a>A Minimum Example</h2>
+<p>To start you just need a <code>ggplot</code> and some text you wish to encode into the QR. The QR is intended to contain enough information to uniquely identify the report, so a URL, file name or other unique identifier. The QR encode process automatically appends a time stamp. But try to keep the content of the QR code minimal. The for information it is the more pixels its requires and the larger it needs to be. The examples here need a QR code size of 1.8cm to be reliably scanned using a phone off the screen. QR code are encoded using the <a href="https://github.com/hrbrmstr/qrencoder">qrencoder</a> package.</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://mrjoh3.github.io/ggtrack">ggtrack</a></span><span class="op">)</span>
+<span class="co">#&gt; Warning: replacing previous import 'ggplot2::last_plot' by 'plotly::last_plot'</span>
+<span class="co">#&gt; when loading 'ggtrack'</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">grid</span><span class="op">)</span>
+
+<span class="va">gg</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">10</span>, y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span>stat <span class="op">=</span> <span class="st">'identity'</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span>
+
+<span class="fu"><a href="reference/ggtrack.html">ggtrack</a></span><span class="op">(</span><span class="va">gg</span>,
+        qr_content <span class="op">=</span> <span class="st">'For all your image tracking needs: https://github.com/mrjoh3/ggtrack'</span>,
+        logo <span class="op">=</span> <span class="st">'https://www.r-project.org/logo/Rlogo.png'</span>,
+        caption <span class="op">=</span> <span class="st">'Lots of extra info, or a fancy &lt;span style="color:blue"&gt;"grob"&lt;/span&gt;.'</span><span class="op">)</span></code></pre></div>
+<p><img src="reference/figures/README-example-1.png" width="80%" style="display: block; margin: auto;"></p>
 </div>
 </div>
   </div>

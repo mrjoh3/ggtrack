@@ -6,13 +6,24 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ggtrack • ggtrack</title>
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
+<!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png">
+<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png">
+<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../bootstrap-toc.css">
 <script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
 <script src="../pkgdown.js"></script><meta property="og:title" content="ggtrack">
 <meta property="og:description" content="ggtrack">
+<meta property="og:image" content="https://mrjoh3.github.io/ggtrack/reference/figures/ggtrack-logo.svg">
+<meta property="og:image:alt" content="Use ggrack to add metadata to your ggplot">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@mrjoh3">
+<meta name="twitter:site" content="@mrjoh3">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -48,6 +59,9 @@
 </li>
 <li>
   <a href="../reference/index.html">Reference</a>
+</li>
+<li>
+  <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
@@ -88,8 +102,6 @@
 <p>To start you just need a <code>ggplot</code> and some text you wish to encode into the QR. The QR is intended to contain enough information to uniquely identify the report, so a URL, file name or other unique identifier. The QR encode process automatically appends a time stamp. But try to keep the content of the QR code minimal. The for information it is the more pixels its requires and the larger it needs to be. The examples here need a QR code size of 1.8cm to be reliably scanned using a phone off the screen. QR code are encoded using the <a href="https://github.com/hrbrmstr/qrencoder">qrencoder</a> package.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://mrjoh3.github.io/ggtrack">ggtrack</a></span><span class="op">)</span>
-<span class="co">#&gt; Warning: replacing previous import 'ggplot2::last_plot' by 'plotly::last_plot'</span>
-<span class="co">#&gt; when loading 'ggtrack'</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">grid</span><span class="op">)</span>
 
@@ -123,55 +135,50 @@
 <span class="fu"><a href="https://rdrr.io/r/grid/grid.draw.html">grid.draw</a></span><span class="op">(</span><span class="va">g</span><span class="op">)</span></code></pre></div>
 <p><img src="ggtrack_files/figure-html/caption-1.png" width="80%" style="display: block; margin: auto;"></p>
 </div>
-</div>
-<div id="interactive-plots" class="section level2">
-<h2 class="hasAnchor">
-<a href="#interactive-plots" class="anchor"></a>Interactive Plots</h2>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/ggtrack.html">ggtrack</a></span><span class="op">(</span><span class="va">gg</span>,
-        qr_content <span class="op">=</span> <span class="st">'For all your image tracking needs: https://github.com/mrjoh3/ggtrack'</span>,
-        logo <span class="op">=</span> <span class="st">'https://www.r-project.org/logo/Rlogo.png'</span>,
-        caption <span class="op">=</span> <span class="st">'Lots of extra info, or a fancy &lt;span style="color:blue"&gt;"grob"&lt;/span&gt;.'</span>,
-        interactive <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="co">#&gt; Warning in geom2trace.default(dots[[1L]][[1L]], dots[[2L]][[1L]], dots[[3L]][[1L]]): geom_GeomCustomAnn() has yet to be implemented in plotly.</span>
-<span class="co">#&gt;   If you'd like to see this geom implemented,</span>
-<span class="co">#&gt;   Please open an issue with your example code at</span>
-<span class="co">#&gt;   https://github.com/ropensci/plotly/issues</span>
-
-<span class="co">#&gt; Warning in geom2trace.default(dots[[1L]][[1L]], dots[[2L]][[1L]], dots[[3L]][[1L]]): geom_GeomCustomAnn() has yet to be implemented in plotly.</span>
-<span class="co">#&gt;   If you'd like to see this geom implemented,</span>
-<span class="co">#&gt;   Please open an issue with your example code at</span>
-<span class="co">#&gt;   https://github.com/ropensci/plotly/issues</span>
-
-<span class="co">#&gt; Warning in geom2trace.default(dots[[1L]][[1L]], dots[[2L]][[1L]], dots[[3L]][[1L]]): geom_GeomCustomAnn() has yet to be implemented in plotly.</span>
-<span class="co">#&gt;   If you'd like to see this geom implemented,</span>
-<span class="co">#&gt;   Please open an issue with your example code at</span>
-<span class="co">#&gt;   https://github.com/ropensci/plotly/issues</span></code></pre></div>
-<div id="htmlwidget-7f6b7d27b7976c247662" style="width:80%;height:432.632880098888px;" class="plotly html-widget"></div>
-<script type="application/json" data-for="htmlwidget-7f6b7d27b7976c247662">{"x":{"data":[{"orientation":"v","width":[0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.899999999999999,0.899999999999999,0.899999999999999],"base":[0,-0.633083225904187,-0.388693632925037,0,0,0,-0.165464191132465,-1.57266184513539,-0.83818632665422,0],"x":[1,2,3,4,5,6,7,8,9,10],"y":[1.02568321293969,0.633083225904187,0.388693632925037,0.919862104844997,1.0056195141167,0.422605030852146,0.165464191132465,1.57266184513539,0.83818632665422,1.36450310863834],"text":["1:10:  1<br />rnorm(10): 1.0256832","1:10:  2<br />rnorm(10): 0.6330832","1:10:  3<br />rnorm(10): 0.3886936","1:10:  4<br />rnorm(10): 0.9198621","1:10:  5<br />rnorm(10): 1.0056195","1:10:  6<br />rnorm(10): 0.4226050","1:10:  7<br />rnorm(10): 0.1654642","1:10:  8<br />rnorm(10): 1.5726618","1:10:  9<br />rnorm(10): 0.8381863","1:10: 10<br />rnorm(10): 1.3645031"],"type":"bar","marker":{"autocolorscale":false,"color":"rgba(89,89,89,1)","line":{"width":1.88976377952756,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"showlegend":false,"xaxis":"x2","yaxis":"y2","hoverinfo":"text","mode":"","frame":null}],"layout":{"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.0550000000000001,10.945],"tickmode":"array","ticktext":["2.5","5.0","7.5","10.0"],"tickvals":[2.5,5,7.5,10],"categoryorder":"array","categoryarray":["2.5","5.0","7.5","10.0"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.65296803652968,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","hoverformat":".2f"},"xaxis2":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.05,1.05],"tickmode":"array","ticktext":[],"tickvals":[],"categoryorder":"array","categoryarray":[],"nticks":null,"ticks":"outside","tickcolor":null,"ticklen":0,"tickwidth":0,"showticklabels":false,"tickfont":{"color":null,"family":null,"size":0},"tickangle":-0,"showline":true,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y2","hoverformat":".2f"},"yaxis2":{"domain":[0,0.18],"automargin":true,"type":"linear","autorange":false,"range":[-0.05,1.05],"tickmode":"array","ticktext":[],"tickvals":[],"categoryorder":"array","categoryarray":[],"nticks":null,"ticks":"outside","tickcolor":null,"ticklen":0,"tickwidth":0,"showticklabels":false,"tickfont":{"color":null,"family":null,"size":0},"tickangle":-0,"showline":true,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"x2","hoverformat":".2f"},"yaxis":{"domain":[0.22,1],"automargin":true,"type":"linear","autorange":false,"range":[-1.71952009282408,1.51136135632703],"tickmode":"array","ticktext":["-1","0","1"],"tickvals":[-1,0,1],"categoryorder":"array","categoryarray":["-1","0","1"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.65296803652968,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","hoverformat":".2f"},"annotations":[],"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0.22,"y1":1},{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":0.18}],"images":[],"margin":{"t":34.8976377952756,"r":0,"b":11.3385826771654,"l":0},"font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"showlegend":false,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895}},"hovermode":"closest","barmode":"relative"},"attrs":{"261b58011ebd":{"x":{},"y":{},"type":"bar"},"261b54f6dc2c":{"type":"scatter"},"261b242114b5":[],"261b4e51eb09":[]},"source":"A","config":{"doubleClick":"reset","showSendToCloud":false},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"subplot":true,"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script><div id="add-a-download-link" class="section level3">
+<div id="add-a-download-link" class="section level3">
 <h3 class="hasAnchor">
 <a href="#add-a-download-link" class="anchor"></a>Add a download link</h3>
 <p>The tracking chart can also be saved and made available for download. You can do this manually with <code>gplotly::ggsave()</code> and a simple markdown link as below.</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="va">g</span>, filename <span class="op">=</span> <span class="st">'first.png'</span><span class="op">)</span>
-<span class="co">#&gt; Saving 7.29 x 4.51 in image</span></code></pre></div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1"></a><span class="ot">[download](first.png)</span></span></code></pre></div>
-<p>However, <code>ggtracker</code> also has a helper function to facilitate. Using <code>make_download</code> you can create either a download link or button. Unlike the markdown link which simply opens the file in the browser; <code>make_download</code> creates a proper download link. Note, in the example below it is necessary to specify both location to save the file and the download location. This is only necessary in this example due to the way <code>pkgdown</code> handles file locations. In most instances you only needs specify the save location.</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="va">g</span>, filename <span class="op">=</span> <span class="st">'ggrack_simple_download.png'</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1"></a><span class="ot">[download png](ggrack_simple_download.png)</span></span></code></pre></div>
+<p>However, <code>ggtracker</code> also has a helper function to facilitate. Using <code>make_download</code> you can create either a download link or button. Unlike the markdown link which simply opens the file in the browser; <code>make_download</code> creates a proper download link. Note, in the example below it is necessary to specify both location to save the file and the download location. This is only necessary in this example due to the way <code>pkgdown</code> handles file locations. In most instances you only needs specify the save location. The button can also be styled by <code>CSS</code>.</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">dl</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/make_download.html">make_download</a></span><span class="op">(</span><span class="va">g</span>, 
                     save_file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'../man'</span>, <span class="st">'figures'</span>, <span class="st">'ggtrack_chart'</span><span class="op">)</span>,
                     download_file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'../reference'</span>, <span class="st">'figures'</span>, <span class="st">'ggtrack_chart'</span><span class="op">)</span>,
                     type <span class="op">=</span> <span class="st">'button'</span>,
                     date <span class="op">=</span> <span class="st">''</span>,
-                    render <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
-<span class="co">#&gt; Saving 7.29 x 4.51 in image</span></code></pre></div>
-<form method="get" action="../reference/figures/ggtrack_chart_.png">
-<button type="submit" class="btn" style="background-color:DodgerBlue;border:none;color:white;padding:12px 30px;cursor:pointer;font-size:16px;width:150px;">
-<i class="fa fa-download"></i> download
-</button>
-</form>
-<p><code>CSS</code> can also be passed to style the button.</p>
-<style>
+                    render <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
+<p><a href="../reference/figures/ggtrack_chart_.png" download="ggtrack_chart_.png"><button type="submit" class="btn" style="background-color:DodgerBlue;border:none;color:white;padding:12px 30px;cursor:pointer;font-size:16px;width:150px;"><i class="fa fa-download"></i> download</button></a></p>
+<p>Something to consider at this point, with a down load button it is possible to display a plot without the additional metadata. Then pass the tracker object to the download link or button for users. This is a simple way to maintain the aesthetics of your report but still include vital metadata.</p>
+</div>
+</div>
+<div id="retrieving-metadata" class="section level2">
+<h2 class="hasAnchor">
+<a href="#retrieving-metadata" class="anchor"></a>Retrieving Metadata</h2>
+<p>The metadata from the QR code can be read using the scanner on your phone. If you need to programatically extract this data use the <a href="https://github.com/brianwdavis/quadrangle">quadrangle package</a>. Given the way the QR code are generated, you will need to ensure you specify <code>flop = TRUE</code>. This essentially flips the image to replicate what a scanner looking at a screen would capture.</p>
+<p>With <code>quadrangle</code> you can pass in the entire file or just the QR code. The package will detect the location of the QR code before decoding.</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/brianwdavis/quadrangle">quadrangle</a></span><span class="op">)</span>
+
+<span class="va">qr</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/quadrangle/man/qr_scan.html">qr_scan</a></span><span class="op">(</span><span class="st">"../man/figures/ggtrack_chart_.png"</span>, flop <span class="op">=</span> <span class="cn">TRUE</span>, plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
+
+<span class="va">qr</span><span class="op">$</span><span class="va">values</span><span class="op">$</span><span class="va">value</span>
+<span class="co">#&gt; [1] "For all your image tracking needs: https://github.com/mrjoh3/ggtrack 55c3779 20210629-114453"</span></code></pre></div>
+</div>
+<div id="interactive-plots" class="section level2">
+<h2 class="hasAnchor">
+<a href="#interactive-plots" class="anchor"></a>Interactive Plots</h2>
+<p>Adding a tracker to <code>plotly</code> interactive plots is currently a work in progress. This option is not straight forward as <code>geom_GeomCustomAnn()</code> has not yet been implemented in <code>plotly</code>.</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="../reference/ggtrack.html">ggtrack</a></span><span class="op">(</span><span class="va">gg</span>,
+        qr_content <span class="op">=</span> <span class="st">'For all your image tracking needs: https://github.com/mrjoh3/ggtrack'</span>,
+        logo <span class="op">=</span> <span class="st">'https://www.r-project.org/logo/Rlogo.png'</span>,
+        caption <span class="op">=</span> <span class="st">'Lots of extra info, or a fancy &lt;span style="color:blue"&gt;"grob"&lt;/span&gt;.'</span>,
+        interactive <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<div id="htmlwidget-c51d4d4b5f81ba8c1f8d" style="width:80%;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-c51d4d4b5f81ba8c1f8d">{"x":{"data":[{"orientation":"v","width":[0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.899999999999999,0.899999999999999,0.899999999999999],"base":[0,-0.45638679017083,0,-1.29080370120174,0,0,-0.00244502119347727,-1.76210748871853,0,0],"x":[1,2,3,4,5,6,7,8,9,10],"y":[0.177727765311379,0.45638679017083,0.51272011928154,1.29080370120174,1.36352754697139,1.54620537049728,0.00244502119347727,1.76210748871853,1.47372346829098,0.0382841530072145],"text":["1:10:  1<br />rnorm(10): 0.177727765","1:10:  2<br />rnorm(10): 0.456386790","1:10:  3<br />rnorm(10): 0.512720119","1:10:  4<br />rnorm(10): 1.290803701","1:10:  5<br />rnorm(10): 1.363527547","1:10:  6<br />rnorm(10): 1.546205370","1:10:  7<br />rnorm(10): 0.002445021","1:10:  8<br />rnorm(10): 1.762107489","1:10:  9<br />rnorm(10): 1.473723468","1:10: 10<br />rnorm(10): 0.038284153"],"type":"bar","marker":{"autocolorscale":false,"color":"rgba(89,89,89,1)","line":{"width":1.88976377952756,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"showlegend":false,"xaxis":"x2","yaxis":"y2","hoverinfo":"text","mode":"","frame":null}],"layout":{"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.0550000000000001,10.945],"tickmode":"array","ticktext":["2.5","5.0","7.5","10.0"],"tickvals":[2.5,5,7.5,10],"categoryorder":"array","categoryarray":["2.5","5.0","7.5","10.0"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.65296803652968,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","hoverformat":".2f"},"xaxis2":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.05,1.05],"tickmode":"array","ticktext":[],"tickvals":[],"categoryorder":"array","categoryarray":[],"nticks":null,"ticks":"outside","tickcolor":null,"ticklen":0,"tickwidth":0,"showticklabels":false,"tickfont":{"color":null,"family":null,"size":0},"tickangle":-0,"showline":true,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y2","hoverformat":".2f"},"yaxis2":{"domain":[0,0.18],"automargin":true,"type":"linear","autorange":false,"range":[-0.05,1.05],"tickmode":"array","ticktext":[],"tickvals":[],"categoryorder":"array","categoryarray":[],"nticks":null,"ticks":"outside","tickcolor":null,"ticklen":0,"tickwidth":0,"showticklabels":false,"tickfont":{"color":null,"family":null,"size":0},"tickangle":-0,"showline":true,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"x2","hoverformat":".2f"},"yaxis":{"domain":[0.22,1],"automargin":true,"type":"linear","autorange":false,"range":[-1.92752313167932,1.71162101345807],"tickmode":"array","ticktext":["-1","0","1"],"tickvals":[-1,0,1],"categoryorder":"array","categoryarray":["-1","0","1"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.65296803652968,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","hoverformat":".2f"},"annotations":[],"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0.22,"y1":1},{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":0.18}],"images":[],"margin":{"t":34.8976377952756,"r":0,"b":11.3385826771654,"l":0},"font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"showlegend":false,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895}},"hovermode":"closest","barmode":"relative"},"attrs":{"2b8e2018fc84":{"x":{},"y":{},"type":"bar"},"2b8e1800eb14":{"type":"scatter"},"2b8e67bff7e8":[],"2b8e2f78e6d2":[]},"source":"A","config":{"doubleClick":"reset","showSendToCloud":false},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"subplot":true,"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script><style>
 .hide img {
   float: right;
   margin-bottom: -50%; /* crop position */
@@ -179,7 +186,6 @@
 </style>
 <div class="hide">
 
-</div>
 </div>
 </div>
   </div>
