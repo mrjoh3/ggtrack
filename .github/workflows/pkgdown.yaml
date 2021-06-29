@@ -24,6 +24,9 @@ jobs:
       - name: Install pkgdown dep
         run: sudo apt-get install libharfbuzz-dev libfribidi-dev
         
+      - name: Install libmagick
+        run: sudo apt-get install libmagick++-dev
+        
       - name: Query dependencies
         run: |
           install.packages('remotes')
