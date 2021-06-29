@@ -10,7 +10,9 @@ vignette: >
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>",
+  warning = FALSE,
+  message = FALSE
 )
 ```
 
@@ -91,6 +93,22 @@ dl <- make_download(g,
 `r dl`
 
 Something to consider at this point, with a down load button it is possible to display a plot without the additional metadata. Then pass the tracker object to the download link or button for users. This is a simple way to maintain the aesthetics of your report but still include vital metadata.
+
+
+## Retrieving Metadata
+
+The metadata from the QR code can be read using the scanner on your phone. If you need to programatically extract this data use the [quadrangle package](https://github.com/brianwdavis/quadrangle). Given the way the QR code are generated, you will need to ensure you specify `flop = TRUE`. This essentially flips the image to replicate what a scanner looking at a screen would capture.
+
+With `quadrangle` you can pass in the entire file or just the QR code. The package will detect the location of the QR code before decoding.
+
+```{r scan}
+library(quadrangle)
+
+qr <- qr_scan("../man/figures/ggtrack_chart_.png", flop = TRUE, plot = FALSE)
+
+qr$values$value
+```
+
 
 
 ## Interactive Plots
