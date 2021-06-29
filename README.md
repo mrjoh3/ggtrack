@@ -11,7 +11,7 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 
 <div style="float: right;">
 
-<img src="man/figures/ggtrack-logo.svg" width="300px">
+<img src="man/figures/ggtrack-logo.svg" width="280px">
 
 </div>
 
@@ -78,7 +78,9 @@ gg <- ggplot(mapping = aes(x = 1:10, y = rnorm(10))) +
   theme_minimal()
 
 ggtrack(gg,
-        qr_content = 'Report ID: 2c9075a5-4d7e-47a5-8616-55dd88af3dc5')
+        qr_content = 'For all your image tracking needs: https://github.com/mrjoh3/ggtrack',
+        logo = 'https://www.r-project.org/logo/Rlogo.png',
+        caption = 'Lots of extra info, or a fancy <span style="color:blue">"grob"</span>.')
 ```
 
 <img src="man/figures/README-example-1.png" width="80%" style="display: block; margin: auto;" />
