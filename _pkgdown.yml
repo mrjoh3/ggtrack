@@ -1,5 +1,9 @@
 url: https://mrjoh3.github.io/ggtrack
 
+home:
+  title: Add Tracking Banner to Plots
+  description: The `ggtrack` package will embed enough metadata in a plot image to later identify the source and the exact time it was produced.
+
 navbar:
   type: default
   structure:
