@@ -25,7 +25,7 @@ template:
     bootswatch: flatly
   opengraph:
     image:
-      src: man/figures/ggtrack-logo.svg
+      src: man/figures/ggtrack-logo.png
       alt: "Use ggrack to add metadata to your ggplot"
     twitter:
       creator: "@mrjoh3"
