@@ -15,3 +15,14 @@ repo:
 
 development:
   mode: auto
+
+template:
+  params:
+    bootswatch: flatly
+  opengraph:
+    image:
+      src: man/figures/ggtrack-logo.svg
+      alt: "Use ggrack to add metadata to your ggplot"
+    twitter:
+      creator: "@mrjoh3"
+      card: summary_large_image
