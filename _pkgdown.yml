@@ -29,4 +29,4 @@ template:
       alt: "Use ggrack to add metadata to your ggplot"
     twitter:
       creator: "@mrjoh3"
-      card: summary_large_image
+      card: summary
