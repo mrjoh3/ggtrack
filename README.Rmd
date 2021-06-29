@@ -54,5 +54,21 @@ sudo apt install libpng-dev libjpeg-dev
 This package is in the early stages of development. If you have any suggestions, or feature requests please submit an [issue](https://github.com/mrjoh3/ggtrack/issues). All feedback is welcome.
 
 
+## A Minimum Example
 
+To start you just need a `ggplot` and some text you wish to encode into the QR. The QR is intended to contain enough information to uniquely identify the report, so a URL, file name or other unique identifier. The QR encode process automatically appends a time stamp. But try to keep the content of the QR code minimal. The for information it is the more pixels its requires and the larger it needs to be. The examples here need a QR code size of 1.8cm to be reliably scanned using a phone off the screen. QR code are encoded using the [qrencoder](https://github.com/hrbrmstr/qrencoder) package.
+
+```{r example, fig.width=6, out.width="80%", fig.align='center', fig.retina=2}
+library(ggtrack)
+library(ggplot2)
+library(grid)
+
+gg <- ggplot(mapping = aes(x = 1:10, y = rnorm(10))) +
+  geom_bar(stat = 'identity') +
+  theme_minimal()
+
+ggtrack(gg,
+        qr_content = 'Report ID: 2c9075a5-4d7e-47a5-8616-55dd88af3dc5')
+
+```
 
