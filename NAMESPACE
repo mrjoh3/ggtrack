@@ -3,6 +3,7 @@
 export(add_caption)
 export(add_logo)
 export(add_qr)
+export(get_positions)
 export(ggtrack)
 export(make_download)
 import(RCurl)

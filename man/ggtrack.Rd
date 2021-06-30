@@ -8,30 +8,34 @@ ggtrack(
   gg,
   qr_content,
   color = "black",
+  caption = NULL,
+  logo = NULL,
+  order = "CLQ",
+  positions = c(55, 25, 20),
   height_plot = 10,
   height_tracker = 1.8,
   interactive = FALSE,
-  caption = NULL,
-  logo = NULL,
   plotly_heights = c(0.8, 0.2)
 )
 }
 \arguments{
 \item{gg}{ggplot object to track}
 
-\item{qr_content}{character to encode into QR code}
+\item{qr_content}{\code{character} content passed to \link[qrencoder]{qrencode}. A time stamp is automatically added plus the current
+git commit where available.}
 
 \item{color}{character color of the QR code}
+
+\item{caption}{\code{character} or \code{grob} to add to footer. Text can be
+\code{html} or \code{md} and is passed directly to \link[gridtext]{richtext_grob}}
+
+\item{logo}{file to add to footer as a logo}
 
 \item{height_plot}{integer centimeters}
 
 \item{height_tracker}{integer centimeters}
 
 \item{interactive}{logical use plotly for interactivity}
-
-\item{caption}{character text to add to footer}
-
-\item{logo}{file to add to footer as a logo}
 
 \item{plotly_heights}{numeric vector of length 2 to fix relative height of plot and tracking banner}
 }
