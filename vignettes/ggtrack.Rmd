@@ -64,6 +64,34 @@ grid.draw(g)
 ```
 
 
+### Rearrange Banner Elements
+
+The order and size of the banner elements can be easily rearranged via the `order` and `positions` variables. Each element is defined via a single letter code:
+
+  * Caption is C
+  * Logo is L
+  * QR code is Q
+  
+And the element order is defined by the order of these codes. For example, the default order code is `CLQ`.
+
+Depending on the size of the content in each element and its relative order, it becomes necessary to adjust the position or size of the elements. Position defines in order the proportional size of each element. You need to provide three numbers indicating the percent size of the element. These proportions are then converted into `xmin` and `xmax` values in the banner.
+
+```{r order, fig.width=6, fig.height=5, out.width="80%", fig.align='center', fig.retina=2}
+
+ggtrack(gg, 
+        order = 'LCQ', 
+        positions = c(25, 55, 20),
+        qr_content = 'For all your image tracking needs: https://github.com/mrjoh3/ggtrack',
+        logo = 'https://www.r-project.org/logo/Rlogo.png',
+        caption = 'Lots of extra info, or a fancy <span style="color:blue">"grob"</span>.',
+        logo_justification = 0)
+
+```
+
+When rearranging the order of banner elements it may be necessary to also change the justification of the logo and QR elements. By default these are justified to the right, so if your logo moves to the left it will appear out of place. 
+
+Justification is set via `logo_justification` and `qr_justification`. Justification here is positional. You need to imagine each element in its own rectangle with a bottom dimension of 0 to 1. If you want the logo or QR code on the right of the rectangle set justification to 1, or 0 for left. These are the main options, but you can use any number between 0 and 1 for more granular control.
+
 
 
 
