@@ -8,30 +8,40 @@ ggtrack(
   gg,
   qr_content,
   color = "black",
-  height_plot = 10,
-  height_tracker = 1.8,
-  interactive = FALSE,
   caption = NULL,
   logo = NULL,
+  order = "CLQ",
+  positions = c(55, 25, 20),
+  logo_justification = 1,
+  qr_justification = 1,
+  height_plot = 7,
+  height_tracker = 1.8,
+  interactive = FALSE,
   plotly_heights = c(0.8, 0.2)
 )
 }
 \arguments{
 \item{gg}{ggplot object to track}
 
-\item{qr_content}{character to encode into QR code}
+\item{qr_content}{\code{character} content passed to \link[qrencoder]{qrencode}. A time stamp is automatically added plus the current
+git commit where available.}
 
 \item{color}{character color of the QR code}
+
+\item{caption}{\code{character} or \code{grob} to add to footer. Text can be
+\code{html} or \code{md} and is passed directly to \link[gridtext]{richtext_grob}}
+
+\item{logo}{file to add to footer as a logo}
+
+\item{logo_justification}{numeric between 0 and 1 passed to \link[grid]{rasterGrob}. See note below.}
+
+\item{qr_justification}{numeric between 0 and 1 passed to \link[grid]{rasterGrob}. See note below.}
 
 \item{height_plot}{integer centimeters}
 
 \item{height_tracker}{integer centimeters}
 
 \item{interactive}{logical use plotly for interactivity}
-
-\item{caption}{character text to add to footer}
-
-\item{logo}{file to add to footer as a logo}
 
 \item{plotly_heights}{numeric vector of length 2 to fix relative height of plot and tracking banner}
 }
@@ -40,4 +50,9 @@ ggtrack(
 }
 \description{
 Add Tracking Footer
+}
+\note{
+For Justification you need to imagine each element in its own rectangle with a bottom
+dimension of 0 to 1. If you want the logo or QR code on the right of the rectangle set justification
+to 1, or 0 for left.
 }

@@ -7,6 +7,9 @@
 make_qr(qr_content, color = "black", color_bg = "white")
 }
 \arguments{
+\item{qr_content}{\code{character} content passed to \link[qrencoder]{qrencode}. A time stamp is automatically added plus the current
+git commit where available.}
+
 \item{color_bg}{}
 }
 \value{
