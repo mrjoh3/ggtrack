@@ -28,6 +28,6 @@ add_caption <- function(tracker, caption, position) {
   p <- as.list(position[position$order == 'C', ])
 
   tracker +
-    annotation_custom(tg, xmin = p$xmin, xmax = p$xmax, )
+    annotation_custom(tg, xmin = p$xmin, xmax = p$xmax)
 
 }

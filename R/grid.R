@@ -11,11 +11,16 @@
 #' @param logo file to add to footer as a logo
 #' @param order
 #' @param positions
+#' @param logo_justification numeric between 0 and 1 passed to \link[grid]{rasterGrob}. See note below.
+#' @param qr_justification numeric between 0 and 1 passed to \link[grid]{rasterGrob}. See note below.
 #' @param height_plot integer centimeters
 #' @param height_tracker integer centimeters
 #' @param interactive logical use plotly for interactivity
-
 #' @param plotly_heights numeric vector of length 2 to fix relative height of plot and tracking banner
+#'
+#' @note For Justification you need to imagine each element in its own rectangle with a bottom
+#' dimension of 0 to 1. If you want the logo or QR code on the right of the rectangle set justification
+#' to 1, or 0 for left.
 #'
 #' @import ggplot2
 #' @import grid
@@ -26,7 +31,19 @@
 #' @export
 #'
 #' @examples
-ggtrack <- function(gg, qr_content, color = 'black', caption = NULL, logo = NULL, order = 'CLQ', positions = c(55, 25, 20), height_plot = 10, height_tracker = 1.8, interactive = FALSE, plotly_heights = c(.8,.2)) {
+ggtrack <- function(gg,
+                    qr_content,
+                    color = 'black',
+                    caption = NULL,
+                    logo = NULL,
+                    order = 'CLQ',
+                    positions = c(55, 25, 20),
+                    logo_justification = 1,
+                    qr_justification = 1,
+                    height_plot = 7,
+                    height_tracker = 1.8,
+                    interactive = FALSE,
+                    plotly_heights = c(.8,.2)) {
 
   # define size and order of 3 containers
   pos <- get_positions(order, positions)
@@ -37,11 +54,11 @@ ggtrack <- function(gg, qr_content, color = 'black', caption = NULL, logo = NULL
 
   class(tracker) <- c(class(tracker), 'ggtracker')
 
-  tracker <- add_qr(tracker, qr_content, color, height_tracker, pos)
+  tracker <- add_qr(tracker, qr_content, color, height_tracker, pos, qr_justification)
 
   # setup logo
   if (!is.null(logo)) {
-    tracker <- add_logo(tracker, logo, height_tracker, pos)
+    tracker <- add_logo(tracker, logo, height_tracker, pos, logo_justification)
   }
 
   # setup caption
