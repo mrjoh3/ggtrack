@@ -139,11 +139,15 @@
   <span class='va'>gg</span>,
   <span class='va'>qr_content</span>,
   color <span class='op'>=</span> <span class='st'>"black"</span>,
-  height_plot <span class='op'>=</span> <span class='fl'>10</span>,
-  height_tracker <span class='op'>=</span> <span class='fl'>1.8</span>,
-  interactive <span class='op'>=</span> <span class='cn'>FALSE</span>,
   caption <span class='op'>=</span> <span class='cn'>NULL</span>,
   logo <span class='op'>=</span> <span class='cn'>NULL</span>,
+  order <span class='op'>=</span> <span class='st'>"CLQ"</span>,
+  positions <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>55</span>, <span class='fl'>25</span>, <span class='fl'>20</span><span class='op'>)</span>,
+  logo_justification <span class='op'>=</span> <span class='fl'>1</span>,
+  qr_justification <span class='op'>=</span> <span class='fl'>1</span>,
+  height_plot <span class='op'>=</span> <span class='fl'>7</span>,
+  height_tracker <span class='op'>=</span> <span class='fl'>1.8</span>,
+  interactive <span class='op'>=</span> <span class='cn'>FALSE</span>,
   plotly_heights <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.8</span>, <span class='fl'>0.2</span><span class='op'>)</span>
 <span class='op'>)</span></pre>
 
@@ -156,11 +160,29 @@
     </tr>
     <tr>
       <th>qr_content</th>
-      <td><p>character to encode into QR code</p></td>
+      <td><p><code>character</code> content passed to <a href='https://rdrr.io/pkg/qrencoder/man/qrencode.html'>qrencode</a>. A time stamp is automatically added plus the current
+git commit where available.</p></td>
     </tr>
     <tr>
       <th>color</th>
       <td><p>character color of the QR code</p></td>
+    </tr>
+    <tr>
+      <th>caption</th>
+      <td><p><code>character</code> or <code>grob</code> to add to footer. Text can be
+<code>html</code> or <code>md</code> and is passed directly to <a href='https://wilkelab.org/gridtext/reference/richtext_grob.html'>richtext_grob</a></p></td>
+    </tr>
+    <tr>
+      <th>logo</th>
+      <td><p>file to add to footer as a logo</p></td>
+    </tr>
+    <tr>
+      <th>logo_justification</th>
+      <td><p>numeric between 0 and 1 passed to <a href='https://rdrr.io/r/grid/grid.raster.html'>rasterGrob</a>. See note below.</p></td>
+    </tr>
+    <tr>
+      <th>qr_justification</th>
+      <td><p>numeric between 0 and 1 passed to <a href='https://rdrr.io/r/grid/grid.raster.html'>rasterGrob</a>. See note below.</p></td>
     </tr>
     <tr>
       <th>height_plot</th>
@@ -175,14 +197,6 @@
       <td><p>logical use plotly for interactivity</p></td>
     </tr>
     <tr>
-      <th>caption</th>
-      <td><p>character text to add to footer</p></td>
-    </tr>
-    <tr>
-      <th>logo</th>
-      <td><p>file to add to footer as a logo</p></td>
-    </tr>
-    <tr>
       <th>plotly_heights</th>
       <td><p>numeric vector of length 2 to fix relative height of plot and tracking banner</p></td>
     </tr>
@@ -193,6 +207,11 @@
     
 
 
+    <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
+
+    <p>For Justification you need to imagine each element in its own rectangle with a bottom
+dimension of 0 to 1. If you want the logo or QR code on the right of the rectangle set justification
+to 1, or 0 for left.</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
