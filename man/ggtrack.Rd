@@ -12,7 +12,9 @@ ggtrack(
   logo = NULL,
   order = "CLQ",
   positions = c(55, 25, 20),
-  height_plot = 10,
+  logo_justification = 1,
+  qr_justification = 1,
+  height_plot = 7,
   height_tracker = 1.8,
   interactive = FALSE,
   plotly_heights = c(0.8, 0.2)
@@ -31,6 +33,10 @@ git commit where available.}
 
 \item{logo}{file to add to footer as a logo}
 
+\item{logo_justification}{numeric between 0 and 1 passed to \link[grid]{rasterGrob}. See note below.}
+
+\item{qr_justification}{numeric between 0 and 1 passed to \link[grid]{rasterGrob}. See note below.}
+
 \item{height_plot}{integer centimeters}
 
 \item{height_tracker}{integer centimeters}
@@ -44,4 +50,9 @@ git commit where available.}
 }
 \description{
 Add Tracking Footer
+}
+\note{
+For Justification you need to imagine each element in its own rectangle with a bottom
+dimension of 0 to 1. If you want the logo or QR code on the right of the rectangle set justification
+to 1, or 0 for left.
 }
