@@ -27,6 +27,9 @@ jobs:
       - name: Install libmagick
         run: sudo apt-get install libmagick++-dev
         
+      - name: Install gdal
+        run: sudo apt-get install gdal-bin proj-bin libgdal-dev libproj-dev
+        
       - name: Query dependencies
         run: |
           install.packages('remotes')
