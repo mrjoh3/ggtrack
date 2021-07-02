@@ -84,7 +84,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ggtrack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.2</span>
       </span>
     </div>
 
@@ -148,7 +148,8 @@
   height_plot <span class='op'>=</span> <span class='fl'>7</span>,
   height_tracker <span class='op'>=</span> <span class='fl'>1.8</span>,
   interactive <span class='op'>=</span> <span class='cn'>FALSE</span>,
-  plotly_heights <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.8</span>, <span class='fl'>0.2</span><span class='op'>)</span>
+  plotly_heights <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.8</span>, <span class='fl'>0.2</span><span class='op'>)</span>,
+  <span class='va'>...</span>
 <span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -199,6 +200,10 @@ git commit where available.</p></td>
     <tr>
       <th>plotly_heights</th>
       <td><p>numeric vector of length 2 to fix relative height of plot and tracking banner</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>options passed to <a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a> in order to style the tracker banner.</p></td>
     </tr>
     </table>
 
