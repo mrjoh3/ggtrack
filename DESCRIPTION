@@ -30,6 +30,8 @@ Imports:
     gridExtra,
     jpeg,
     png,
+    rsvg,
+    magick,
     gridtext,
     qrencoder,
     plotly

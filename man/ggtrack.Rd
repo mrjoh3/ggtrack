@@ -17,7 +17,8 @@ ggtrack(
   height_plot = 7,
   height_tracker = 1.8,
   interactive = FALSE,
-  plotly_heights = c(0.8, 0.2)
+  plotly_heights = c(0.8, 0.2),
+  ...
 )
 }
 \arguments{
@@ -44,6 +45,8 @@ git commit where available.}
 \item{interactive}{logical use plotly for interactivity}
 
 \item{plotly_heights}{numeric vector of length 2 to fix relative height of plot and tracking banner}
+
+\item{...}{options passed to \link[ggplot2]{theme} in order to style the tracker banner.}
 }
 \value{
 
