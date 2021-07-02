@@ -90,11 +90,11 @@ ggtrack(tp,
                             'https://github.com/ropensci/rWBclimate / ',
                             'https://docs.ropensci.org/rWBclimate/'),
         logo = 'man/figures/ggtrack-logo.svg',
-        caption = paste0('data accesses from the World Bank ',
-                         'Climate Portal via<br>the R package ',
+        caption = paste0('data accesses from the World Bank <br>',
+                         'Climate Portal via the R package <br>',
                          '<span style="color:blue">rWBclimate</span>.'),
         plot.background = element_rect(fill = "#f0f0f0", size = 0)) 
 #> `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 ```
 
-<img src="man/figures/README-example-1.png" width="80%" style="display: block; margin: auto;" />
+<img src="man/figures/README-example-1.png" width="100%" style="display: block; margin: auto;" />
