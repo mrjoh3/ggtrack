@@ -62,15 +62,27 @@ To start you just need a `ggplot` and some text you wish to encode into the QR. 
 library(ggtrack)
 library(ggplot2)
 library(grid)
+library(rWBclimate)
+library(ggthemes)
 
-gg <- ggplot(mapping = aes(x = 1:10, y = rnorm(10))) +
-  geom_bar(stat = 'identity') +
-  theme_minimal()
+temp <- get_historical_temp('aus', "year")
 
-ggtrack(gg,
-        qr_content = 'For all your image tracking needs: https://github.com/mrjoh3/ggtrack',
-        logo = 'https://www.r-project.org/logo/Rlogo.png',
-        caption = 'Lots of extra info, or a fancy <span style="color:blue">"grob"</span>.')
+tp <- ggplot(temp, aes(x = year, y = data)) +
+  geom_path(color = 'blue') + geom_point(color = 'darkblue') +
+  labs(title = 'Average Annual Temperature for Australia',
+       y = 'degrees celcius') +
+  stat_smooth(se = TRUE, colour = "darkred") +
+  theme_fivethirtyeight() 
+
+ggtrack(tp, 
+        qr_content = paste0('Data accessed using R package: ',
+                            'https://github.com/ropensci/rWBclimate / ',
+                            'https://docs.ropensci.org/rWBclimate/'),
+        logo = 'man/figures/ggtrack-logo.svg',
+        caption = paste0('data accesses from the World Bank ',
+                         'Climate Portal via<br>the R package ',
+                         '<span style="color:blue">rWBclimate</span>.'),
+        plot.background = element_rect(fill = "#f0f0f0", size = 0)) 
 
 ```
 

@@ -123,6 +123,37 @@ dl <- make_download(g,
 Something to consider at this point, with a down load button it is possible to display a plot without the additional metadata. Then pass the tracker object to the download link or button for users. This is a simple way to maintain the aesthetics of your report but still include vital metadata.
 
 
+## Tracking Banner Style
+
+The tracking banner is a simple `ggplot` object. The tracking elements are `grob` objects added via `annotation_custom`. As a `ggplot` object the banner can also be styled in the same way. Any `ggplot` theme options are passed directly to the tracking banner theme. This enable you to match the tracker to your page theme or ggplot theme.
+
+```{r style, fig.width=8, fig.height=5, out.width="100%", fig.align='center', fig.retina=2}
+
+library(rWBclimate)
+library(ggthemes)
+
+temp <- get_historical_temp('aus', "year")
+
+tp <- ggplot(temp, aes(x = year, y = data)) +
+  geom_path(color = 'blue') + geom_point(color = 'darkblue') +
+  labs(title = 'Average Annual Temperature for Australia',
+       y = 'degrees celcius') +
+  stat_smooth(se = TRUE, colour = "darkred") +
+  theme_fivethirtyeight() 
+
+ggtrack(tp, 
+        qr_content = paste0('Data accessed using R package: ',
+                            'https://github.com/ropensci/rWBclimate / ',
+                            'https://docs.ropensci.org/rWBclimate/'),
+        logo = '../man/figures/ggtrack-logo.svg',
+        caption = paste0('data accesses from the World Bank ',
+                         'Climate Portal via<br>the R package ',
+                         '<span style="color:blue">rWBclimate</span>.'),
+        plot.background = element_rect(fill = "#f0f0f0", size = 0))  
+```
+
+
+
 ## Retrieving Metadata
 
 The metadata from the QR code can be read using the scanner on your phone. If you need to programatically extract this data use the [quadrangle package](https://github.com/brianwdavis/quadrangle). Given the way the QR code are generated, you will need to ensure you specify `flop = TRUE`. This essentially flips the image to replicate what a scanner looking at a screen would capture.
@@ -136,6 +167,7 @@ qr <- qr_scan("../man/figures/ggtrack_chart_.png", flop = TRUE, plot = FALSE)
 
 qr$values$value
 ```
+
 
 
 

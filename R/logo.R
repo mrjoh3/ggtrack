@@ -12,6 +12,8 @@
 #' @import RCurl
 #' @import png
 #' @import jpeg
+#' @import rsvg
+#' @importFrom magick image_read_svg
 #'
 #' @return
 #' @export
@@ -33,6 +35,8 @@ add_logo <- function(tracker, logo, height_tracker, position, justification) {
     logo_imported <- png::readPNG(logo)
   } else if (ext %in% c('jpg', 'jpeg')) {
     logo_imported <- jpeg::readJPEG(logo)
+  } else if (ext == 'svg') {
+    logo_imported <- magick::image_read_svg(logo, height = 300)
   } else {
     stop(paste0('Unable to Add filetype: ', ext))
   }
