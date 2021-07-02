@@ -45,6 +45,8 @@ jobs:
         run: |
           remotes::install_deps(dependencies = TRUE)
           install.packages("pkgdown")
+          install.packages("ggthemes")
+          remotes::install_github("ropensci/rWBclimate")
           remotes::install_github("brianwdavis/quadrangle")
         shell: Rscript {0}
 
