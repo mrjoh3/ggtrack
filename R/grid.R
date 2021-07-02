@@ -17,6 +17,7 @@
 #' @param height_tracker integer centimeters
 #' @param interactive logical use plotly for interactivity
 #' @param plotly_heights numeric vector of length 2 to fix relative height of plot and tracking banner
+#' @param ... options passed to \link[ggplot2]{theme} in order to style the tracker banner.
 #'
 #' @note For Justification you need to imagine each element in its own rectangle with a bottom
 #' dimension of 0 to 1. If you want the logo or QR code on the right of the rectangle set justification
@@ -43,14 +44,16 @@ ggtrack <- function(gg,
                     height_plot = 7,
                     height_tracker = 1.8,
                     interactive = FALSE,
-                    plotly_heights = c(.8,.2)) {
+                    plotly_heights = c(.8,.2),
+                    ...) {
 
   # define size and order of 3 containers
   pos <- get_positions(order, positions)
 
   # build tracker as plot, this is the tracker object
   tracker <- ggplot(mapping = aes(x = 0:1, y = 1)) +
-    theme_void()
+    theme_void() +
+    theme(...)
 
   class(tracker) <- c(class(tracker), 'ggtracker')
 
