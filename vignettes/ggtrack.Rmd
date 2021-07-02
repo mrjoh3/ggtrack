@@ -125,7 +125,7 @@ Something to consider at this point, with a down load button it is possible to d
 
 ## Tracking Banner Style
 
-The tracking banner is a simple `ggplot` object. The tracking elements are `grob` objects added via `annotation_custom`. As a `ggplot` object the banner can also be styled in the same way. Any `ggplot` theme options are passed directly to the tracking banner theme. This enable you to match the tracker to your page theme or ggplot theme.
+The tracking banner is a simple `ggplot` object. The tracking elements are `grob` objects added via `annotation_custom`. As a `ggplot` object the banner can also be styled in the same way. Any `ggplot` theme options are passed directly to the tracking banner theme. This enables you to match the tracker to your page theme or ggplot theme. For all available theme options see https://ggplot2.tidyverse.org/reference/theme.html.
 
 ```{r style, fig.width=8, fig.height=5, out.width="100%", fig.align='center', fig.retina=2}
 
