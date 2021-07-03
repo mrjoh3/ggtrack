@@ -4,8 +4,18 @@
 \alias{print.tracker}
 \title{Print Tracker}
 \usage{
-\method{print}{tracker}(tracker)
+\method{print}{tracker}(x, ...)
+}
+\arguments{
+\item{x}{ggtrack tracker object}
+
+\item{...}{print options}
 }
 \description{
 Print Tracker
+}
+\examples{
+
+print(make_tracker())
+
 }

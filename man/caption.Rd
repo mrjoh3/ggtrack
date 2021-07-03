@@ -9,13 +9,15 @@
 \usage{
 caption(tracker, caption, position, ...)
 
-add_caption(x, ...)
+add_caption(tracker, ...)
 
 \method{add_caption}{gg}(tracker, caption, position, ...)
 
 \method{add_caption}{tracker}(tracker, caption, ...)
 }
 \arguments{
+\item{tracker}{ggtrack tracker object}
+
 \item{caption}{\code{character} or \code{grob} to add to footer. Text can be
 \code{html} or \code{md} and is passed directly to \link[gridtext]{richtext_grob}}
 
@@ -24,10 +26,15 @@ add_caption(x, ...)
 \item{...}{additional options passed through to \link[gridtext]{richtext_grob}}
 }
 \value{
-
+tracker
 }
 \description{
 Add Caption to Tracker
+}
+\examples{
+
+  make_tracker() \%>\% add_caption('your caption')
+
 }
 \seealso{
 Other gg: 

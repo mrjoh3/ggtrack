@@ -68,8 +68,6 @@ the screen. QR code are encoded using the
 
 ``` r
 library(ggtrack)
-#> Warning: replacing previous import 'ggplot2::last_plot' by 'plotly::last_plot'
-#> when loading 'ggtrack'
 library(ggplot2)
 library(grid)
 library(rWBclimate)

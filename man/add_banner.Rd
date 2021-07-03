@@ -4,14 +4,29 @@
 \alias{add_banner}
 \title{Add Tracking Banner to Plot}
 \usage{
-add_banner(gg, tracker, height_plot)
+add_banner(gg, tracker, height_plot = 7)
 }
 \arguments{
-\item{height_plot}{}
+\item{gg}{ggplot object to track}
+
+\item{tracker}{ggtrack tracker object}
+
+\item{height_plot}{numeric tracker height in cm.}
 }
 \value{
-
+tracker
 }
 \description{
 Add Tracking Banner to Plot
+}
+\examples{
+
+\dontrun{
+
+  track <- make_tracker()
+
+  ggplot() \%>\%
+    add_banner(track)
+
+}
 }

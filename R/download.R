@@ -7,6 +7,7 @@
 #' @param tracker tracker object to be saved
 #' @param save_file character vector, where length > 1, path is generated using \link[base]{file.path}
 #' @param download_file character vector, where length > 1, path is generated using \link[base]{file.path}
+#' @param ext character device type passed to \link[ggplot2]{ggsave}
 #' @param link_text character text to appear on the page
 #' @param type character must be one of "link" or "button".
 #' @param height integer height value passed to \link[ggplot2]{ggsave}
@@ -21,7 +22,6 @@
 #' @return html of the link object
 #' @export
 #'
-#' @examples
 make_download <- function(tracker,
                           save_file,
                           download_file,

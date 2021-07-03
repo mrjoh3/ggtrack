@@ -27,6 +27,8 @@ make_download(
 
 \item{download_file}{character vector, where length > 1, path is generated using \link[base]{file.path}}
 
+\item{ext}{character device type passed to \link[ggplot2]{ggsave}}
+
 \item{link_text}{character text to appear on the page}
 
 \item{type}{character must be one of "link" or "button".}

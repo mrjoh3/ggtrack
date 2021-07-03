@@ -6,15 +6,25 @@
 #' @param qr_content \code{character} content passed to \link[qrencoder]{qrencode}. A time stamp is automatically added plus the current
 #' git commit where available.
 #' @param color character color of the QR code
+#' @param color_bg character background color of QR code
 #' @param caption \code{character} or \code{grob} to add to footer. Text can be
 #' \code{html} or \code{md} and is passed directly to \link[gridtext]{richtext_grob}
 #' @param logo file to add to footer as a logo
-#' @param order
-#' @param positions
+#' @param order \code{character} of \code{length} 3 defining placement
+#' order for "caption" (C), "logo" (L) and "QR" (Q) code. Must be one of:
+#' \itemize{
+#'   \item{CLQ}
+#'   \item{LCQ}
+#'   \item{QLC}
+#'   \item{CQL}
+#' }
+#' @param positions \code{numeric} \code{vector} of \code{length} 3,
+#' defining the horizontal proportion of each container. The 3 numbers
+#' must add to 100.
 #' @param logo_justification numeric between 0 and 1 passed to \link[grid]{rasterGrob}. See note below.
 #' @param qr_justification numeric between 0 and 1 passed to \link[grid]{rasterGrob}. See note below.
-#' @param height_plot integer centimeters
-#' @param height_tracker integer centimeters
+#' @param height_plot numeric plot height in cm.
+#' @param height_tracker numeric tracker height in cm.
 #' @param interactive logical use plotly for interactivity
 #' @param plotly_heights numeric vector of length 2 to fix relative height of plot and tracking banner
 #' @param ... options passed to \link[ggplot2]{theme} in order to style the tracker banner.
@@ -26,12 +36,10 @@
 #' @import ggplot2
 #' @import grid
 #' @import gridExtra
-#' @import plotly
 #'
-#' @return
+#' @return grid
 #' @export
 #'
-#' @examples
 ggtrack <- function(gg,
                     qr_content,
                     color = 'black',
@@ -75,7 +83,8 @@ ggtrack <- function(gg,
     theme(plot.margin=unit(c(.5, 0, .3, 0),"cm"))
 
   if (interactive) {
-    plotly::subplot(gg, tracker, nrows = 2, heights = plotly_heights)
+    #plotly::subplot(gg, tracker, nrows = 2, heights = plotly_heights)
+    warning('interactive option currently unavailable')
   } else {
     gridExtra::grid.arrange(gg, tracker, heights = unit(c(height_plot, height_tracker + 1.5 ), "cm"))
   }
@@ -90,14 +99,26 @@ ggtrack <- function(gg,
 
 #' @title Define Tracker Base
 #'
-#' @param order
-#' @param positions
-#' @param height_tracker
+#' @param order \code{character} of \code{length} 3 defining placement
+#' order for "caption" (C), "logo" (L) and "QR" (Q) code. Must be one of:
+#' \itemize{
+#'   \item{CLQ}
+#'   \item{LCQ}
+#'   \item{QLC}
+#'   \item{CQL}
+#' }
+#' @param positions \code{numeric} \code{vector} of \code{length} 3,
+#' defining the horizontal proportion of each container. The 3 numbers
+#' must add to 100.
+#' @param height_tracker numeric tracker height in cm.
 #'
 #' @return tracker
 #' @export
 #'
 #' @examples
+#'
+#' make_tracker()
+#'
 make_tracker <- function(order = 'CLQ',
                          positions = c(55, 25, 20),
                          height_tracker = 1.8) {
@@ -118,12 +139,14 @@ make_tracker <- function(order = 'CLQ',
 
 #' @title Create Tracker Object
 #'
-#' @param tracker
-#' @param pos
-#' @param height_tracker
+#' @param tracker ggtrack tracker object
+#' @param pos \code{numeric} \code{vector} of \code{length} 3,
+#' defining the horizontal proportion of each container. The 3 numbers
+#' must add to 100.
+#' @param height_tracker numeric tracker height in cm.
 #' @param contains character vector tracks what elements have been added to tracker
 #'
-#' @return
+#' @return tracker
 #'
 obj_tracker <- function(tracker, pos, height_tracker, contains) {
 
@@ -143,14 +166,23 @@ obj_tracker <- function(tracker, pos, height_tracker, contains) {
 
 #' @title Add Tracking Banner to Plot
 #'
-#' @param gg
-#' @param tracker
-#' @param height_plot
+#' @param gg ggplot object to track
+#' @param tracker ggtrack tracker object
+#' @param height_plot numeric tracker height in cm.
 #'
-#' @return
+#' @return tracker
 #' @export
 #'
 #' @examples
+#'
+#' \dontrun{
+#'
+#'   track <- make_tracker()
+#'
+#'   ggplot() %>%
+#'     add_banner(track)
+#'
+#' }
 add_banner <- function(gg, tracker, height_plot = 7) {
 
   height_tracker <- tracker$height
@@ -166,13 +198,16 @@ add_banner <- function(gg, tracker, height_plot = 7) {
 
 #' @title Modify Tracking Banner Theme
 #'
-#' @param tracker
-#' @param ...
+#' @param tracker ggtrack tracker object
+#' @param ... options passed to \link[ggplot2]{theme} in order to style the tracker banner.
 #'
-#' @return
+#' @return tracker
 #' @export
 #'
 #' @examples
+#'
+#'   make_tracker() %>% add_theme(plot.background = ggplot2::element_rect(fill = "red", size = 0))
+#'
 add_theme <- function(tracker, ...) {
 
   height_tracker <- tracker$height
@@ -191,31 +226,39 @@ add_theme <- function(tracker, ...) {
 
 #' @title Print Tracker
 #'
-#' @param tracker
+#' @param x ggtrack tracker object
+#' @param ... print options
+#'
 #' @export
-print.tracker <- function(tracker) {
+#' @examples
+#'
+#' print(make_tracker())
+#'
+print.tracker <- function(x, ...) {
 
   cat("ggtrack tracking banner\n")
   cat("=======================\n\n")
-  cat(glue("banner height: {tracker$height} cm \n"))
+  cat(glue("banner height: {x$height} cm \n"))
   cat("\n\nincluded elements:\n   - ")
-  cat(tracker$contains, sep = '\n   - ')
+  cat(x$contains, sep = '\n   - ')
   cat('\nelement positions:\n\n')
-  tracker$pos
+  x$pos
 
 }
 
-#' @title Print Tracker Object
+#' @title Plot Tracker Object
 #'
-#' @param tracker
+#' @param x ggtrack tracker object
+#' @param ... plot options
 #'
-#' @return
 #' @export
-#'
 #' @examples
-plot.tracker <- function(tracker) {
+#'
+#' plot(make_tracker())
+#'
+plot.tracker <- function(x, ...) {
 
-  tracker$track +
+  x$track +
     labs(title = 'ggtrack tracker banner',
          subtitle = "add to a ggplot using add_banner(plot, tracker)")
 }
