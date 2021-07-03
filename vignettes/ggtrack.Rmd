@@ -132,39 +132,44 @@ The tracking banner is a simple `ggplot` object. The tracking elements are `grob
 library(rWBclimate)
 library(ggthemes)
 
-temp <- get_historical_temp('aus', "year")
+temperature <- get_historical_temp('aus', "year")
 
-tp <- ggplot(temp, aes(x = year, y = data)) +
+temperature_plot <- ggplot(temp, aes(x = year, y = data)) +
   geom_path(color = 'blue') + geom_point(color = 'darkblue') +
   labs(title = 'Average Annual Temperature for Australia',
        y = 'degrees celcius') +
   stat_smooth(se = TRUE, colour = "darkred") +
   theme_fivethirtyeight() 
 
-ggtrack(tp, 
-        qr_content = paste0('Data accessed using R package: ',
-                            'https://github.com/ropensci/rWBclimate / ',
-                            'https://docs.ropensci.org/rWBclimate/'),
+for_QR <- paste0('Data accessed using R package: ',
+                 'https://github.com/ropensci/rWBclimate / ',
+                 'https://docs.ropensci.org/rWBclimate/')
+for_Caption <- paste0('data accesses from the World Bank <br>',
+                      'Climate Portal via the R package <br>',
+                      '<span style="color:blue">rWBclimate</span>.')
+
+ggtrack(temperature_plot, 
+        qr_content = for_QR,
         logo = '../man/figures/ggtrack-logo.svg',
-        caption = paste0('data accesses from the World Bank <br>',
-                         'Climate Portal via the R package <br>',
-                         '<span style="color:blue">rWBclimate</span>.'),
+        caption = for_Caption,
         plot.background = element_rect(fill = "#f0f0f0", size = 0))  
 ```
 
 
 ## One Tracker Per Document
 
-In some cases you may wish to create a single tracking banner and add it to multiple plots. `ggtrack` can be used in two ways
+In some cases you may wish to create a single tracking banner and add it to multiple plots. `ggtrack` also has a more granular API that allows the user to iteratively build the banner. This banner can then be added to any existing plot. 
 
-```{r build}
+```{r build, fig.width=8, fig.height=5, out.width="100%", fig.align='center', fig.retina=2}
 
 track <- make_tracker() %>% 
   add_logo('../man/figures/ggtrack-logo.svg', 1) %>% 
-  add_qr('sometext', justification = 1) %>% 
-  add_caption('more text')
+  add_qr(for_QR, justification = 1) %>% 
+  add_caption(for_Caption) %>%
+  add_theme(plot.background = element_rect(fill = "#ff9955", size = 0))
 
-track
+temperature_plot %>%
+  add_banner(track)
 
 ```
 
