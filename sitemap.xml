@@ -4,13 +4,13 @@
     <loc>https://mrjoh3.github.io/ggtrack/index.html</loc>
   </url>
   <url>
-    <loc>https://mrjoh3.github.io/ggtrack/reference/add_caption.html</loc>
+    <loc>https://mrjoh3.github.io/ggtrack/reference/add_banner.html</loc>
   </url>
   <url>
-    <loc>https://mrjoh3.github.io/ggtrack/reference/add_logo.html</loc>
+    <loc>https://mrjoh3.github.io/ggtrack/reference/add_theme.html</loc>
   </url>
   <url>
-    <loc>https://mrjoh3.github.io/ggtrack/reference/add_qr.html</loc>
+    <loc>https://mrjoh3.github.io/ggtrack/reference/caption.html</loc>
   </url>
   <url>
     <loc>https://mrjoh3.github.io/ggtrack/reference/get_positions.html</loc>
@@ -19,10 +19,31 @@
     <loc>https://mrjoh3.github.io/ggtrack/reference/ggtrack.html</loc>
   </url>
   <url>
+    <loc>https://mrjoh3.github.io/ggtrack/reference/logo.html</loc>
+  </url>
+  <url>
     <loc>https://mrjoh3.github.io/ggtrack/reference/make_download.html</loc>
   </url>
   <url>
     <loc>https://mrjoh3.github.io/ggtrack/reference/make_qr.html</loc>
+  </url>
+  <url>
+    <loc>https://mrjoh3.github.io/ggtrack/reference/make_tracker.html</loc>
+  </url>
+  <url>
+    <loc>https://mrjoh3.github.io/ggtrack/reference/obj_tracker.html</loc>
+  </url>
+  <url>
+    <loc>https://mrjoh3.github.io/ggtrack/reference/pipe.html</loc>
+  </url>
+  <url>
+    <loc>https://mrjoh3.github.io/ggtrack/reference/plot.tracker.html</loc>
+  </url>
+  <url>
+    <loc>https://mrjoh3.github.io/ggtrack/reference/print.tracker.html</loc>
+  </url>
+  <url>
+    <loc>https://mrjoh3.github.io/ggtrack/reference/qr.html</loc>
   </url>
   <url>
     <loc>https://mrjoh3.github.io/ggtrack/articles/ggtrack.html</loc>

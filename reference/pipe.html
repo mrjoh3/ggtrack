@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Make QR — make_qr • ggtrack</title>
+<title>Pipe operator — %&gt;% • ggtrack</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,8 +46,8 @@
 
 
 
-<meta property="og:title" content="Make QR — make_qr" />
-<meta property="og:description" content="Make QR" />
+<meta property="og:title" content="Pipe operator — %&gt;%" />
+<meta property="og:description" content="See magrittr::%&amp;gt;% for details." />
 <meta property="og:image" content="https://mrjoh3.github.io/ggtrack/reference/figures/ggtrack-logo.png" />
 <meta property="og:image:alt" content="Use ggrack to add metadata to your ggplot" />
 <meta name="twitter:card" content="summary" />
@@ -126,36 +126,33 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Make QR</h1>
-    <small class="dont-index">Source: <a href='https://github.com/mrjoh3/ggtrack/blob/master/R/qr.R'><code>R/qr.R</code></a></small>
-    <div class="hidden name"><code>make_qr.Rd</code></div>
+    <h1>Pipe operator</h1>
+    <small class="dont-index">Source: <a href='https://github.com/mrjoh3/ggtrack/blob/master/R/utils-pipe.R'><code>R/utils-pipe.R</code></a></small>
+    <div class="hidden name"><code>pipe.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Make QR</p>
+    <p>See <code>magrittr::%&gt;%</code> for details.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>make_qr</span><span class='op'>(</span><span class='va'>qr_content</span>, color <span class='op'>=</span> <span class='st'>"black"</span>, color_bg <span class='op'>=</span> <span class='st'>"white"</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='va'>lhs</span> <span class='op'>%&gt;%</span> <span class='va'>rhs</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>qr_content</th>
-      <td><p><code>character</code> content passed to <a href='https://rdrr.io/pkg/qrencoder/man/qrencode.html'>qrencode</a>. A time stamp is automatically added plus the current
-git commit where available.</p></td>
+      <th>lhs</th>
+      <td><p>A value or the magrittr placeholder.</p></td>
     </tr>
     <tr>
-      <th>color_bg</th>
-      <td></td>
+      <th>rhs</th>
+      <td><p>A function call using the magrittr semantics.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    
-
-
+    <p>The result of calling <code>rhs(lhs)</code>.</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
