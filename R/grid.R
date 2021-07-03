@@ -84,3 +84,83 @@ ggtrack <- function(gg,
 
 
 
+
+
+
+#' @title Define Tracker Base
+#'
+#' @param order
+#' @param positions
+#' @param height_tracker
+#'
+#' @return tracker
+#' @export
+#'
+#' @examples
+make_tracker <- function(order = 'CLQ',
+                         positions = c(55, 25, 20),
+                         height_tracker = 1.8) {
+
+  # define size and order of 3 containers
+  pos <- get_positions(order, positions)
+
+  # build tracker as plot, this is the tracker object
+  tracker <- ggplot(mapping = aes(x = 0:1, y = 1)) +
+    theme_void()
+
+  mtrack <- obj_tracker(tracker, pos, height_tracker, 'background')
+
+  return(mtrack)
+
+}
+
+
+#' @title Create Tracker Object
+#'
+#' @param tracker
+#' @param pos
+#' @param height_tracker
+#' @param contains character vector tracks what elements have been added to tracker
+#'
+#' @return
+#'
+obj_tracker <- function(tracker, pos, height_tracker, contains) {
+
+  if (is.null(tracker$contains)) {
+    tracker <- list(track = tracker,
+                    pos = pos,
+                    height = height_tracker,
+                    contains = contains)
+    class(tracker) <- 'tracker'
+  } else {
+    tracker$contains <- c(tracker$contains, contains)
+  }
+
+  return(tracker)
+
+}
+
+
+#' @rdname print.tracker
+#' @family print
+#' @family tracker
+#' @export
+print <- function (x, ...) {
+  UseMethod("print", x)
+}
+
+
+#' @title Print Tracker
+#'
+#' @param tracker
+#' @export
+print.tracker <- function(tracker) {
+
+  cat("ggtrack tracking banner\n")
+  cat("=======================\n\n")
+  cat(glue("height: {tracker$height} cm \n"))
+  cat("\n\nincluded elements:\n   - ")
+  cat(tracker$contains, sep = '\n   - ')
+  cat('\nelement positions:\n\n')
+  tracker$pos
+
