@@ -35,6 +35,7 @@
 ggtrack <- function(gg,
                     qr_content,
                     color = 'black',
+                    color_bg = 'white',
                     caption = NULL,
                     logo = NULL,
                     order = 'CLQ',
@@ -55,9 +56,9 @@ ggtrack <- function(gg,
     theme_void() +
     theme(...)
 
-  class(tracker) <- c(class(tracker), 'ggtracker')
+  #class(tracker) <- c(class(tracker), 'ggtracker')
 
-  tracker <- add_qr(tracker, qr_content, color, height_tracker, pos, qr_justification)
+  tracker <- add_qr(tracker, qr_content, color, color_bg, height_tracker, pos, qr_justification)
 
   # setup logo
   if (!is.null(logo)) {
@@ -164,3 +165,4 @@ print.tracker <- function(tracker) {
   cat('\nelement positions:\n\n')
   tracker$pos
 
+}
