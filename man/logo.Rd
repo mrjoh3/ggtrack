@@ -41,9 +41,9 @@ tracker
 Add Logo to Tracker
 }
 \examples{
-
+\dontrun{
   make_tracker() \%>\% add_logo('https://www.r-project.org/logo/Rlogo.png', justification = 1)
-
+}
 }
 \seealso{
 Other gg: 

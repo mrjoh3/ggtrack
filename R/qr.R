@@ -18,9 +18,9 @@
 #' @return tracker
 #'
 #' @examples
-#'
+#' \dontrun{
 #'   make_tracker() %>% add_qr('Report ID: 2c9075a5-4d7e-47a5-8616-55dd88af3dc5', justification = 1)
-#'
+#' }
 qr <- function(tracker, qr_content, color = 'black', color_bg = 'white', height_tracker, position, justification, ...) {
 
   # setup QR code

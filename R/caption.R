@@ -15,9 +15,9 @@
 #' @export
 #'
 #' @examples
-#'
+#' \dontrun{
 #'   make_tracker() %>% add_caption('your caption')
-#'
+#' }
 caption <- function(tracker, caption, position, ...) {
 
   if (is.character(caption)) {

@@ -65,9 +65,9 @@ tracker
 Add QR Code to Tracker
 }
 \examples{
-
+\dontrun{
   make_tracker() \%>\% add_qr('Report ID: 2c9075a5-4d7e-47a5-8616-55dd88af3dc5', justification = 1)
-
+}
 }
 \seealso{
 Other gg: 

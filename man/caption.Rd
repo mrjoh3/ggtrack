@@ -32,9 +32,9 @@ tracker
 Add Caption to Tracker
 }
 \examples{
-
+\dontrun{
   make_tracker() \%>\% add_caption('your caption')
-
+}
 }
 \seealso{
 Other gg: 

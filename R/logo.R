@@ -25,9 +25,9 @@
 #' @return tracker
 #'
 #' @examples
-#'
+#' \dontrun{
 #'   make_tracker() %>% add_logo('https://www.r-project.org/logo/Rlogo.png', justification = 1)
-#'
+#' }
 logo <- function(tracker, logo, height_tracker, position, justification, ...) {
 
   # check if url or file
