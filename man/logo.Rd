@@ -35,7 +35,6 @@ Other gg:
 
 Other tracker: 
 \code{\link{caption}()},
-\code{\link{print}()},
 \code{\link{qr}()}
 
 Other gg: 
@@ -44,7 +43,6 @@ Other gg:
 
 Other tracker: 
 \code{\link{caption}()},
-\code{\link{print}()},
 \code{\link{qr}()}
 }
 \concept{add_logo}

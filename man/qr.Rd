@@ -63,8 +63,7 @@ Other gg:
 
 Other tracker: 
 \code{\link{caption}()},
-\code{\link{logo}()},
-\code{\link{print}()}
+\code{\link{logo}()}
 
 Other gg: 
 \code{\link{caption}()},
@@ -72,8 +71,7 @@ Other gg:
 
 Other tracker: 
 \code{\link{caption}()},
-\code{\link{logo}()},
-\code{\link{print}()}
+\code{\link{logo}()}
 }
 \concept{add_qr}
 \concept{gg}
