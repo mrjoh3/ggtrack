@@ -231,7 +231,7 @@ add_theme <- function(tracker, ...) {
 #'
 #' @export
 #' @examples
-#' dontrun{
+#' \dontrun{
 #'   print(make_tracker())
 #' }
 print.tracker <- function(x, ...) {
