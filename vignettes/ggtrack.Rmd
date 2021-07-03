@@ -134,7 +134,7 @@ library(ggthemes)
 
 temperature <- get_historical_temp('aus', "year")
 
-temperature_plot <- ggplot(temp, aes(x = year, y = data)) +
+temperature_plot <- ggplot(temperature, aes(x = year, y = data)) +
   geom_path(color = 'blue') + geom_point(color = 'darkblue') +
   labs(title = 'Average Annual Temperature for Australia',
        y = 'degrees celcius') +
