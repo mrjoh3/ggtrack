@@ -8,6 +8,7 @@ ggtrack(
   gg,
   qr_content,
   color = "black",
+  color_bg = "white",
   caption = NULL,
   logo = NULL,
   order = "CLQ",

@@ -1,3 +1,9 @@
+# ggtrack 0.0.3
+
+* add additional API for incremental banner build
+* ability to add banner to multiple plots
+* generic print and plot functions for `tracker` object
+
 # ggtrack 0.0.2
 
 * add logo caption and QR code to tracking banner

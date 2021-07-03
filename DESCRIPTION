@@ -1,6 +1,6 @@
 Package: ggtrack
 Title: Add Tracking Banner to Plots
-Version: 0.0.2
+Version: 0.0.3
 Authors@R: 
     person(given = "Matt",
            family = "Johnson",
@@ -34,5 +34,6 @@ Imports:
     magick,
     gridtext,
     qrencoder,
-    plotly
+    plotly,
+    magrittr
 URL: https://mrjoh3.github.io/ggtrack

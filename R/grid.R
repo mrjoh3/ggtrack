@@ -35,6 +35,7 @@
 ggtrack <- function(gg,
                     qr_content,
                     color = 'black',
+                    color_bg = 'white',
                     caption = NULL,
                     logo = NULL,
                     order = 'CLQ',
@@ -55,9 +56,9 @@ ggtrack <- function(gg,
     theme_void() +
     theme(...)
 
-  class(tracker) <- c(class(tracker), 'ggtracker')
+  #class(tracker) <- c(class(tracker), 'ggtracker')
 
-  tracker <- add_qr(tracker, qr_content, color, height_tracker, pos, qr_justification)
+  tracker <- add_qr(tracker, qr_content, color, color_bg, height_tracker, pos, qr_justification)
 
   # setup logo
   if (!is.null(logo)) {
@@ -84,3 +85,137 @@ ggtrack <- function(gg,
 
 
 
+
+
+
+#' @title Define Tracker Base
+#'
+#' @param order
+#' @param positions
+#' @param height_tracker
+#'
+#' @return tracker
+#' @export
+#'
+#' @examples
+make_tracker <- function(order = 'CLQ',
+                         positions = c(55, 25, 20),
+                         height_tracker = 1.8) {
+
+  # define size and order of 3 containers
+  pos <- get_positions(order, positions)
+
+  # build tracker as plot, this is the tracker object
+  tracker <- ggplot(mapping = aes(x = 0:1, y = 1)) +
+    theme_void()
+
+  mtrack <- obj_tracker(tracker, pos, height_tracker, 'background')
+
+  return(mtrack)
+
+}
+
+
+#' @title Create Tracker Object
+#'
+#' @param tracker
+#' @param pos
+#' @param height_tracker
+#' @param contains character vector tracks what elements have been added to tracker
+#'
+#' @return
+#'
+obj_tracker <- function(tracker, pos, height_tracker, contains) {
+
+  if (is.null(tracker$contains)) {
+    tracker <- list(track = tracker,
+                    pos = pos,
+                    height = height_tracker,
+                    contains = contains)
+    class(tracker) <- 'tracker'
+  } else {
+    tracker$contains <- c(tracker$contains, contains)
+  }
+
+  return(tracker)
+
+}
+
+#' @title Add Tracking Banner to Plot
+#'
+#' @param gg
+#' @param tracker
+#' @param height_plot
+#'
+#' @return
+#' @export
+#'
+#' @examples
+add_banner <- function(gg, tracker, height_plot = 7) {
+
+  height_tracker <- tracker$height
+
+  tracker$track <- tracker$track +
+    theme(plot.margin=unit(c(.5, 0, .3, 0),"cm"))
+
+  gridExtra::grid.arrange(gg, tracker$track, heights = unit(c(height_plot, height_tracker + 1.5 ), "cm"))
+
+}
+
+
+
+#' @title Modify Tracking Banner Theme
+#'
+#' @param tracker
+#' @param ...
+#'
+#' @return
+#' @export
+#'
+#' @examples
+add_theme <- function(tracker, ...) {
+
+  height_tracker <- tracker$height
+  position <- tracker$pos
+  banner <- tracker$track
+
+  tracker$track <- banner + theme(...)
+
+  mtrack <- obj_tracker(tracker, position, height_tracker, 'theme')
+
+  return(mtrack)
+
+}
+
+
+
+#' @title Print Tracker
+#'
+#' @param tracker
+#' @export
+print.tracker <- function(tracker) {
+
+  cat("ggtrack tracking banner\n")
+  cat("=======================\n\n")
+  cat(glue("banner height: {tracker$height} cm \n"))
+  cat("\n\nincluded elements:\n   - ")
+  cat(tracker$contains, sep = '\n   - ')
+  cat('\nelement positions:\n\n')
+  tracker$pos
+
+}
+
+#' @title Print Tracker Object
+#'
+#' @param tracker
+#'
+#' @return
+#' @export
+#'
+#' @examples
+plot.tracker <- function(tracker) {
+
+  tracker$track +
+    labs(title = 'ggtrack tracker banner',
+         subtitle = "add to a ggplot using add_banner(plot, tracker)")
+}
