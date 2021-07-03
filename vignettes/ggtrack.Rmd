@@ -153,6 +153,21 @@ ggtrack(tp,
 ```
 
 
+## One Tracker Per Document
+
+In some cases you may wish to create a single tracking banner and add it to multiple plots. `ggtrack` can be used in two ways
+
+```{r build}
+
+track <- make_tracker() %>% 
+  add_logo('../man/figures/ggtrack-logo.svg', 1) %>% 
+  add_qr('sometext', justification = 1) %>% 
+  add_caption('more text')
+
+track
+
+```
+
 
 ## Retrieving Metadata
 
