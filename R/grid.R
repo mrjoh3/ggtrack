@@ -141,14 +141,52 @@ obj_tracker <- function(tracker, pos, height_tracker, contains) {
 
 }
 
-
-#' @rdname print.tracker
-#' @family print
-#' @family tracker
+#' @title Add Tracking Banner to Plot
+#'
+#' @param gg
+#' @param tracker
+#' @param height_plot
+#'
+#' @return
 #' @export
-print <- function (x, ...) {
-  UseMethod("print", x)
+#'
+#' @examples
+add_banner <- function(gg, tracker, height_plot = 7) {
+
+  height_tracker <- tracker$height
+
+  tracker$track <- tracker$track +
+    theme(plot.margin=unit(c(.5, 0, .3, 0),"cm"))
+
+  gridExtra::grid.arrange(gg, tracker$track, heights = unit(c(height_plot, height_tracker + 1.5 ), "cm"))
+
 }
+
+
+
+#' @title Modify Tracking Banner Theme
+#'
+#' @param tracker
+#' @param ...
+#'
+#' @return
+#' @export
+#'
+#' @examples
+add_theme <- function(tracker, ...) {
+
+  height_tracker <- tracker$height
+  position <- tracker$pos
+  banner <- tracker$track
+
+  tracker$track <- banner + theme(...)
+
+  mtrack <- obj_tracker(tracker, position, height_tracker, 'theme')
+
+  return(mtrack)
+
+}
+
 
 
 #' @title Print Tracker
@@ -159,10 +197,25 @@ print.tracker <- function(tracker) {
 
   cat("ggtrack tracking banner\n")
   cat("=======================\n\n")
-  cat(glue("height: {tracker$height} cm \n"))
+  cat(glue("banner height: {tracker$height} cm \n"))
   cat("\n\nincluded elements:\n   - ")
   cat(tracker$contains, sep = '\n   - ')
   cat('\nelement positions:\n\n')
   tracker$pos
 
+}
+
+#' @title Print Tracker Object
+#'
+#' @param tracker
+#'
+#' @return
+#' @export
+#'
+#' @examples
+plot.tracker <- function(tracker) {
+
+  tracker$track +
+    labs(title = 'ggtrack tracker banner',
+         subtitle = "add to a ggplot using add_banner(plot, tracker)")
 }
