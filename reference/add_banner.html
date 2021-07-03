@@ -135,23 +135,40 @@
     <p>Add Tracking Banner to Plot</p>
     </div>
 
-    <pre class="usage"><span class='fu'>add_banner</span><span class='op'>(</span><span class='va'>gg</span>, <span class='va'>tracker</span>, <span class='va'>height_plot</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>add_banner</span><span class='op'>(</span><span class='va'>gg</span>, <span class='va'>tracker</span>, height_plot <span class='op'>=</span> <span class='fl'>7</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
+      <th>gg</th>
+      <td><p>ggplot object to track</p></td>
+    </tr>
+    <tr>
+      <th>tracker</th>
+      <td><p>ggtrack tracker object</p></td>
+    </tr>
+    <tr>
       <th>height_plot</th>
-      <td></td>
+      <td><p>numeric tracker height in cm.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    
+    <p>tracker</p>
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'>
+<span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
 
+  <span class='va'>track</span> <span class='op'>&lt;-</span> <span class='fu'><a href='make_tracker.html'>make_tracker</a></span><span class='op'>(</span><span class='op'>)</span>
 
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>add_banner</span><span class='op'>(</span><span class='va'>track</span><span class='op'>)</span>
+
+<span class='op'>}</span>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

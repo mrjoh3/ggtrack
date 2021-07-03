@@ -137,7 +137,7 @@
 
     <pre class="usage"><span class='fu'>caption</span><span class='op'>(</span><span class='va'>tracker</span>, <span class='va'>caption</span>, <span class='va'>position</span>, <span class='va'>...</span><span class='op'>)</span>
 
-<span class='fu'>add_caption</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>...</span><span class='op'>)</span>
+<span class='fu'>add_caption</span><span class='op'>(</span><span class='va'>tracker</span>, <span class='va'>...</span><span class='op'>)</span>
 
 <span class='co'># S3 method for gg</span>
 <span class='fu'>add_caption</span><span class='op'>(</span><span class='va'>tracker</span>, <span class='va'>caption</span>, <span class='va'>position</span>, <span class='va'>...</span><span class='op'>)</span>
@@ -148,6 +148,10 @@
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>tracker</th>
+      <td><p>ggtrack tracker object</p></td>
+    </tr>
     <tr>
       <th>caption</th>
       <td><p><code>character</code> or <code>grob</code> to add to footer. Text can be
@@ -165,9 +169,7 @@
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    
-
-
+    <p>tracker</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Other gg: 
@@ -183,6 +185,11 @@
 <code><a href='logo.html'>logo</a>()</code>,
 <code><a href='qr.html'>qr</a>()</code></p></div>
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+  <span class='fu'><a href='make_tracker.html'>make_tracker</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='fu'>add_caption</span><span class='op'>(</span><span class='st'>'your caption'</span><span class='op'>)</span>
+<span class='op'>}</span>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

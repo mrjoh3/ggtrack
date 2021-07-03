@@ -141,8 +141,24 @@
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
+      <th>order</th>
+      <td><p><code>character</code> of <code>length</code> 3 defining placement
+order for "caption" (C), "logo" (L) and "QR" (Q) code. Must be one of:</p><ul>
+<li><p>CLQ</p></li>
+<li><p>LCQ</p></li>
+<li><p>QLC</p></li>
+<li><p>CQL</p></li>
+</ul></td>
+    </tr>
+    <tr>
+      <th>positions</th>
+      <td><p><code>numeric</code> <code>vector</code> of <code>length</code> 3,
+defining the horizontal proportion of each container. The 3 numbers
+must add to 100.</p></td>
+    </tr>
+    <tr>
       <th>height_tracker</th>
-      <td></td>
+      <td><p>numeric tracker height in cm.</p></td>
     </tr>
     </table>
 
@@ -150,6 +166,11 @@
 
     <p>tracker</p>
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+  <span class='fu'>make_tracker</span><span class='op'>(</span><span class='op'>)</span>
+<span class='op'>}</span>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

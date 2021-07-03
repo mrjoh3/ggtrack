@@ -81,9 +81,7 @@
 
       
 
-      </header><script src="ggtrack_files/accessible-code-block-0.0.1/empty-anchor.js"></script><script src="ggtrack_files/htmlwidgets-1.5.3/htmlwidgets.js"></script><script src="ggtrack_files/plotly-binding-4.9.4.1/plotly.js"></script><script src="ggtrack_files/typedarray-0.1/typedarray.min.js"></script><script src="ggtrack_files/jquery-3.5.1/jquery.min.js"></script><link href="ggtrack_files/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet">
-<script src="ggtrack_files/crosstalk-1.1.1/js/crosstalk.min.js"></script><link href="ggtrack_files/plotly-htmlwidgets-css-1.57.1/plotly-htmlwidgets.css" rel="stylesheet">
-<script src="ggtrack_files/plotly-main-1.57.1/plotly-latest.min.js"></script><div class="row">
+      </header><script src="ggtrack_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>ggtrack</h1>
@@ -237,28 +235,24 @@
 <span class="va">qr</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/quadrangle/man/qr_scan.html">qr_scan</a></span><span class="op">(</span><span class="st">"../man/figures/ggtrack_chart_.png"</span>, flop <span class="op">=</span> <span class="cn">TRUE</span>, plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
 
 <span class="va">qr</span><span class="op">$</span><span class="va">values</span><span class="op">$</span><span class="va">value</span>
-<span class="co">#&gt; [1] "For all your image tracking needs: https://github.com/mrjoh3/ggtrack 098f8d2 20210703-093048"</span></code></pre></div>
-</div>
-<div id="interactive-plots" class="section level2">
-<h2 class="hasAnchor">
-<a href="#interactive-plots" class="anchor"></a>Interactive Plots</h2>
-<p>Adding a tracker to <code>plotly</code> interactive plots is currently a work in progress. This option is not straight forward as <code>geom_GeomCustomAnn()</code> has not yet been implemented in <code>plotly</code>.</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/ggtrack.html">ggtrack</a></span><span class="op">(</span><span class="va">gg</span>,
-        qr_content <span class="op">=</span> <span class="st">'For all your image tracking needs: https://github.com/mrjoh3/ggtrack'</span>,
-        logo <span class="op">=</span> <span class="st">'https://www.r-project.org/logo/Rlogo.png'</span>,
-        caption <span class="op">=</span> <span class="st">'Lots of extra info, or a fancy &lt;span style="color:blue"&gt;"grob"&lt;/span&gt;.'</span>,
-        interactive <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
-<div id="htmlwidget-9c41f4a6c3dbce3fc9e4" style="width:80%;height:480px;" class="plotly html-widget"></div>
-<script type="application/json" data-for="htmlwidget-9c41f4a6c3dbce3fc9e4">{"x":{"data":[{"orientation":"v","width":[0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.899999999999999,0.899999999999999,0.899999999999999],"base":[0,0,-0.0823580088958388,0,-0.81663015356396,-1.50587145266985,0,-0.197239374400743,-0.362008338548128,-0.83146451281353],"x":[1,2,3,4,5,6,7,8,9,10],"y":[0.815558390898092,0.758021843628369,0.0823580088958388,0.230824630285125,0.81663015356396,1.50587145266985,0.0489626450612939,0.197239374400743,0.362008338548128,0.83146451281353],"text":["1:10:  1<br />rnorm(10): 0.81555839","1:10:  2<br />rnorm(10): 0.75802184","1:10:  3<br />rnorm(10): 0.08235801","1:10:  4<br />rnorm(10): 0.23082463","1:10:  5<br />rnorm(10): 0.81663015","1:10:  6<br />rnorm(10): 1.50587145","1:10:  7<br />rnorm(10): 0.04896265","1:10:  8<br />rnorm(10): 0.19723937","1:10:  9<br />rnorm(10): 0.36200834","1:10: 10<br />rnorm(10): 0.83146451"],"type":"bar","marker":{"autocolorscale":false,"color":"rgba(89,89,89,1)","line":{"width":1.88976377952756,"color":"transparent"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"showlegend":false,"xaxis":"x2","yaxis":"y2","hoverinfo":"text","mode":"","frame":null}],"layout":{"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.0550000000000001,10.945],"tickmode":"array","ticktext":["2.5","5.0","7.5","10.0"],"tickvals":[2.5,5,7.5,10],"categoryorder":"array","categoryarray":["2.5","5.0","7.5","10.0"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.65296803652968,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","hoverformat":".2f"},"xaxis2":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.05,1.05],"tickmode":"array","ticktext":[],"tickvals":[],"categoryorder":"array","categoryarray":[],"nticks":null,"ticks":"outside","tickcolor":null,"ticklen":0,"tickwidth":0,"showticklabels":false,"tickfont":{"color":null,"family":null,"size":0},"tickangle":-0,"showline":true,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y2","hoverformat":".2f"},"yaxis2":{"domain":[0,0.18],"automargin":true,"type":"linear","autorange":false,"range":[-0.05,1.05],"tickmode":"array","ticktext":[],"tickvals":[],"categoryorder":"array","categoryarray":[],"nticks":null,"ticks":"outside","tickcolor":null,"ticklen":0,"tickwidth":0,"showticklabels":false,"tickfont":{"color":null,"family":null,"size":0},"tickangle":-0,"showline":true,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"x2","hoverformat":".2f"},"yaxis":{"domain":[0.22,1],"automargin":true,"type":"linear","autorange":false,"range":[-1.62194294484825,0.931629883076489],"tickmode":"array","ticktext":["-1.5","-1.0","-0.5","0.0","0.5"],"tickvals":[-1.5,-1,-0.5,0,0.5],"categoryorder":"array","categoryarray":["-1.5","-1.0","-0.5","0.0","0.5"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.65296803652968,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","hoverformat":".2f"},"annotations":[],"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0.22,"y1":1},{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":0.18}],"images":[],"margin":{"t":34.8976377952756,"r":0,"b":11.3385826771654,"l":0},"font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"showlegend":false,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895}},"hovermode":"closest","barmode":"relative"},"attrs":{"2c8747e9edcf":{"x":{},"y":{},"type":"bar"},"2c8742a7e2e9":{"type":"scatter"},"2c87695d3d71":[],"2c87662627b0":[]},"source":"A","config":{"doubleClick":"reset","showSendToCloud":false},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"subplot":true,"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script><style>
-.hide img {
-  float: right;
-  margin-bottom: -50%; /* crop position */
-}
-</style>
-<div class="hide">
-
-</div>
+<span class="co">#&gt; [1] "For all your image tracking needs: https://github.com/mrjoh3/ggtrack fa6decf 20210703-132431"</span></code></pre></div>
+<!-- ## Interactive Plots -->
+<!-- Adding a tracker to `plotly` interactive plots is currently a work in progress. This option is not straight forward as `geom_GeomCustomAnn()` has not yet been implemented in `plotly`. -->
+<!-- ```{r interactive, fig.width=6, fig.height=5, out.width="80%", fig.align='center', fig.retina=2} -->
+<!-- ggtrack(gg, -->
+<!--         qr_content = 'For all your image tracking needs: https://github.com/mrjoh3/ggtrack', -->
+<!--         logo = 'https://www.r-project.org/logo/Rlogo.png', -->
+<!--         caption = 'Lots of extra info, or a fancy <span style="color:blue">"grob"</span>.', -->
+<!--         interactive = TRUE) -->
+<!-- ``` -->
+<!-- <style> -->
+<!-- .hide img { -->
+<!--   float: right; -->
+<!--   margin-bottom: -50%; /* crop position */ -->
+<!-- } -->
+<!-- </style> -->
+<!-- <div class="hide"> -->
+<!-- </div> -->
 </div>
   </div>
 
