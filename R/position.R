@@ -14,10 +14,13 @@
 #' defining the horizontal proportion of each container. The 3 numbers
 #' must add to 100.
 #'
-#' @return
+#' @return data.frame
 #' @export
 #'
 #' @examples
+#'
+#' get_positions(order = 'CLQ', positions = c(55, 25, 20))
+#'
 get_positions <- function(order, positions) {
 
   order <- toupper(order)

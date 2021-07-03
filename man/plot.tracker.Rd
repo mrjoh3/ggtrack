@@ -2,16 +2,20 @@
 % Please edit documentation in R/grid.R
 \name{plot.tracker}
 \alias{plot.tracker}
-\title{Print Tracker Object}
+\title{Plot Tracker Object}
 \usage{
-\method{plot}{tracker}(tracker)
+\method{plot}{tracker}(x, ...)
 }
 \arguments{
-\item{tracker}{}
-}
-\value{
+\item{x}{ggtrack tracker object}
 
+\item{...}{plot options}
 }
 \description{
-Print Tracker Object
+Plot Tracker Object
+}
+\examples{
+
+plot(make_tracker())
+
 }

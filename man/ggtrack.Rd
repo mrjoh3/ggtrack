@@ -30,18 +30,33 @@ git commit where available.}
 
 \item{color}{character color of the QR code}
 
+\item{color_bg}{character background color of QR code}
+
 \item{caption}{\code{character} or \code{grob} to add to footer. Text can be
 \code{html} or \code{md} and is passed directly to \link[gridtext]{richtext_grob}}
 
 \item{logo}{file to add to footer as a logo}
 
+\item{order}{\code{character} of \code{length} 3 defining placement
+order for "caption" (C), "logo" (L) and "QR" (Q) code. Must be one of:
+\itemize{
+\item{CLQ}
+\item{LCQ}
+\item{QLC}
+\item{CQL}
+}}
+
+\item{positions}{\code{numeric} \code{vector} of \code{length} 3,
+defining the horizontal proportion of each container. The 3 numbers
+must add to 100.}
+
 \item{logo_justification}{numeric between 0 and 1 passed to \link[grid]{rasterGrob}. See note below.}
 
 \item{qr_justification}{numeric between 0 and 1 passed to \link[grid]{rasterGrob}. See note below.}
 
-\item{height_plot}{integer centimeters}
+\item{height_plot}{numeric plot height in cm.}
 
-\item{height_tracker}{integer centimeters}
+\item{height_tracker}{numeric tracker height in cm.}
 
 \item{interactive}{logical use plotly for interactivity}
 
@@ -50,7 +65,7 @@ git commit where available.}
 \item{...}{options passed to \link[ggplot2]{theme} in order to style the tracker banner.}
 }
 \value{
-
+grid
 }
 \description{
 Add Tracking Footer

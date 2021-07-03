@@ -18,7 +18,6 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 BugReports: https://github.com/mrjoh3/ggtrack/issues
 Suggests: 
-    htmltools,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
 Remotes: 
@@ -34,6 +33,7 @@ Imports:
     magick,
     gridtext,
     qrencoder,
-    plotly,
-    magrittr
+    magrittr,
+    glue,
+    htmltools
 URL: https://mrjoh3.github.io/ggtrack

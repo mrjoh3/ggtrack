@@ -7,10 +7,18 @@
 obj_tracker(tracker, pos, height_tracker, contains)
 }
 \arguments{
+\item{tracker}{ggtrack tracker object}
+
+\item{pos}{\code{numeric} \code{vector} of \code{length} 3,
+defining the horizontal proportion of each container. The 3 numbers
+must add to 100.}
+
+\item{height_tracker}{numeric tracker height in cm.}
+
 \item{contains}{character vector tracks what elements have been added to tracker}
 }
 \value{
-
+tracker
 }
 \description{
 Create Tracker Object

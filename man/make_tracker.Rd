@@ -7,11 +7,29 @@
 make_tracker(order = "CLQ", positions = c(55, 25, 20), height_tracker = 1.8)
 }
 \arguments{
-\item{height_tracker}{}
+\item{order}{\code{character} of \code{length} 3 defining placement
+order for "caption" (C), "logo" (L) and "QR" (Q) code. Must be one of:
+\itemize{
+\item{CLQ}
+\item{LCQ}
+\item{QLC}
+\item{CQL}
+}}
+
+\item{positions}{\code{numeric} \code{vector} of \code{length} 3,
+defining the horizontal proportion of each container. The 3 numbers
+must add to 100.}
+
+\item{height_tracker}{numeric tracker height in cm.}
 }
 \value{
 tracker
 }
 \description{
 Define Tracker Base
+}
+\examples{
+
+make_tracker()
+
 }

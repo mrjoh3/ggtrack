@@ -21,8 +21,13 @@ defining the horizontal proportion of each container. The 3 numbers
 must add to 100.}
 }
 \value{
-
+data.frame
 }
 \description{
 Define Tracker Container Positions
+}
+\examples{
+
+get_positions(order = 'CLQ', positions = c(55, 25, 20))
+
 }

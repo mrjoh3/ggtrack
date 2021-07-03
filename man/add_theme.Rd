@@ -7,11 +7,18 @@
 add_theme(tracker, ...)
 }
 \arguments{
-\item{...}{}
+\item{tracker}{ggtrack tracker object}
+
+\item{...}{options passed to \link[ggplot2]{theme} in order to style the tracker banner.}
 }
 \value{
-
+tracker
 }
 \description{
 Modify Tracking Banner Theme
+}
+\examples{
+
+  make_tracker() \%>\% add_theme(plot.background = ggplot2::element_rect(fill = "red", size = 0))
+
 }

@@ -191,30 +191,30 @@ qr$values$value
 
 
 
-## Interactive Plots
+<!-- ## Interactive Plots -->
 
-Adding a tracker to `plotly` interactive plots is currently a work in progress. This option is not straight forward as `geom_GeomCustomAnn()` has not yet been implemented in `plotly`.
+<!-- Adding a tracker to `plotly` interactive plots is currently a work in progress. This option is not straight forward as `geom_GeomCustomAnn()` has not yet been implemented in `plotly`. -->
 
-```{r interactive, fig.width=6, fig.height=5, out.width="80%", fig.align='center', fig.retina=2}
-ggtrack(gg,
-        qr_content = 'For all your image tracking needs: https://github.com/mrjoh3/ggtrack',
-        logo = 'https://www.r-project.org/logo/Rlogo.png',
-        caption = 'Lots of extra info, or a fancy <span style="color:blue">"grob"</span>.',
-        interactive = TRUE)
+<!-- ```{r interactive, fig.width=6, fig.height=5, out.width="80%", fig.align='center', fig.retina=2} -->
+<!-- ggtrack(gg, -->
+<!--         qr_content = 'For all your image tracking needs: https://github.com/mrjoh3/ggtrack', -->
+<!--         logo = 'https://www.r-project.org/logo/Rlogo.png', -->
+<!--         caption = 'Lots of extra info, or a fancy <span style="color:blue">"grob"</span>.', -->
+<!--         interactive = TRUE) -->
 
-```
+<!-- ``` -->
 
 
-<style>
-.hide img {
-  float: right;
-  margin-bottom: -50%; /* crop position */
-}
-</style>
+<!-- <style> -->
+<!-- .hide img { -->
+<!--   float: right; -->
+<!--   margin-bottom: -50%; /* crop position */ -->
+<!-- } -->
+<!-- </style> -->
 
-<div class="hide">
+<!-- <div class="hide"> -->
 
-</div>
+<!-- </div> -->
 
 
 
