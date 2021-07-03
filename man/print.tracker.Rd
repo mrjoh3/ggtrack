@@ -15,7 +15,7 @@
 Print Tracker
 }
 \examples{
-
-print(make_tracker())
-
+dontrun{
+  print(make_tracker())
+}
 }

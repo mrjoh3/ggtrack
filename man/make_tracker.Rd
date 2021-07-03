@@ -29,7 +29,7 @@ tracker
 Define Tracker Base
 }
 \examples{
-
-make_tracker()
-
+\dontrun{
+  make_tracker()
+}
 }

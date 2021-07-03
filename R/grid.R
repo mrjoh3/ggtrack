@@ -116,9 +116,9 @@ ggtrack <- function(gg,
 #' @export
 #'
 #' @examples
-#'
-#' make_tracker()
-#'
+#' \dontrun{
+#'   make_tracker()
+#' }
 make_tracker <- function(order = 'CLQ',
                          positions = c(55, 25, 20),
                          height_tracker = 1.8) {
@@ -231,9 +231,9 @@ add_theme <- function(tracker, ...) {
 #'
 #' @export
 #' @examples
-#'
-#' print(make_tracker())
-#'
+#' dontrun{
+#'   print(make_tracker())
+#' }
 print.tracker <- function(x, ...) {
 
   cat("ggtrack tracking banner\n")
@@ -253,9 +253,9 @@ print.tracker <- function(x, ...) {
 #'
 #' @export
 #' @examples
-#'
-#' plot(make_tracker())
-#'
+#' \dontrun{
+#'   plot(make_tracker())
+#' }
 plot.tracker <- function(x, ...) {
 
   x$track +

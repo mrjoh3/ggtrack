@@ -15,7 +15,7 @@
 Plot Tracker Object
 }
 \examples{
-
-plot(make_tracker())
-
+\dontrun{
+  plot(make_tracker())
+}
 }
