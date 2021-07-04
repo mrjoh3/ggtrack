@@ -7,6 +7,8 @@
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![R-CMD-check](https://github.com/mrjoh3/ggtrack/workflows/R-CMD-check/badge.svg)](https://github.com/mrjoh3/ggtrack/actions)
+[![Codecov test
+coverage](https://codecov.io/gh/mrjoh3/ggtrack/branch/master/graph/badge.svg)](https://codecov.io/gh/mrjoh3/ggtrack?branch=master)
 <!-- badges: end -->
 
 <div style="float: right;">
