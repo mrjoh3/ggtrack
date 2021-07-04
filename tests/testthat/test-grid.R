@@ -2,8 +2,6 @@
 gg <- ggplot(mapping = aes(x = 1:10, y = rnorm(10))) +
   geom_bar(stat = 'identity')
 
-
-
 test_that("We can add a QR code", {
   qr_test <- ggtrack(gg,
                      qr_content = 'text content here')

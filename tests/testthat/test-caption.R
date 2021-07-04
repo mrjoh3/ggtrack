@@ -1,7 +1,5 @@
 
-
 pos <- get_positions("CLQ", c(10, 50, 40))
-
 
 test_that("we can add a Caption to a plot", {
 
@@ -13,9 +11,6 @@ test_that("we can add a Caption to a plot", {
   expect_s3_class(cap, 'ggplot')
 
 })
-
-
-
 
 test_that("we can add a Caption to a tracker", {
   cap <- make_tracker() %>%

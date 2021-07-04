@@ -67,7 +67,7 @@ make_download <- function(tracker,
                          download = basename(download_file),
                          link_text)
   } else if (type == 'button'){
-    link <- glue::glue('<a href = {download_file} download="{basename(download_file)}">',
+    link <- glue::glue('<a href="{download_file}" download="{basename(download_file)}">',
                           '<button type="submit" class="btn" style="{button_style}">',
                             '<i class="fa fa-download"></i>',
                             ' {link_text}',

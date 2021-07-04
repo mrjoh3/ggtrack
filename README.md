@@ -5,7 +5,7 @@
 <!-- badges: start -->
 
 [![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![R-CMD-check](https://github.com/mrjoh3/ggtrack/workflows/R-CMD-check/badge.svg)](https://github.com/mrjoh3/ggtrack/actions)
 [![Codecov test
 coverage](https://codecov.io/gh/mrjoh3/ggtrack/branch/master/graph/badge.svg)](https://codecov.io/gh/mrjoh3/ggtrack?branch=master)
@@ -51,8 +51,10 @@ sudo apt install libpng-dev libjpeg-dev
 
 ## Development
 
-This package is in the early stages of development. If you have any
-suggestions, or feature requests please submit an
+This package is still quite young but now contains most of the desired
+features. It now has a full testing suite and documentation. For future
+updates all efforts will be made to maintain a stable API. If you have
+any suggestions, or feature requests please submit an
 [issue](https://github.com/mrjoh3/ggtrack/issues). All feedback is
 welcome.
 

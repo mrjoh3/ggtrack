@@ -1,3 +1,4 @@
+
 test_that("position inputs are correct", {
   expect_error(get_positions("ABC", 100))
   expect_error(get_positions("ABC", c(10, 50, 40)))
