@@ -22,6 +22,18 @@ jobs:
 
       - uses: r-lib/actions/setup-pandoc@v1
 
+      - name: Install curl
+        run: sudo apt-get install libcurl4-openssl-dev curl
+        
+      - name: Install pkgdown dep
+        run: sudo apt-get install libharfbuzz-dev libfribidi-dev
+        
+      - name: Install libmagick png and jpeg
+        run: sudo apt-get install libmagick++-dev libpng-dev libjpeg-dev
+        
+      - name: Install gdal
+        run: sudo apt-get install gdal-bin proj-bin libgdal-dev libproj-dev
+        
       - name: Query dependencies
         run: |
           install.packages('remotes')
