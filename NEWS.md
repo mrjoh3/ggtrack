@@ -1,3 +1,10 @@
+# ggtrack 0.1.0
+
+* complete minimum tests
+* complete minimum documentation
+* add `codecov` badge
+* update lifecycle badge to stable
+
 # ggtrack 0.0.3
 
 * add additional API for incremental banner build

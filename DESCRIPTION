@@ -1,6 +1,6 @@
 Package: ggtrack
 Title: Add Tracking Banner to Plots
-Version: 0.0.3
+Version: 0.1.0
 Authors@R: 
     person(given = "Matt",
            family = "Johnson",
