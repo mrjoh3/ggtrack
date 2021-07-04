@@ -41,7 +41,7 @@
 #' @export
 #'
 ggtrack <- function(gg,
-                    qr_content,
+                    qr_content = NULL,
                     color = 'black',
                     color_bg = 'white',
                     caption = NULL,
@@ -56,6 +56,7 @@ ggtrack <- function(gg,
                     plotly_heights = c(.8,.2),
                     ...) {
 
+
   # define size and order of 3 containers
   pos <- get_positions(order, positions)
 
@@ -64,9 +65,10 @@ ggtrack <- function(gg,
     theme_void() +
     theme(...)
 
-  #class(tracker) <- c(class(tracker), 'ggtracker')
-
-  tracker <- add_qr(tracker, qr_content, color, color_bg, height_tracker, pos, qr_justification)
+  # setup qr
+  if (!is.null(qr_content)) {
+    tracker <- add_qr(tracker, qr_content, color, color_bg, height_tracker, pos, qr_justification)
+  }
 
   # setup logo
   if (!is.null(logo)) {

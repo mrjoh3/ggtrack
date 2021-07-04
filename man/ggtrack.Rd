@@ -6,7 +6,7 @@
 \usage{
 ggtrack(
   gg,
-  qr_content,
+  qr_content = NULL,
   color = "black",
   color_bg = "white",
   caption = NULL,

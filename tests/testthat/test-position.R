@@ -15,3 +15,6 @@ test_that("position data.frame is accurate", {
 test_that('position input can be lower or mixed case',{
   expect_s3_class(get_positions("qLC", c(10, 50, 40)), 'data.frame')
 })
+
+
+
