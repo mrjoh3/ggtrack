@@ -4,6 +4,7 @@
 * complete minimum documentation
 * add `codecov` badge
 * update lifecycle badge to stable
+* R-CMD check passing
 
 # ggtrack 0.0.3
 
