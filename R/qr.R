@@ -65,10 +65,14 @@ add_qr.tracker <- function(tracker, qr_content, color = 'black', color_bg = 'whi
   height_tracker <- tracker$height
   position <- tracker$pos
   banner <- tracker$track
+  git <- tracker$git
+  ts <- tracker$ts
+
+  qr_content <- paste(qr_content, git, ts, sep = ' ')
 
   tracker$track <- qr(banner, qr_content, color, color_bg, height_tracker, position, justification, ...)
 
-  mtrack <- obj_tracker(tracker, position, height_tracker, 'qr')
+  mtrack <- obj_tracker(tracker, position, height_tracker, git, ts, 'qr')
 
   return(mtrack)
 
@@ -84,30 +88,9 @@ add_qr.tracker <- function(tracker, qr_content, color = 'black', color_bg = 'whi
 #'
 #' @return matrix
 #'
-make_qr <- function(qr_content, color = 'black', color_bg = 'white', add_git = TRUE, add_ts = TRUE) {
+make_qr <- function(qr_content, color = 'black', color_bg = 'white') {
 
-  qr_txt = qr_content
-  
-  if (add_git) {
-    g <- Sys.which('git')
-
-    if (as.character(g) != '') {
-      # we might have git but not be in a git repo
-      in_git_repo <- system("git rev-parse --git-dir", ignore.stderr = TRUE)
-      if (in_git_repo == 0) {
-        git <- strtrim(system("git rev-parse HEAD", intern=TRUE), 7)
-      } else {
-        git <- ""
-      }
-    }
-    qr_txt = paste(qr_txt, git)
-  }
-
-  if (add_ts) {
-    qr_txt = paste(qr_txt, format(Sys.time(), '%Y%m%d-%H%M%S'))
-  }
-
-  qr_matrix <- qrencoder::qrencode(qr_txt)
+  qr_matrix <- qrencoder::qrencode(qr_content)
 
   qr_matrix[qr_matrix == 1] <- color
   qr_matrix[qr_matrix == 0] <- color_bg

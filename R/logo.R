@@ -88,10 +88,12 @@ add_logo.tracker <- function(tracker, logo, justification, ...) {
   height_tracker <- tracker$height
   position <- tracker$pos
   banner <- tracker$track
+  git <- tracker$git
+  ts <- tracker$ts
 
   tracker$track <- logo(banner, logo, height_tracker, position, justification, ...)
 
-  mtrack <- obj_tracker(tracker, position, height_tracker, 'logo')
+  mtrack <- obj_tracker(tracker, position, height_tracker, git, ts, 'logo')
 
   return(mtrack)
 

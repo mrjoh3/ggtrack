@@ -66,10 +66,12 @@ add_caption.tracker <- function(tracker, caption, ...) {
   height_tracker <- tracker$height
   position <- tracker$pos
   banner <- tracker$track
+  git <- tracker$git
+  ts <- tracker$ts
 
   tracker$track <- caption(banner, caption, position, ...)
 
-  mtrack <- obj_tracker(tracker, position, height_tracker, 'caption')
+  mtrack <- obj_tracker(tracker, position, height_tracker, git, ts, 'caption')
 
   return(mtrack)
 
