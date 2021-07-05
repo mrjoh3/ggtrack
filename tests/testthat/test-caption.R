@@ -3,6 +3,7 @@ pos <- get_positions("CLQ", c(10, 50, 40))
 
 test_that("we can add a Caption to a plot", {
 
+  # this should only ever occur in ggtrack function
   cap <- ggplot(mapping = aes(x = 0:1, y = 1)) %>%
     add_caption('add to qr', position = pos)
 
@@ -13,7 +14,7 @@ test_that("we can add a Caption to a plot", {
 })
 
 test_that("we can add a Caption to a tracker", {
-  cap <- make_tracker() %>%
+  cap <- make_tracker(add_git = FALSE) %>%
     add_caption('add to qr')
 
   expect_type(cap, 'list')

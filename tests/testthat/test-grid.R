@@ -4,7 +4,8 @@ gg <- ggplot(mapping = aes(x = 1:10, y = rnorm(10))) +
 
 test_that("We can add a QR code", {
   qr_test <- ggtrack(gg,
-                     qr_content = 'text content here')
+                     qr_content = 'text content here',
+                     add_git = FALSE)
   expect_s3_class(qr_test, "gtable")
   expect_s3_class(qr_test, "gTree")
   expect_s3_class(qr_test, "grob")
@@ -18,7 +19,8 @@ test_that("We can add a QR code", {
 
 test_that("We can add a Logo from URL", {
   qr_logo <- ggtrack(gg,
-                     logo = 'https://www.r-project.org/logo/Rlogo.png')
+                     logo = 'https://www.r-project.org/logo/Rlogo.png',
+                     add_git = FALSE)
   expect_s3_class(qr_logo, "gtable")
   expect_s3_class(qr_logo, "gTree")
   expect_s3_class(qr_logo, "grob")
@@ -32,7 +34,8 @@ test_that("We can add a Logo from URL", {
 
 test_that("We can add a PNG Logo from file", {
   qr_logo <- ggtrack(gg,
-                     logo = 'files/ggtrack-logo.png')
+                     logo = 'files/ggtrack-logo.png',
+                     add_git = FALSE)
   expect_s3_class(qr_logo, "gtable")
   expect_s3_class(qr_logo, "gTree")
   expect_s3_class(qr_logo, "grob")
@@ -47,7 +50,8 @@ test_that("We can add a PNG Logo from file", {
 
 test_that("We can add a JPEG Logo from file", {
   qr_logo <- ggtrack(gg,
-                     logo = 'files/ggtrack-logo.jpg')
+                     logo = 'files/ggtrack-logo.jpg',
+                     add_git = FALSE)
   expect_s3_class(qr_logo, "gtable")
   expect_s3_class(qr_logo, "gTree")
   expect_s3_class(qr_logo, "grob")
@@ -63,7 +67,8 @@ test_that("We can add a JPEG Logo from file", {
 
 test_that("We can add a SVG Logo from file", {
   qr_logo <- ggtrack(gg,
-                     logo = 'files/ggtrack-logo.svg')
+                     logo = 'files/ggtrack-logo.svg',
+                     add_git = FALSE)
   expect_s3_class(qr_logo, "gtable")
   expect_s3_class(qr_logo, "gTree")
   expect_s3_class(qr_logo, "grob")
@@ -79,7 +84,8 @@ test_that("We can add a SVG Logo from file", {
 test_that("We can add a Logo and a QR", {
   qr_logo <- ggtrack(gg,
                      qr_content = 'text content here',
-                     logo = 'files/ggtrack-logo.svg')
+                     logo = 'files/ggtrack-logo.svg',
+                     add_git = FALSE)
   expect_s3_class(qr_logo, "gtable")
   expect_s3_class(qr_logo, "gTree")
   expect_s3_class(qr_logo, "grob")
@@ -93,7 +99,8 @@ test_that("We can add a Logo and a QR", {
 
 test_that("We can add a Caption", {
   qr_logo <- ggtrack(gg,
-                     caption = 'text to display')
+                     caption = 'text to display',
+                     add_git = FALSE)
   expect_s3_class(qr_logo, "gtable")
   expect_s3_class(qr_logo, "gTree")
   expect_s3_class(qr_logo, "grob")
@@ -108,7 +115,8 @@ test_that("We can add a Caption", {
 test_that("We can add a Caption and a QR", {
   qr_logo <- ggtrack(gg,
                      qr_content = 'text content here',
-                     caption = 'text to display')
+                     caption = 'text to display',
+                     add_git = FALSE)
   expect_s3_class(qr_logo, "gtable")
   expect_s3_class(qr_logo, "gTree")
   expect_s3_class(qr_logo, "grob")
@@ -126,7 +134,8 @@ test_that("We can add a Caption, logo and a QR", {
   qr_logo <- ggtrack(gg,
                      qr_content = 'text content here',
                      logo = 'files/ggtrack-logo.svg',
-                     caption = 'text to display')
+                     caption = 'text to display',
+                     add_git = FALSE)
   expect_s3_class(qr_logo, "gtable")
   expect_s3_class(qr_logo, "gTree")
   expect_s3_class(qr_logo, "grob")
@@ -145,7 +154,8 @@ test_that('element order can be rearranged', {
                  qr_content = 'For all your image tracking needs: https://github.com/mrjoh3/ggtrack',
                  logo = 'https://www.r-project.org/logo/Rlogo.png',
                  caption = 'Lots of extra info, or a fancy <span style="color:blue">"grob"</span>.',
-                 logo_justification = 0)
+                 logo_justification = 0,
+                 add_git = FALSE)
 
   expect_s3_class(pos, "gtable")
   expect_s3_class(pos, "gTree")
@@ -166,7 +176,8 @@ test_that('element size can be modified', {
                  qr_content = 'For all your image tracking needs: https://github.com/mrjoh3/ggtrack',
                  logo = 'https://www.r-project.org/logo/Rlogo.png',
                  caption = 'Lots of extra info, or a fancy <span style="color:blue">"grob"</span>.',
-                 logo_justification = 0)
+                 logo_justification = 0,
+                 add_git = FALSE)
 
   expect_s3_class(pos, "gtable")
   expect_s3_class(pos, "gTree")
@@ -185,7 +196,8 @@ test_that('tracker theme can be modified', {
                  qr_content = 'some text',
                  logo = 'files/ggtrack-logo.svg',
                  caption = 'some text',
-                 plot.background = element_rect(fill = "#f0f0f0", size = 0))
+                 plot.background = element_rect(fill = "#f0f0f0", size = 0),
+                 add_git = FALSE)
 
   expect_s3_class(thm, "gtable")
   expect_s3_class(thm, "gTree")
