@@ -84,7 +84,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ggtrack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
       </span>
     </div>
 
@@ -148,6 +148,8 @@
   qr_justification <span class='op'>=</span> <span class='fl'>1</span>,
   height_plot <span class='op'>=</span> <span class='fl'>7</span>,
   height_tracker <span class='op'>=</span> <span class='fl'>1.8</span>,
+  add_git <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  add_ts <span class='op'>=</span> <span class='cn'>TRUE</span>,
   interactive <span class='op'>=</span> <span class='cn'>FALSE</span>,
   plotly_heights <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.8</span>, <span class='fl'>0.2</span><span class='op'>)</span>,
   <span class='va'>...</span>
@@ -213,6 +215,14 @@ must add to 100.</p></td>
     <tr>
       <th>height_tracker</th>
       <td><p>numeric tracker height in cm.</p></td>
+    </tr>
+    <tr>
+      <th>add_git</th>
+      <td><p>logical include git info in encoding</p></td>
+    </tr>
+    <tr>
+      <th>add_ts</th>
+      <td><p>logical include timestamp info in encoding</p></td>
     </tr>
     <tr>
       <th>interactive</th>

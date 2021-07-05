@@ -84,7 +84,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ggtrack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
       </span>
     </div>
 
@@ -135,7 +135,13 @@
     <p>Define Tracker Base</p>
     </div>
 
-    <pre class="usage"><span class='fu'>make_tracker</span><span class='op'>(</span>order <span class='op'>=</span> <span class='st'>"CLQ"</span>, positions <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>55</span>, <span class='fl'>25</span>, <span class='fl'>20</span><span class='op'>)</span>, height_tracker <span class='op'>=</span> <span class='fl'>1.8</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>make_tracker</span><span class='op'>(</span>
+  order <span class='op'>=</span> <span class='st'>"CLQ"</span>,
+  positions <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>55</span>, <span class='fl'>25</span>, <span class='fl'>20</span><span class='op'>)</span>,
+  height_tracker <span class='op'>=</span> <span class='fl'>1.8</span>,
+  add_git <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  add_ts <span class='op'>=</span> <span class='cn'>TRUE</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -159,6 +165,14 @@ must add to 100.</p></td>
     <tr>
       <th>height_tracker</th>
       <td><p>numeric tracker height in cm.</p></td>
+    </tr>
+    <tr>
+      <th>add_git</th>
+      <td><p>logical include git info in encoding</p></td>
+    </tr>
+    <tr>
+      <th>add_ts</th>
+      <td><p>logical include timestamp info in encoding</p></td>
     </tr>
     </table>
 

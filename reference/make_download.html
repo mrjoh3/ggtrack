@@ -84,7 +84,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ggtrack</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
       </span>
     </div>
 
@@ -148,7 +148,9 @@
     <span class='op'>=</span> <span class='st'>"white"</span>, padding <span class='op'>=</span> <span class='st'>"12px 30px"</span>, cursor <span class='op'>=</span> <span class='st'>"pointer"</span>, font.size <span class='op'>=</span> <span class='st'>"16px"</span>, width <span class='op'>=</span>
     <span class='st'>"150px"</span><span class='op'>)</span>,
   date <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/format.html'>format</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Sys.time.html'>Sys.time</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='st'>"%Y%m%d-%H%M%S"</span><span class='op'>)</span>,
-  render <span class='op'>=</span> <span class='cn'>TRUE</span>
+  render <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  stenograph <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  <span class='va'>stenograph_text</span>
 <span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -193,6 +195,14 @@
     <tr>
       <th>render</th>
       <td><p>Boolean, render in-place or save for later</p></td>
+    </tr>
+    <tr>
+      <th>stenograph</th>
+      <td><p>use <a href='https://rdrr.io/pkg/stegasaur/man/lsb_encode.html'>lsb_encode</a> to enbed content within the png output.</p></td>
+    </tr>
+    <tr>
+      <th>stenograph_text</th>
+      <td><p>character text to encode</p></td>
     </tr>
     </table>
 

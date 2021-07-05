@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Articles • ggtrack</title>
+<title>Get Local Git Information — get_git_info • ggtrack</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,7 +46,9 @@
 
 
 
-<meta property="og:title" content="Articles" />
+<meta property="og:title" content="Get Local Git Information — get_git_info" />
+<meta property="og:description" content="Uses system to determine if a git repository exists
+and if so returns the upstream remote URL and current commit SHA" />
 <meta property="og:image" content="https://mrjoh3.github.io/ggtrack/reference/figures/ggtrack-logo.png" />
 <meta property="og:image:alt" content="Use ggrack to add metadata to your ggplot" />
 <meta name="twitter:card" content="summary" />
@@ -70,7 +72,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-article-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -125,18 +127,35 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Articles</h1>
+    <h1>Get Local Git Information</h1>
+    <small class="dont-index">Source: <a href='https://github.com/mrjoh3/ggtrack/blob/master/R/git_info.R'><code>R/git_info.R</code></a></small>
+    <div class="hidden name"><code>get_git_info.Rd</code></div>
     </div>
 
-    <div class="section ">
-      <h3>All vignettes</h3>
-      <p class="section-desc"></p>
-
-      <dl>
-        <dt><a href="ggtrack.html">ggtrack</a></dt>
-        <dd></dt>
-      </dl>
+    <div class="ref-description">
+    <p>Uses <a href='https://rdrr.io/r/base/system.html'>system</a> to determine if a git repository exists
+and if so returns the upstream remote URL and current commit SHA</p>
     </div>
+
+    <pre class="usage"><span class='fu'>get_git_info</span><span class='op'>(</span><span class='op'>)</span></pre>
+
+
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>character</p>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+
+<span class='fu'>get_git_info</span><span class='op'>(</span><span class='op'>)</span>
+
+<span class='op'>}</span>
+</div></pre>
+  </div>
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 
