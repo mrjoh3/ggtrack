@@ -225,6 +225,11 @@ obj_tracker <- function(tracker, pos, height_tracker, git, timestamp, contains) 
 #' }
 add_banner <- function(gg, tracker, height_plot = 7) {
 
+  if (missing(gg)) {
+    gg <- ggplot()
+    height_plot <- 0
+  }
+
   height_tracker <- tracker$height
 
   tracker$track <- tracker$track +
