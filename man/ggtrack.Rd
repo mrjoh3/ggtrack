@@ -60,6 +60,10 @@ must add to 100.}
 
 \item{height_tracker}{numeric tracker height in cm.}
 
+\item{add_git}{logical include git info in encoding}
+
+\item{add_ts}{logical include timestamp info in encoding}
+
 \item{interactive}{logical use plotly for interactivity}
 
 \item{plotly_heights}{numeric vector of length 2 to fix relative height of plot and tracking banner}

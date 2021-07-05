@@ -23,6 +23,7 @@ Suggests:
 Config/testthat/edition: 3
 Remotes: 
     hrbrmstr/qrencoder
+    richfitz/stegasaur
 Imports: 
     grid,
     ggplot2,
@@ -36,5 +37,6 @@ Imports:
     qrencoder,
     magrittr,
     glue,
-    htmltools
+    htmltools,
+    stegasaur
 URL: https://mrjoh3.github.io/ggtrack
