@@ -91,13 +91,17 @@ make_qr <- function(qr_content, color = 'black', color_bg = 'white') {
   if (as.character(g) == '') {
     git <- 'noGit'
   } else {
-    git <- strtrim(system("git rev-parse HEAD", intern=TRUE), 7)
+    git_sha <- strtrim(system("git rev-parse HEAD", intern=TRUE), 7)
+    git_url <- system("git remote show origin", intern=TRUE)
+    git_url <- gsub('  Fetch URL: ', '', git_url[grepl('Fetch', git_url)])
+
+    git <- paste0(git_url, ' ', git_sha)
   }
 
 
   qr_matrix <- qrencoder::qrencode(paste(qr_content,
                                          git,
-                                         format(Sys.time(), '%Y%m%d-%H%M%S')))
+                                         format(Sys.time(), ' %Y%m%d-%H%M%S')))
 
   qr_matrix[qr_matrix == 1] <- color
   qr_matrix[qr_matrix == 0] <- color_bg
