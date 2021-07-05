@@ -1,3 +1,8 @@
+# ggtrack 0.1.1
+
+* move git and timestamp options higher up in API and make them optional
+* using `stegasaur` package add encoding to saved PNG (https://github.com/richfitz/stegasaur)
+
 # ggtrack 0.1.0
 
 * complete minimum tests
