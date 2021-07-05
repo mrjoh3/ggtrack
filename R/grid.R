@@ -25,6 +25,8 @@
 #' @param qr_justification numeric between 0 and 1 passed to \link[grid]{rasterGrob}. See note below.
 #' @param height_plot numeric plot height in cm.
 #' @param height_tracker numeric tracker height in cm.
+#' @param add_git logical include git info in encoding
+#' @param add_ts logical include timestamp info in encoding
 #' @param interactive logical use plotly for interactivity
 #' @param plotly_heights numeric vector of length 2 to fix relative height of plot and tracking banner
 #' @param ... options passed to \link[ggplot2]{theme} in order to style the tracker banner.
@@ -52,6 +54,8 @@ ggtrack <- function(gg,
                     qr_justification = 1,
                     height_plot = 7,
                     height_tracker = 1.8,
+                    add_git = TRUE,
+                    add_ts = TRUE,
                     interactive = FALSE,
                     plotly_heights = c(.8,.2),
                     ...) {
@@ -67,6 +71,17 @@ ggtrack <- function(gg,
 
   # setup qr
   if (!is.null(qr_content)) {
+
+    # build QR content
+    if (add_git) {
+      git <- get_git_info()
+      qr_content <- paste(qr_content, git, sep = ' ')
+    }
+
+    if (add_ts) {
+      qr_content <- paste(qr_content, format(Sys.time(), '%Y%m%d-%H%M%S'), sep = ' ')
+    }
+
     tracker <- add_qr(tracker, qr_content, color, color_bg, height_tracker, pos, qr_justification)
   }
 
@@ -113,6 +128,8 @@ ggtrack <- function(gg,
 #' defining the horizontal proportion of each container. The 3 numbers
 #' must add to 100.
 #' @param height_tracker numeric tracker height in cm.
+#' @param add_git logical include git info in encoding
+#' @param add_ts logical include timestamp info in encoding
 #'
 #' @return tracker
 #' @export
@@ -123,16 +140,31 @@ ggtrack <- function(gg,
 #' }
 make_tracker <- function(order = 'CLQ',
                          positions = c(55, 25, 20),
-                         height_tracker = 1.8) {
+                         height_tracker = 1.8,
+                         add_git = TRUE,
+                         add_ts = TRUE) {
 
   # define size and order of 3 containers
   pos <- get_positions(order, positions)
+
+  # build QR content
+  if (add_git) {
+    git <- get_git_info()
+  } else {
+    git <- ''
+  }
+
+  if (add_ts) {
+    ts <- format(Sys.time(), '%Y%m%d-%H%M%S')
+  } else {
+    ts <- ''
+  }
 
   # build tracker as plot, this is the tracker object
   tracker <- ggplot(mapping = aes(x = 0:1, y = 1)) +
     theme_void()
 
-  mtrack <- obj_tracker(tracker, pos, height_tracker, 'background')
+  mtrack <- obj_tracker(tracker, pos, height_tracker, git, ts, 'background')
 
   return(mtrack)
 
@@ -147,16 +179,22 @@ make_tracker <- function(order = 'CLQ',
 #' must add to 100.
 #' @param height_tracker numeric tracker height in cm.
 #' @param contains character vector tracks what elements have been added to tracker
+#' @param git character git information derived by \link[ggtrack]{get_git_info}
+#' @param timestamp character timestamp information obtained from \code{format(Sys.time(), '%Y%m%d-%H%M%S')}
+#'
+#'
 #'
 #' @return tracker
 #'
-obj_tracker <- function(tracker, pos, height_tracker, contains) {
+obj_tracker <- function(tracker, pos, height_tracker, git, timestamp, contains) {
 
   if (is.null(tracker$contains)) {
     tracker <- list(track = tracker,
                     pos = pos,
                     height = height_tracker,
-                    contains = contains)
+                    contains = contains,
+                    git = git,
+                    ts = timestamp)
     class(tracker) <- 'tracker'
   } else {
     tracker$contains <- c(tracker$contains, contains)
