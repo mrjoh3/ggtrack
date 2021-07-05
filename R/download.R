@@ -38,7 +38,8 @@ make_download <- function(tracker,
                                                         font.size = '16px',
                                                         width = '150px'),
                           date = format(Sys.time(), '%Y%m%d-%H%M%S'),
-                          render = TRUE) {
+                          render = TRUE,
+                          stenograph = FALSE) {
 
   if (missing(save_file)) {
     save_file <- paste0('chart_', date, '.', ext)
@@ -61,6 +62,11 @@ make_download <- function(tracker,
 
   # save to file
   ggsave(save_file, tracker, device = ext, height = height, units = height_units)
+
+  if (stenograph) {
+    img <- png::readPNG(save_file)
+    png::writePNG(lsb_encode('some text here', img), save_file) # need method to pass content lsb_encode
+  }
 
   if (type == 'link') {
     link <- htmltools::a(href = download_file,
