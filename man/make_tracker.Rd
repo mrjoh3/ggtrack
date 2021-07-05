@@ -4,7 +4,13 @@
 \alias{make_tracker}
 \title{Define Tracker Base}
 \usage{
-make_tracker(order = "CLQ", positions = c(55, 25, 20), height_tracker = 1.8)
+make_tracker(
+  order = "CLQ",
+  positions = c(55, 25, 20),
+  height_tracker = 1.8,
+  add_git = TRUE,
+  add_ts = TRUE
+)
 }
 \arguments{
 \item{order}{\code{character} of \code{length} 3 defining placement
@@ -21,6 +27,10 @@ defining the horizontal proportion of each container. The 3 numbers
 must add to 100.}
 
 \item{height_tracker}{numeric tracker height in cm.}
+
+\item{add_git}{logical include git info in encoding}
+
+\item{add_ts}{logical include timestamp info in encoding}
 }
 \value{
 tracker

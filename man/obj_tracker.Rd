@@ -4,7 +4,7 @@
 \alias{obj_tracker}
 \title{Create Tracker Object}
 \usage{
-obj_tracker(tracker, pos, height_tracker, contains)
+obj_tracker(tracker, pos, height_tracker, git, timestamp, contains)
 }
 \arguments{
 \item{tracker}{ggtrack tracker object}
@@ -14,6 +14,8 @@ defining the horizontal proportion of each container. The 3 numbers
 must add to 100.}
 
 \item{height_tracker}{numeric tracker height in cm.}
+
+\item{git}{character git information derived by \link[ggtrack]{get_git_info}}
 
 \item{contains}{character vector tracks what elements have been added to tracker}
 }

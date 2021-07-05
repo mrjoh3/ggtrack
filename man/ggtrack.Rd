@@ -17,6 +17,8 @@ ggtrack(
   qr_justification = 1,
   height_plot = 7,
   height_tracker = 1.8,
+  add_git = TRUE,
+  add_ts = TRUE,
   interactive = FALSE,
   plotly_heights = c(0.8, 0.2),
   ...
