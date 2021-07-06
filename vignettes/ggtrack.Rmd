@@ -55,10 +55,10 @@ ggtrack(gg,
 Captions use the [gridtext](https://github.com/wilkelab/gridtext) package. So you can use both `HTML` and `markdown` to style. Or if you prefer, create your own `grob` and pass that through instead.
 
 ```{r caption, fig.width=6, fig.height=5, out.width="80%", fig.align='center', fig.retina=2}
-g = ggtrack(gg,
-        qr_content = 'For all your image tracking needs: https://github.com/mrjoh3/ggtrack',
-        logo = 'https://www.r-project.org/logo/Rlogo.png',
-        caption = 'Lots of extra info, or a fancy <span style="color:blue">"grob"</span>.')
+g <- ggtrack(gg,
+            qr_content = 'For all your image tracking needs: https://github.com/mrjoh3/ggtrack',
+            logo = 'https://www.r-project.org/logo/Rlogo.png',
+            caption = 'Lots of extra info, or a fancy <span style="color:blue">"grob"</span>.')
 
 grid.draw(g)
 ```
