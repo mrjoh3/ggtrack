@@ -20,6 +20,7 @@
 #'
 #' @importFrom htmltools a css
 #' @importFrom glue glue
+#' @importFrom stegasaur lsb_encode
 #'
 #' @return html of the link object
 #' @export

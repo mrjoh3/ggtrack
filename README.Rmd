@@ -79,7 +79,7 @@ ggtrack(tp,
                             'https://github.com/ropensci/rWBclimate / ',
                             'https://docs.ropensci.org/rWBclimate/'),
         logo = 'man/figures/ggtrack-logo.svg',
-        caption = paste0('data accesses from the World Bank <br>',
+        caption = paste0('data accessed from the World Bank <br>',
                          'Climate Portal via the R package <br>',
                          '<span style="color:blue">rWBclimate</span>.'),
         plot.background = element_rect(fill = "#f0f0f0", size = 0)) 

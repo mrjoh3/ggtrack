@@ -166,7 +166,7 @@ temperature_plot <- ggplot(temperature, aes(x = year, y = data)) +
 for_QR <- paste0('Data accessed using R package: ',
                  'https://github.com/ropensci/rWBclimate / ',
                  'https://docs.ropensci.org/rWBclimate/')
-for_Caption <- paste0('data accesses from the World Bank <br>',
+for_Caption <- paste0('data accessed from the World Bank <br>',
                       'Climate Portal via the R package <br>',
                       '<span style="color:blue">rWBclimate</span>.')
 
