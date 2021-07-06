@@ -1,5 +1,5 @@
 Package: ggtrack
-Title: Add Tracking Banner to Plots
+Title: Build tracking banners using QR codes for addition to plots and reports
 Version: 0.1.2
 Authors@R: 
     person(given = "Matt",
@@ -14,7 +14,7 @@ Description: Sometimes in a workplace it is hard to know exactly where or when a
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-Published: 2021-07-04
+Date: 2021-07-04
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 BugReports: https://github.com/mrjoh3/ggtrack/issues

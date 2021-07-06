@@ -100,3 +100,29 @@ ggtrack(tp,
 ```
 
 <img src="man/figures/README-example-1.png" width="100%" style="display: block; margin: auto;" />
+
+## Related and Enabling Packages
+
+The `ggrack` package makes use of many [R
+packages](https://github.com/mrjoh3/ggtrack/blob/master/DESCRIPTION#L20).
+But I want to include a special thank-you to some packages without which
+the `ggtrack` package would not be possible.
+
+-   The [qrencoder](https://github.com/hrbrmstr/qrencoder) package
+    generate to QR codes that form the basis for much of `ggtrack`.
+    `qrencoder` is both fast and easy to use, and provides a variety of
+    outputs that make it easy to incorporate QR codes into a project.
+-   Without [ggplot2](https://github.com/tidyverse/ggplot2/) there would
+    be little point to a package like `ggtrack`. The entire banner
+    object is a `ggplot` with `theme_void` and `annotation_custom` used
+    to place the three tracking elements.
+-   The `rasterGrob` elements from the
+    [grid](https://github.com/cran/grid) package make it possible to add
+    both the QR code and arbitrary images such as logos.
+-   `grid.arrange` from
+    [gridExtra](https://cran.r-project.org/package=gridExtra) makes it
+    possible to stack the `ggplot` object on top of the tracking banner.
+-   The [stegasaur](https://github.com/richfitz/stegasaur) is used the
+    encode arbitrary text or R objects into the plot `PNG`. This is very
+    cool and [stegasaur](https://github.com/richfitz/stegasaur) is a
+    great package that makes it really easy to encode and decode images.
