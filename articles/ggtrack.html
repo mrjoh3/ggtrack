@@ -125,10 +125,10 @@
 <a href="#add-a-caption" class="anchor"></a>Add a Caption</h3>
 <p>Captions use the <a href="https://github.com/wilkelab/gridtext">gridtext</a> package. So you can use both <code>HTML</code> and <code>markdown</code> to style. Or if you prefer, create your own <code>grob</code> and pass that through instead.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">g</span> <span class="op">=</span> <span class="fu"><a href="../reference/ggtrack.html">ggtrack</a></span><span class="op">(</span><span class="va">gg</span>,
-        qr_content <span class="op">=</span> <span class="st">'For all your image tracking needs: https://github.com/mrjoh3/ggtrack'</span>,
-        logo <span class="op">=</span> <span class="st">'https://www.r-project.org/logo/Rlogo.png'</span>,
-        caption <span class="op">=</span> <span class="st">'Lots of extra info, or a fancy &lt;span style="color:blue"&gt;"grob"&lt;/span&gt;.'</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">g</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ggtrack.html">ggtrack</a></span><span class="op">(</span><span class="va">gg</span>,
+            qr_content <span class="op">=</span> <span class="st">'For all your image tracking needs: https://github.com/mrjoh3/ggtrack'</span>,
+            logo <span class="op">=</span> <span class="st">'https://www.r-project.org/logo/Rlogo.png'</span>,
+            caption <span class="op">=</span> <span class="st">'Lots of extra info, or a fancy &lt;span style="color:blue"&gt;"grob"&lt;/span&gt;.'</span><span class="op">)</span>
 
 <span class="fu"><a href="https://rdrr.io/r/grid/grid.draw.html">grid.draw</a></span><span class="op">(</span><span class="va">g</span><span class="op">)</span></code></pre></div>
 <p><img src="ggtrack_files/figure-html/caption-1.png" width="80%" style="display: block; margin: auto;"></p>
@@ -251,14 +251,14 @@
 <span class="va">qr</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/quadrangle/man/qr_scan.html">qr_scan</a></span><span class="op">(</span><span class="st">"../man/figures/ggtrack_chart_.png"</span>, flop <span class="op">=</span> <span class="cn">TRUE</span>, plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
 
 <span class="va">qr</span><span class="op">$</span><span class="va">values</span><span class="op">$</span><span class="va">value</span>
-<span class="co">#&gt; [1] "For all your image tracking needs: https://github.com/mrjoh3/ggtrack https://github.com/mrjoh3/ggtrack a6b1268 20210706-123520"</span></code></pre></div>
+<span class="co">#&gt; [1] "For all your image tracking needs: https://github.com/mrjoh3/ggtrack https://github.com/mrjoh3/ggtrack 354f30f 20210706-124609"</span></code></pre></div>
 <p>And for a <a href="https://github.com/richfitz/stegasaur">stegasaur</a> encoded file, you can simply use <code><a href="https://rdrr.io/pkg/stegasaur/man/decode.html">stegasaur::decode</a></code>.</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">stegasaur</span><span class="op">)</span>
 
 <span class="fu">stegasaur</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/stegasaur/man/decode.html">decode</a></span><span class="op">(</span><span class="st">'../man/figures/ggtrack_steg_chart_.png'</span><span class="op">)</span>
-<span class="co">#&gt;  [1] -0.17425388  0.87497246  0.46299216 -0.83369954  0.47805963 -0.87260934</span>
-<span class="co">#&gt;  [7] -0.54872570 -0.92227080 -0.08652444  0.49735044</span></code></pre></div>
+<span class="co">#&gt;  [1]  0.61768064 -0.13951910  1.80204647 -1.21601866  1.23095043  0.76520178</span>
+<span class="co">#&gt;  [7] -0.36215515  1.01349701  0.74067246 -0.08967073</span></code></pre></div>
 <!-- ## Interactive Plots -->
 <!-- Adding a tracker to `plotly` interactive plots is currently a work in progress. This option is not straight forward as `geom_GeomCustomAnn()` has not yet been implemented in `plotly`. -->
 <!-- ```{r interactive, fig.width=6, fig.height=5, out.width="80%", fig.align='center', fig.retina=2} -->
