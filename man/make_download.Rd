@@ -18,8 +18,7 @@ make_download(
     "150px"),
   date = format(Sys.time(), "\%Y\%m\%d-\%H\%M\%S"),
   render = TRUE,
-  stenograph = FALSE,
-  stenograph_text
+  stenograph = FALSE
 )
 }
 \arguments{
@@ -45,7 +44,7 @@ make_download(
 
 \item{stenograph}{use \link[stegasaur]{lsb_encode} to enbed content within the png output.}
 
-\item{stenograph_text}{character text to encode}
+\item{stenograph_text}{character text or R object to encode using \link[stegasaur]{lsb_encode}, must be less than 2^16 bytes}
 }
 \value{
 html of the link object
