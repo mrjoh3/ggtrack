@@ -25,7 +25,7 @@ There are several ways you can contribute to this project. If you want to know m
 
 Think ggtrack is useful? Let others discover it, by telling them in person, via Twitter or a blog post.
 
-Using ggtrack for a paper you are writing? Consider [citing it][citation].
+Using ggtrack for a paper you are writing? Consider citing it, you can generate a citation in R using `citation('ggtrack')`.
 
 ### Ask a question ⁉️
 
