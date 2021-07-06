@@ -16,7 +16,7 @@
 #' @param date character date add to filename. Default is \code{format(Sys.time(), "%Y%m%d-%H%M%S")}
 #' @param render Boolean, render in-place or save for later
 #' @param stenograph use \link[stegasaur]{lsb_encode} to enbed content within the png output.
-#' @param stenograph_text character text to encode
+#' @param stenograph_text character text or R object to encode using \link[stegasaur]{lsb_encode}, must be less than 2^16 bytes
 #'
 #' @importFrom htmltools a css
 #' @importFrom glue glue
@@ -41,8 +41,7 @@ make_download <- function(tracker,
                                                         width = '150px'),
                           date = format(Sys.time(), '%Y%m%d-%H%M%S'),
                           render = TRUE,
-                          stenograph = FALSE,
-                          stenograph_text) {
+                          stenograph = FALSE) {
 
   if (missing(save_file)) {
     save_file <- paste0('chart_', date, '.', ext)
@@ -66,9 +65,9 @@ make_download <- function(tracker,
   # save to file
   ggsave(save_file, tracker, device = ext, height = height, units = height_units)
 
-  if (stenograph) {
+  if (!isFALSE(stenograph)) {
     img <- png::readPNG(save_file)
-    png::writePNG(lsb_encode(stenograph_text, img), save_file) # need method to pass content lsb_encode
+    png::writePNG(lsb_encode(stenograph, img), save_file) # need method to pass content lsb_encode
   }
 
   if (type == 'link') {

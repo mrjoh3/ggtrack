@@ -123,6 +123,28 @@ dl <- make_download(g,
 Something to consider at this point, with a down load button it is possible to display a plot without the additional metadata. Then pass the tracker object to the download link or button for users. This is a simple way to maintain the aesthetics of your report but still include vital metadata.
 
 
+### Encode Additional Content Within Image
+
+It is also possible to encode arbitrary text or an R object within `knitr` chunks of a report or within a downloaded file when using `make_download`. Using the [stegasaur](https://github.com/richfitz/stegasaur) package `knitr` hook is the easiest way to include the code used to generate a plot (see [stegasaur docs](https://richfitz.github.io/stegasaur/reference/hook_figasaur.html)).
+
+The [stegasaur](https://github.com/richfitz/stegasaur) `stenograph` method is included here as a download option. Simply pass the text or R object you want encoded to the `stenograph` variable. Then to decode the content of the image use `stegasaur::decode()`. For this method to work the image must be saved in `PNG` format, this is the default for `make_download`.
+
+```{r steg link, results='asis'}
+dl_steg <- make_download(g, 
+                         link_text = 'download file with stenograph encoded',
+                         save_file = c('../man', 'figures', 'ggtrack_steg_chart'),
+                         download_file = c('../reference', 'figures', 'ggtrack_steg_chart'),
+                         type = 'link',
+                         date = '',
+                         render = FALSE,
+                         stenograph = rnorm(10))
+
+```
+
+`r dl_steg`
+
+
+
 ## Tracking Banner Style
 
 The tracking banner is a simple `ggplot` object. The tracking elements are `grob` objects added via `annotation_custom`. As a `ggplot` object the banner can also be styled in the same way. Any `ggplot` theme options are passed directly to the tracking banner theme. This enables you to match the tracker to your page theme or ggplot theme. For all available theme options see https://ggplot2.tidyverse.org/reference/theme.html.
@@ -188,6 +210,13 @@ qr <- qr_scan("../man/figures/ggtrack_chart_.png", flop = TRUE, plot = FALSE)
 qr$values$value
 ```
 
+And for a [stegasaur](https://github.com/richfitz/stegasaur) encoded file, you can simply use `stegasaur::decode`.
+
+```{r}
+library(stegasaur)
+
+stegasaur::decode('../man/figures/ggtrack_steg_chart_.png')
+```
 
 
 
@@ -218,4 +247,12 @@ qr$values$value
 
 
 
+## Related and Enabling Packages
 
+The `ggrack` package makes use of many [R packages](https://github.com/mrjoh3/ggtrack/blob/master/DESCRIPTION#L20). But I want to include a special thank-you to some packages without which the `ggtrack` package would not be possible. 
+
+* The [qrencoder](https://github.com/hrbrmstr/qrencoder) package generate to QR codes that form the basis for much of `ggtrack`. `qrencoder` is both fast and easy to use, and provides a variety of outputs that make it easy to incorporate QR codes into a project.
+* Without [ggplot2](https://github.com/tidyverse/ggplot2/) there would be little point to a package like `ggtrack`. The entire banner object is a `ggplot` with `theme_void` and `annotation_custom` used to place the three tracking elements.
+* The `rasterGrob` elements from the [grid](https://github.com/cran/grid) package make it possible to add both the QR code and arbitrary images such as logos.
+* `grid.arrange` from [gridExtra](https://cran.r-project.org/package=gridExtra) makes it possible to stack the `ggplot` object on top of the tracking banner.
+* The [stegasaur](https://github.com/richfitz/stegasaur) is used the encode arbitrary text or R objects into the plot `PNG`. This is very cool and [stegasaur](https://github.com/richfitz/stegasaur) is a great package that makes it really easy to encode and decode images.
