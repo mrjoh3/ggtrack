@@ -135,12 +135,25 @@
                             <span class="st">'https://github.com/ropensci/rWBclimate / '</span>,
                             <span class="st">'https://docs.ropensci.org/rWBclimate/'</span><span class="op">)</span>,
         logo <span class="op">=</span> <span class="st">'man/figures/ggtrack-logo.svg'</span>,
-        caption <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">'data accesses from the World Bank &lt;br&gt;'</span>,
+        caption <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">'data accessed from the World Bank &lt;br&gt;'</span>,
                          <span class="st">'Climate Portal via the R package &lt;br&gt;'</span>,
                          <span class="st">'&lt;span style="color:blue"&gt;rWBclimate&lt;/span&gt;.'</span><span class="op">)</span>,
         plot.background <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_rect</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"#f0f0f0"</span>, size <span class="op">=</span> <span class="fl">0</span><span class="op">)</span><span class="op">)</span> 
 <span class="co">#&gt; `geom_smooth()` using method = 'loess' and formula 'y ~ x'</span></code></pre></div>
 <p><img src="reference/figures/README-example-1.png" width="100%" style="display: block; margin: auto;"></p>
+</div>
+<div id="related-and-enabling-packages" class="section level2">
+<h2 class="hasAnchor">
+<a href="#related-and-enabling-packages" class="anchor"></a>Related and Enabling Packages</h2>
+<p>The <code>ggrack</code> package makes use of many <a href="https://github.com/mrjoh3/ggtrack/blob/master/DESCRIPTION#L20">R packages</a>. But I want to include a special thank-you to some packages without which the <code>ggtrack</code> package would not be possible.</p>
+<ul>
+<li>The <a href="https://github.com/hrbrmstr/qrencoder">qrencoder</a> package generate to QR codes that form the basis for much of <code>ggtrack</code>. <code>qrencoder</code> is both fast and easy to use, and provides a variety of outputs that make it easy to incorporate QR codes into a project.</li>
+<li>Without <a href="https://github.com/tidyverse/ggplot2/">ggplot2</a> there would be little point to a package like <code>ggtrack</code>. The entire banner object is a <code>ggplot</code> with <code>theme_void</code> and <code>annotation_custom</code> used to place the three tracking elements.</li>
+<li>The <code>rasterGrob</code> elements from the <a href="https://github.com/cran/grid">grid</a> package make it possible to add both the QR code and arbitrary images such as logos.</li>
+<li>
+<code>grid.arrange</code> from <a href="https://cran.r-project.org/package=gridExtra">gridExtra</a> makes it possible to stack the <code>ggplot</code> object on top of the tracking banner.</li>
+<li>The <a href="https://github.com/richfitz/stegasaur">stegasaur</a> is used the encode arbitrary text or R objects into the plot <code>PNG</code>. This is very cool and <a href="https://github.com/richfitz/stegasaur">stegasaur</a> is a great package that makes it really easy to encode and decode images.</li>
+</ul>
 </div>
 </div>
   </div>
@@ -160,6 +173,13 @@
 <ul class="list-unstyled">
 <li><a href="LICENSE.html">Full license</a></li>
 <li><small><a href="https://opensource.org/licenses/mit-license.php">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
+</ul>
+</div>
+<div class="community">
+<h2>Community</h2>
+<ul class="list-unstyled">
+<li><a href="CONTRIBUTING.html">Contributing guide</a></li>
+<li><a href="CODE_OF_CONDUCT.html">Code of conduct</a></li>
 </ul>
 </div>
 <div class="developers">

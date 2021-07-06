@@ -175,12 +175,28 @@
 <p><a href="../reference/figures/ggtrack_chart_.png" download="ggtrack_chart_.png"><button type="submit" class="btn" style="background-color:DodgerBlue;border:none;color:white;padding:12px 30px;cursor:pointer;font-size:16px;width:150px;"><i class="fa fa-download"></i> download</button></a></p>
 <p>Something to consider at this point, with a down load button it is possible to display a plot without the additional metadata. Then pass the tracker object to the download link or button for users. This is a simple way to maintain the aesthetics of your report but still include vital metadata.</p>
 </div>
+<div id="encode-additional-content-within-image" class="section level3">
+<h3 class="hasAnchor">
+<a href="#encode-additional-content-within-image" class="anchor"></a>Encode Additional Content Within Image</h3>
+<p>It is also possible to encode arbitrary text or an R object within <code>knitr</code> chunks of a report or within a downloaded file when using <code>make_download</code>. Using the <a href="https://github.com/richfitz/stegasaur">stegasaur</a> package <code>knitr</code> hook is the easiest way to include the code used to generate a plot (see <a href="https://richfitz.github.io/stegasaur/reference/hook_figasaur.html">stegasaur docs</a>).</p>
+<p>The <a href="https://github.com/richfitz/stegasaur">stegasaur</a> <code>stenograph</code> method is included here as a download option. Simply pass the text or R object you want encoded to the <code>stenograph</code> variable. Then to decode the content of the image use <code><a href="https://rdrr.io/pkg/stegasaur/man/decode.html">stegasaur::decode()</a></code>. For this method to work the image must be saved in <code>PNG</code> format, this is the default for <code>make_download</code>.</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">dl_steg</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/make_download.html">make_download</a></span><span class="op">(</span><span class="va">g</span>, 
+                         link_text <span class="op">=</span> <span class="st">'download file with stenograph encoded'</span>,
+                         save_file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'../man'</span>, <span class="st">'figures'</span>, <span class="st">'ggtrack_steg_chart'</span><span class="op">)</span>,
+                         download_file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'../reference'</span>, <span class="st">'figures'</span>, <span class="st">'ggtrack_steg_chart'</span><span class="op">)</span>,
+                         type <span class="op">=</span> <span class="st">'link'</span>,
+                         date <span class="op">=</span> <span class="st">''</span>,
+                         render <span class="op">=</span> <span class="cn">FALSE</span>,
+                         stenograph <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<p><a href="../reference/figures/ggtrack_steg_chart_.png" download="ggtrack_steg_chart_.png">download file with stenograph encoded</a></p>
+</div>
 </div>
 <div id="tracking-banner-style" class="section level2">
 <h2 class="hasAnchor">
 <a href="#tracking-banner-style" class="anchor"></a>Tracking Banner Style</h2>
 <p>The tracking banner is a simple <code>ggplot</code> object. The tracking elements are <code>grob</code> objects added via <code>annotation_custom</code>. As a <code>ggplot</code> object the banner can also be styled in the same way. Any <code>ggplot</code> theme options are passed directly to the tracking banner theme. This enables you to match the tracker to your page theme or ggplot theme. For all available theme options see <a href="https://ggplot2.tidyverse.org/reference/theme.html" class="uri">https://ggplot2.tidyverse.org/reference/theme.html</a>.</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/rWBclimate">rWBclimate</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/jrnold/ggthemes">ggthemes</a></span><span class="op">)</span>
@@ -197,7 +213,7 @@
 <span class="va">for_QR</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">'Data accessed using R package: '</span>,
                  <span class="st">'https://github.com/ropensci/rWBclimate / '</span>,
                  <span class="st">'https://docs.ropensci.org/rWBclimate/'</span><span class="op">)</span>
-<span class="va">for_Caption</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">'data accesses from the World Bank &lt;br&gt;'</span>,
+<span class="va">for_Caption</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">'data accessed from the World Bank &lt;br&gt;'</span>,
                       <span class="st">'Climate Portal via the R package &lt;br&gt;'</span>,
                       <span class="st">'&lt;span style="color:blue"&gt;rWBclimate&lt;/span&gt;.'</span><span class="op">)</span>
 
@@ -212,7 +228,7 @@
 <h2 class="hasAnchor">
 <a href="#one-tracker-per-document" class="anchor"></a>One Tracker Per Document</h2>
 <p>In some cases you may wish to create a single tracking banner and add it to multiple plots. <code>ggtrack</code> also has a more granular API that allows the user to iteratively build the banner. This banner can then be added to any existing plot.</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="va">track</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/make_tracker.html">make_tracker</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="../reference/logo.html">add_logo</a></span><span class="op">(</span><span class="st">'../man/figures/ggtrack-logo.svg'</span>, <span class="fl">1</span><span class="op">)</span> <span class="op">%&gt;%</span> 
@@ -229,13 +245,20 @@
 <a href="#retrieving-metadata" class="anchor"></a>Retrieving Metadata</h2>
 <p>The metadata from the QR code can be read using the scanner on your phone. If you need to programatically extract this data use the <a href="https://github.com/brianwdavis/quadrangle">quadrangle package</a>. Given the way the QR code are generated, you will need to ensure you specify <code>flop = TRUE</code>. This essentially flips the image to replicate what a scanner looking at a screen would capture.</p>
 <p>With <code>quadrangle</code> you can pass in the entire file or just the QR code. The package will detect the location of the QR code before decoding.</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/brianwdavis/quadrangle">quadrangle</a></span><span class="op">)</span>
 
 <span class="va">qr</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/quadrangle/man/qr_scan.html">qr_scan</a></span><span class="op">(</span><span class="st">"../man/figures/ggtrack_chart_.png"</span>, flop <span class="op">=</span> <span class="cn">TRUE</span>, plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
 
 <span class="va">qr</span><span class="op">$</span><span class="va">values</span><span class="op">$</span><span class="va">value</span>
-<span class="co">#&gt; [1] "For all your image tracking needs: https://github.com/mrjoh3/ggtrack https://github.com/mrjoh3/ggtrack e6b15a1 20210705-231120"</span></code></pre></div>
+<span class="co">#&gt; [1] "For all your image tracking needs: https://github.com/mrjoh3/ggtrack https://github.com/mrjoh3/ggtrack a6b1268 20210706-122216"</span></code></pre></div>
+<p>And for a <a href="https://github.com/richfitz/stegasaur">stegasaur</a> encoded file, you can simply use <code><a href="https://rdrr.io/pkg/stegasaur/man/decode.html">stegasaur::decode</a></code>.</p>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">stegasaur</span><span class="op">)</span>
+
+<span class="fu">stegasaur</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/stegasaur/man/decode.html">decode</a></span><span class="op">(</span><span class="st">'../man/figures/ggtrack_steg_chart_.png'</span><span class="op">)</span>
+<span class="co">#&gt;  [1] -0.5601842  0.3443018  0.8215462 -0.3989403 -1.4726024 -0.9558427</span>
+<span class="co">#&gt;  [7] -0.2336028 -0.2505323  1.0585203 -1.4109492</span></code></pre></div>
 <!-- ## Interactive Plots -->
 <!-- Adding a tracker to `plotly` interactive plots is currently a work in progress. This option is not straight forward as `geom_GeomCustomAnn()` has not yet been implemented in `plotly`. -->
 <!-- ```{r interactive, fig.width=6, fig.height=5, out.width="80%", fig.align='center', fig.retina=2} -->
@@ -253,6 +276,19 @@
 <!-- </style> -->
 <!-- <div class="hide"> -->
 <!-- </div> -->
+</div>
+<div id="related-and-enabling-packages" class="section level2">
+<h2 class="hasAnchor">
+<a href="#related-and-enabling-packages" class="anchor"></a>Related and Enabling Packages</h2>
+<p>The <code>ggrack</code> package makes use of many <a href="https://github.com/mrjoh3/ggtrack/blob/master/DESCRIPTION#L20">R packages</a>. But I want to include a special thank-you to some packages without which the <code>ggtrack</code> package would not be possible.</p>
+<ul>
+<li>The <a href="https://github.com/hrbrmstr/qrencoder">qrencoder</a> package generate to QR codes that form the basis for much of <code>ggtrack</code>. <code>qrencoder</code> is both fast and easy to use, and provides a variety of outputs that make it easy to incorporate QR codes into a project.</li>
+<li>Without <a href="https://github.com/tidyverse/ggplot2/">ggplot2</a> there would be little point to a package like <code>ggtrack</code>. The entire banner object is a <code>ggplot</code> with <code>theme_void</code> and <code>annotation_custom</code> used to place the three tracking elements.</li>
+<li>The <code>rasterGrob</code> elements from the <a href="https://github.com/cran/grid">grid</a> package make it possible to add both the QR code and arbitrary images such as logos.</li>
+<li>
+<code>grid.arrange</code> from <a href="https://cran.r-project.org/package=gridExtra">gridExtra</a> makes it possible to stack the <code>ggplot</code> object on top of the tracking banner.</li>
+<li>The <a href="https://github.com/richfitz/stegasaur">stegasaur</a> is used the encode arbitrary text or R objects into the plot <code>PNG</code>. This is very cool and <a href="https://github.com/richfitz/stegasaur">stegasaur</a> is a great package that makes it really easy to encode and decode images.</li>
+</ul>
 </div>
   </div>
 
