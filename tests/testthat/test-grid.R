@@ -164,7 +164,7 @@ test_that('element order can be rearranged', {
 
   expect_length(pos$heights, 2)
   expect_equal(as.numeric(pos$heights[1]), 7)
-  expect_equal(as.numeric(pos$heights[2]), 3.3)
+  expect_equal(as.numeric(pos$heights[2]), 3.5)
 
 })
 
@@ -186,7 +186,7 @@ test_that('element size can be modified', {
 
   expect_length(pos$heights, 2)
   expect_equal(as.numeric(pos$heights[1]), 7)
-  expect_equal(as.numeric(pos$heights[2]), 3.3)
+  expect_equal(as.numeric(pos$heights[2]), 3.5)
 
 })
 

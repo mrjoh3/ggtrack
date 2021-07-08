@@ -57,6 +57,8 @@ add_qr.gg <- function(tracker, qr_content, color = 'black', color_bg = 'white', 
 
 
 #' @rdname qr
+#'
+#' @importFrom glue glue
 #' @family add_qr
 #' @family tracker
 #' @export
@@ -70,9 +72,16 @@ add_qr.tracker <- function(tracker, qr_content, color = 'black', color_bg = 'whi
 
   qr_content <- paste(qr_content, git, ts, sep = ' ')
 
+  qr_cm <- qr_size(qr_content)
+
+  if (height_tracker < qr_cm) {
+    height_tracker <- tracker$height <- qr_cm
+    message(glue('to encode this much text into QR making QR height {qr_cm}cm'))
+  }
+
   tracker$track <- qr(banner, qr_content, color, color_bg, height_tracker, position, justification, ...)
 
-  mtrack <- obj_tracker(tracker, position, height_tracker, git, ts, 'qr')
+  mtrack <- obj_tracker(tracker, 'qr')
 
   return(mtrack)
 

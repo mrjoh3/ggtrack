@@ -25,7 +25,7 @@ add_theme <- function(tracker, ...) {
 
   tracker$track <- banner + theme(...)
 
-  mtrack <- obj_tracker(tracker, position, height_tracker, git, ts, 'theme')
+  mtrack <- obj_tracker(tracker, 'theme')
 
   return(mtrack)
 
