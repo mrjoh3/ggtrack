@@ -82,6 +82,13 @@ ggtrack <- function(gg,
       qr_content <- paste(qr_content, format(Sys.time(), '%Y%m%d-%H%M%S'), sep = ' ')
     }
 
+    qr_cm <- qr_size(qr_content)
+
+    if (height_tracker < qr_cm) {
+      height_tracker <- qr_cm
+      warning(glue('to encode this much text into QR making QR height {qr_cm}cm'))
+    }
+
     tracker <- add_qr(tracker, qr_content, color, color_bg, height_tracker, pos, qr_justification)
   }
 
@@ -164,7 +171,7 @@ make_tracker <- function(order = 'CLQ',
   tracker <- ggplot(mapping = aes(x = 0:1, y = 1)) +
     theme_void()
 
-  mtrack <- obj_tracker(tracker, pos, height_tracker, git, ts, 'background')
+  mtrack <- obj_tracker(tracker, 'background', pos, height_tracker, git, ts)
 
   return(mtrack)
 
@@ -174,11 +181,11 @@ make_tracker <- function(order = 'CLQ',
 #' @title Create Tracker Object
 #'
 #' @param tracker ggtrack tracker object
+#' @param contains character vector tracks what elements have been added to tracker
 #' @param pos \code{numeric} \code{vector} of \code{length} 3,
 #' defining the horizontal proportion of each container. The 3 numbers
 #' must add to 100.
 #' @param height_tracker numeric tracker height in cm.
-#' @param contains character vector tracks what elements have been added to tracker
 #' @param git character git information derived by \link[ggtrack]{get_git_info}
 #' @param timestamp character timestamp information obtained from \code{format(Sys.time(), '%Y%m%d-%H%M%S')}
 #'
@@ -186,7 +193,7 @@ make_tracker <- function(order = 'CLQ',
 #'
 #' @return tracker
 #'
-obj_tracker <- function(tracker, pos, height_tracker, git, timestamp, contains) {
+obj_tracker <- function(tracker, contains, pos = NULL, height_tracker = NULL, git = NULL, timestamp = NULL) {
 
   if (is.null(tracker$contains)) {
     tracker <- list(track = tracker,
