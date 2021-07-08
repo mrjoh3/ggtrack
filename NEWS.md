@@ -1,3 +1,7 @@
+# ggtrack 0.1.3
+
+* QR now resizes automatically based on bytes to encode. This ensures QR code readability
+
 # ggtrack 0.1.2
 
 * `add_banner` now works without a `ggplot` input. This is useful where you just want to create the banner. Like this the banner could be placed above or below an interactive chart or map, or any other content.
