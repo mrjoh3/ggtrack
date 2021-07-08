@@ -3,7 +3,8 @@ pkgdown: 1.6.1
 pkgdown_sha: ~
 articles:
   ggtrack: ggtrack.html
-last_built: 2021-07-06T12:45Z
+  qr_calibrate: qr_calibrate.html
+last_built: 2021-07-08T12:22Z
 urls:
   reference: https://mrjoh3.github.io/ggtrack/reference
   article: https://mrjoh3.github.io/ggtrack/articles
