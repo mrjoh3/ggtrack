@@ -25,7 +25,7 @@ qr_size <- function(txt) {
 
   bts <- nchar(txt, 'bytes')
   pred <- predict(qr_mod, data.frame(bytes = bts))
-  pred <- round(as.numeric(pred), 2)
+  pred <- round(as.numeric(pred), 1)
 
   return(max(1.8, pred))
 }
