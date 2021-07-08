@@ -86,7 +86,7 @@ ggtrack <- function(gg,
 
     if (height_tracker < qr_cm) {
       height_tracker <- qr_cm
-      warning(glue('to encode this much text into QR making QR height {qr_cm}cm'))
+      message(glue('to encode this much text into QR making QR height {qr_cm}cm'))
     }
 
     tracker <- add_qr(tracker, qr_content, color, color_bg, height_tracker, pos, qr_justification)

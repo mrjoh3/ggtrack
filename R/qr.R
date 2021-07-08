@@ -76,7 +76,7 @@ add_qr.tracker <- function(tracker, qr_content, color = 'black', color_bg = 'whi
 
   if (height_tracker < qr_cm) {
     height_tracker <- tracker$height <- qr_cm
-    warning(glue('to encode this much text into QR making QR height {qr_cm}cm'))
+    message(glue('to encode this much text into QR making QR height {qr_cm}cm'))
   }
 
   tracker$track <- qr(banner, qr_content, color, color_bg, height_tracker, position, justification, ...)
