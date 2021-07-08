@@ -41,3 +41,5 @@ Imports:
     htmltools,
     stegasaur
 URL: https://mrjoh3.github.io/ggtrack
+Depends: 
+    R (>= 2.10)
