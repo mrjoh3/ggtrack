@@ -17,7 +17,7 @@
 #'
 #' @param txt character to be encoded into the QR
 #'
-#' @return
+#' @return numeric size of QR in cm.
 #' @export
 #'
 #' @examples

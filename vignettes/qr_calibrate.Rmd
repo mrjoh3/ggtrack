@@ -1,0 +1,64 @@
+---
+title: "QR Size Calibration"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{QR Size Calibration}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+
+library(dplyr)
+library(ggplot2)
+```
+
+
+
+
+
+```{r}
+df <- tribble(~ bytes, ~ cm,
+                47   ,   1.8,
+                109  ,   2.0,
+                218  ,   2.6,
+                327  ,   3.1,
+                436  ,   3.3,
+                545  ,   3.5,
+                654  ,   4.0)
+```
+
+
+```{r, fig.width=8, fig.height=5, out.width="100%", fig.align='center', fig.retina=2}
+gg <- ggplot(df, aes(x = bytes, y = cm)) +
+  geom_point() +
+  geom_smooth(method = 'lm') +
+  labs(x = 'bytes encoded into QR',
+       y = 'height of QR in cm',
+       title = 'QR size calibration') +
+  theme_minimal()
+  
+ggtrack(gg,
+        caption = 'calibration based on QR code scanned from computer monitor',
+        qr_content = 'https://mrjoh3.github.io/ggtrack/articles/qr_calibrate.html',
+        logo = '../man/figures/ggtrack-logo.svg')
+```
+
+
+
+```{r}
+
+qr_mod <- lm(cm ~ bytes, data = df)
+
+summary(qr_mod)
+```
+
+
+```{r, eval=FALSE}
+usethis::use_data(qr_mod, internal = FALSE, overwrite = TRUE)
+```
+
