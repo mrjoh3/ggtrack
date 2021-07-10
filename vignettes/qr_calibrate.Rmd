@@ -44,7 +44,7 @@ gg <- ggplot(df, aes(x = bytes, y = cm)) +
   theme_minimal()
   
 ggtrack(gg,
-        caption = 'calibration based on QR code scanned from computer monitor',
+        caption = 'calibration based on QR code scanned<br> from computer monitor',
         qr_content = 'https://mrjoh3.github.io/ggtrack/articles/qr_calibrate.html',
         logo = '../man/figures/ggtrack-logo.svg')
 ```
