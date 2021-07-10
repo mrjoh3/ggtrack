@@ -1,4 +1,6 @@
 
+gg <- ggplot(mapping = aes(x = 1:10, y = rnorm(10))) +
+  geom_bar(stat = 'identity')
 
 test_that('tracker theme can be modified', {
   thm <- ggtrack(gg,
