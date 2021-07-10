@@ -196,6 +196,25 @@ temperature_plot %>%
 ```
 
 
+## Knitr Hook
+
+```{r}
+library(knitr)
+knitr::knit_hooks$set(foo4 = function(before, options, envir) {
+    if (!before && exists("z5", envir = envir)) {
+        sprintf("**Ha! I see z5 = %.3f!**", envir$z5)
+    }
+})
+```
+
+
+```{r, fig.width=8, fig.height=5, out.width="100%", fig.align='center', fig.retina=2}
+# get plot define?
+z5 = 35
+
+```
+
+
 ## Retrieving Metadata
 
 The metadata from the QR code can be read using the scanner on your phone. If you need to programatically extract this data use the [quadrangle package](https://github.com/brianwdavis/quadrangle). Given the way the QR code are generated, you will need to ensure you specify `flop = TRUE`. This essentially flips the image to replicate what a scanner looking at a screen would capture.
@@ -203,19 +222,19 @@ The metadata from the QR code can be read using the scanner on your phone. If yo
 With `quadrangle` you can pass in the entire file or just the QR code. The package will detect the location of the QR code before decoding.
 
 ```{r scan}
-library(quadrangle)
-
-qr <- qr_scan("../man/figures/ggtrack_chart_.png", flop = TRUE, plot = FALSE)
-
-qr$values$value
+# library(quadrangle)
+# 
+# qr <- qr_scan("../man/figures/ggtrack_chart_.png", flop = TRUE, plot = FALSE)
+# 
+# qr$values$value
 ```
 
 And for a [stegasaur](https://github.com/richfitz/stegasaur) encoded file, you can simply use `stegasaur::decode`.
 
 ```{r}
-library(stegasaur)
-
-stegasaur::decode('../man/figures/ggtrack_steg_chart_.png')
+# library(stegasaur)
+# 
+# stegasaur::decode('../man/figures/ggtrack_steg_chart_.png')
 ```
 
 

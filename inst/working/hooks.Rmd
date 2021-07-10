@@ -1,0 +1,110 @@
+---
+title: "Untitled"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+## Knitr Hook
+
+```{r}
+library(knitr)
+knitr::knit_hooks$set(foo4 = function(before, options, envir) {
+    if (!before && exists("z5", envir = envir)) {
+        sprintf("**Ha! I see z5 = %.3f!**", envir$z5)
+    }
+})
+```
+
+
+```{r, foo4 = T}
+# get plot define?
+z5 <- 35
+
+```
+
+
+```{r}
+library(ggtrack)
+library(ggplot2)
+library(grid)
+
+
+```
+
+
+
+```{r}
+track <- make_tracker() %>% 
+  add_logo('../../man/figures/ggtrack-logo.svg', 1) %>% 
+  add_qr('some text', justification = 1) %>% 
+  add_caption('a simple caption') %>%
+  add_theme(plot.background = element_rect(fill = "#ff9955", size = 0))
+```
+
+
+
+```{r}
+track_hook = function(before, options, envir) {
+  if (before) {
+    ## code to be run before a chunk
+  } else {
+    ## code to be run after a chunk
+    print(class(envir$gg))
+    
+    track <- options$ggtrack
+    print(track)
+    gg <- envir$gg
+    
+    bn = add_banner(gg, track)
+    grid.draw(bn)
+    return(bn)
+  }
+}
+```
+
+
+```{r}
+#knitr::knit_hooks$set(ggtrack = track_hook)
+```
+
+
+```{r, ggtrack = track}
+
+gg = ggplot(mapping = aes(x = 1:10, y = rnorm(10))) +
+  geom_bar(stat = 'identity') +
+  theme_minimal() 
+
+#add_banner(gg, track)
+
+```
+
+
+
+
+```{r}
+knit_hooks$set(
+  source = function(x, options) {
+    gg = eval(parse(text = x))
+    print(class(gg))
+    track <- options$ggtrack
+    print(track)
+    add_banner(gg, track)
+  }
+)
+```
+
+
+```{r, ggtrack=track, eval=FALSE, results='hide'}
+
+ggplot(mapping = aes(x = 1:10, y = rnorm(10))) +
+  geom_bar(stat = 'identity') +
+  theme_minimal() 
+
+```
+
+
