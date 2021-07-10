@@ -35,5 +35,5 @@ test_that("we can add a tracking banner without a plot", {
 
   expect_length(tbn$heights, 2)
   expect_equal(as.numeric(tbn$heights[1]), 0)
-  expect_equal(as.numeric(tbn$heights[2]), 3.4)
+  expect_equal(as.numeric(tbn$heights[2]), 3.3)
 })
