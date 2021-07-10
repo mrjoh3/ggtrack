@@ -1,5 +1,5 @@
 
-track <- make_tracker() %>%
+track <- make_tracker(add_git = FALSE) %>%
   add_logo('files/ggtrack-logo.svg', 1) %>%
   add_qr('for_QR', justification = 1) %>%
   add_caption('for_Caption') %>%
@@ -21,7 +21,7 @@ test_that("we can add a tracking banner", {
 
   expect_length(tbn$heights, 2)
   expect_equal(as.numeric(tbn$heights[1]), 7)
-  expect_equal(as.numeric(tbn$heights[2]), 3.4)
+  expect_equal(as.numeric(tbn$heights[2]), 3.3)
 })
 
 
