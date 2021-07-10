@@ -263,14 +263,14 @@
 <span class="va">qr</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/quadrangle/man/qr_scan.html">qr_scan</a></span><span class="op">(</span><span class="st">"../man/figures/ggtrack_chart_.png"</span>, flop <span class="op">=</span> <span class="cn">TRUE</span>, plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
 
 <span class="va">qr</span><span class="op">$</span><span class="va">values</span><span class="op">$</span><span class="va">value</span>
-<span class="co">#&gt; [1] "For all your image tracking needs: https://github.com/mrjoh3/ggtrack https///github.com/mrjoh3/ggtrack 912577f7 20210710-082217"</span></code></pre></div>
+<span class="co">#&gt; [1] "For all your image tracking needs: https://github.com/mrjoh3/ggtrack https///github.com/mrjoh3/ggtrack e38eb31e 20210710-084658"</span></code></pre></div>
 <p>And for a <a href="https://github.com/richfitz/stegasaur">stegasaur</a> encoded file, you can simply use <code><a href="https://rdrr.io/pkg/stegasaur/man/decode.html">stegasaur::decode</a></code>.</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">stegasaur</span><span class="op">)</span>
 
 <span class="fu">stegasaur</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/stegasaur/man/decode.html">decode</a></span><span class="op">(</span><span class="st">'../man/figures/ggtrack_steg_chart_.png'</span><span class="op">)</span>
-<span class="co">#&gt;  [1] -1.907925729 -0.005998953 -0.081475430  0.559463134 -0.916880801</span>
-<span class="co">#&gt;  [6]  0.130526432  0.576663111 -2.014068247 -0.036457712 -1.115466282</span></code></pre></div>
+<span class="co">#&gt;  [1]  0.03149912 -0.72879383 -0.43224232 -0.46261710 -1.89009467 -2.29889602</span>
+<span class="co">#&gt;  [7] -1.28730048  1.21550382  1.20113327 -1.03181007</span></code></pre></div>
 <!-- ## Interactive Plots -->
 <!-- Adding a tracker to `plotly` interactive plots is currently a work in progress. This option is not straight forward as `geom_GeomCustomAnn()` has not yet been implemented in `plotly`. -->
 <!-- ```{r interactive, fig.width=6, fig.height=5, out.width="80%", fig.align='center', fig.retina=2} -->
