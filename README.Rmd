@@ -21,6 +21,7 @@ knitr::opts_chunk$set(
 [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![R-CMD-check](https://github.com/mrjoh3/ggtrack/workflows/R-CMD-check/badge.svg)](https://github.com/mrjoh3/ggtrack/actions)
 [![Codecov test coverage](https://codecov.io/gh/mrjoh3/ggtrack/branch/master/graph/badge.svg)](https://codecov.io/gh/mrjoh3/ggtrack?branch=master)
+[![Github All Releases](https://img.shields.io/github/downloads/mrjoh3/ggtrack/total.svg)]()
 <!-- badges: end -->
 
 <div style="float: right;"><img src="man/figures/ggtrack-logo.svg" width="280px"></div>
