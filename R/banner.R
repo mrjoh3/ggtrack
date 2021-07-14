@@ -6,6 +6,8 @@
 #' @param tracker ggtrack tracker object
 #' @param height_plot numeric tracker height in cm.
 #'
+#' @import patchwork
+#'
 #' @return tracker
 #' @export
 #'
@@ -31,7 +33,9 @@ add_banner <- function(gg, tracker, height_plot = 7) {
   tracker$track <- tracker$track +
     theme(plot.margin=unit(c(.5, 0, .3, 0),"cm"))
 
-  gridExtra::grid.arrange(gg, tracker$track, heights = unit(c(height_plot, height_tracker + 1.5 ), "cm"))
+  #gridExtra::grid.arrange(gg, tracker$track, heights = unit(c(height_plot, height_tracker + 1.5 ), "cm"))
+  gg / tracker$track +
+          plot_layout(heights = unit(c(height_plot, height_tracker), 'cm'))
 
 }
 

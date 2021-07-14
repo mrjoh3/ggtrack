@@ -16,7 +16,7 @@
 #' @param options list passed to \link[ggiraph]{girafe} options
 #'
 #' @importFrom ggiraph girafe
-#' @importFrom patchwork print.patchwork
+#' @import patchwork
 #'
 #' @return ggiraph svg object
 #' @export

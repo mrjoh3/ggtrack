@@ -38,6 +38,7 @@
 #' @import ggplot2
 #' @import grid
 #' @import gridExtra
+#' @import patchwork
 #'
 #' @return grid
 #' @export
@@ -110,7 +111,9 @@ ggtrack <- function(gg,
     #plotly::subplot(gg, tracker, nrows = 2, heights = plotly_heights)
     warning('interactive option currently unavailable')
   } else {
-    gridExtra::grid.arrange(gg, tracker, heights = unit(c(height_plot, height_tracker + 1.5 ), "cm"))
+    #gridExtra::grid.arrange(gg, tracker, heights = unit(c(height_plot, height_tracker + 1.5 ), "cm"))
+    gg / tracker +
+      plot_layout(heights = unit(c(height_plot, height_tracker), 'cm'))
   }
 
 
