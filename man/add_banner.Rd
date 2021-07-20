@@ -4,7 +4,7 @@
 \alias{add_banner}
 \title{Add Tracking Banner to Plot}
 \usage{
-add_banner(gg, tracker, height_plot = 7)
+add_banner(gg, tracker, height_plot = 7, banner_layout = NULL)
 }
 \arguments{
 \item{gg}{ggplot object to track}
@@ -12,6 +12,11 @@ add_banner(gg, tracker, height_plot = 7)
 \item{tracker}{ggtrack tracker object}
 
 \item{height_plot}{numeric tracker height in cm.}
+
+\item{banner_layout}{plot_layout object created by \link[patchwork]{plot_layout}. Only
+required where input is a \code{patchwork} object. Must include a banner height element
+that is available from the \code{ggtrack} object via \verb{$height}. The banner is added to
+the patchwork object via \code{/}.}
 }
 \value{
 tracker

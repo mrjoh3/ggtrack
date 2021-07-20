@@ -112,7 +112,7 @@ ggtrack <- function(gg,
     warning('interactive option currently unavailable')
   } else {
     #gridExtra::grid.arrange(gg, tracker, heights = unit(c(height_plot, height_tracker + 1.5 ), "cm"))
-    gg / tracker +
+    (gg) / tracker +
       plot_layout(heights = unit(c(height_plot, height_tracker), 'cm'))
   }
 

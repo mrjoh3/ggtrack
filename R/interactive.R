@@ -3,10 +3,10 @@
 #' @title Add Banner to Interactive Chart
 #'
 #' @description Interactive and SVG plots are made using a combination
-#' of \link[ggiraph] and \link[patchwork]. This is a very simple wrapper
-#' for ..., in some instances it may be easier to use \link[ggiraff]
+#' of \link[ggiraph]{} and \link[patchwork]{}. This is a very simple wrapper
+#' for ..., in some instances it may be easier to use \link[ggiraff]{}
 #' directly. See ggiraff documentation and examples at:
-#' https://davidgohel.github.io/ggiraph/articles/offcran/examples.html
+#' \url{https://davidgohel.github.io/ggiraph/articles/offcran/examples.html}
 #'
 #' @param gg ggplot object, interactivity needs to be added via elements such as \link[ggiraph]{geom_point_interactive}
 #' @param tracker ggtrack tracker object
@@ -17,6 +17,8 @@
 #'
 #' @importFrom ggiraph girafe
 #' @import patchwork
+#'
+#' @seealso \code{\link{add_banner}}
 #'
 #' @return ggiraph svg object
 #' @export

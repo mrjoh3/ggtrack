@@ -31,8 +31,11 @@ ggiraph svg object
 }
 \description{
 Interactive and SVG plots are made using a combination
-of \link\link{ggiraph} and \link\link{patchwork}. This is a very simple wrapper
-for ..., in some instances it may be easier to use \link\link{ggiraff}
+of \link[ggiraph]{} and \link[patchwork]{}. This is a very simple wrapper
+for ..., in some instances it may be easier to use \link[ggiraff]{}
 directly. See ggiraff documentation and examples at:
-https://davidgohel.github.io/ggiraph/articles/offcran/examples.html
+\url{https://davidgohel.github.io/ggiraph/articles/offcran/examples.html}
+}
+\seealso{
+\code{\link{add_banner}}
 }
